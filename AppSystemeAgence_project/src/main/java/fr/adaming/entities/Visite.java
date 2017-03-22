@@ -23,6 +23,9 @@ public class Visite {
 	public Visite() {
 		super();
 	}
+	
+	
+	// Salut
 
 	/**
 	 * @param date_visite
