@@ -2,7 +2,19 @@ package fr.adaming.entities;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@Entity
+@Table(name="proprietaires")
+@XmlRootElement
 public class Proprietaire {
+	
 	
 	private int id_prop;
 	
@@ -16,8 +28,8 @@ public class Proprietaire {
 	
 	private String password_prop;
 	
-	//OneToMany
-	//Cascade all
+	
+	@OneToMany(mappedBy="bProprietaire",fetch=FetchType.LAZY)
 	private List<Bien> pListeBien;
 
 	/**
@@ -36,14 +48,13 @@ public class Proprietaire {
 	 * @param pListeBien
 	 */
 	public Proprietaire(String nom_prop, String adresse_prop, String telephonePrive_prop, String telephoneTravail_prop,
-			String password_prop, List<Bien> pListeBien) {
+			String password_prop) {
 		super();
 		this.nom_prop = nom_prop;
 		this.adresse_prop = adresse_prop;
 		this.telephonePrive_prop = telephonePrive_prop;
 		this.telephoneTravail_prop = telephoneTravail_prop;
 		this.password_prop = password_prop;
-		this.pListeBien = pListeBien;
 	}
 
 	/**
@@ -56,7 +67,7 @@ public class Proprietaire {
 	 * @param pListeBien
 	 */
 	public Proprietaire(int id_prop, String nom_prop, String adresse_prop, String telephonePrive_prop,
-			String telephoneTravail_prop, String password_prop, List<Bien> pListeBien) {
+			String telephoneTravail_prop, String password_prop) {
 		super();
 		this.id_prop = id_prop;
 		this.nom_prop = nom_prop;
@@ -64,12 +75,12 @@ public class Proprietaire {
 		this.telephonePrive_prop = telephonePrive_prop;
 		this.telephoneTravail_prop = telephoneTravail_prop;
 		this.password_prop = password_prop;
-		this.pListeBien = pListeBien;
 	}
 
 	/**
 	 * @return the id_prop
 	 */
+	@XmlElement
 	public int getId_prop() {
 		return id_prop;
 	}
@@ -84,6 +95,7 @@ public class Proprietaire {
 	/**
 	 * @return the nom_prop
 	 */
+	@XmlElement
 	public String getNom_prop() {
 		return nom_prop;
 	}
@@ -98,6 +110,7 @@ public class Proprietaire {
 	/**
 	 * @return the adresse_prop
 	 */
+	@XmlElement
 	public String getAdresse_prop() {
 		return adresse_prop;
 	}
@@ -112,6 +125,7 @@ public class Proprietaire {
 	/**
 	 * @return the telephonePrive_prop
 	 */
+	@XmlElement
 	public String getTelephonePrive_prop() {
 		return telephonePrive_prop;
 	}
@@ -126,6 +140,7 @@ public class Proprietaire {
 	/**
 	 * @return the telephoneTravail_prop
 	 */
+	@XmlElement
 	public String getTelephoneTravail_prop() {
 		return telephoneTravail_prop;
 	}
@@ -140,6 +155,7 @@ public class Proprietaire {
 	/**
 	 * @return the password_prop
 	 */
+	@XmlElement
 	public String getPassword_prop() {
 		return password_prop;
 	}
@@ -154,6 +170,7 @@ public class Proprietaire {
 	/**
 	 * @return the pListeBien
 	 */
+	@XmlElement
 	public List<Bien> getpListeBien() {
 		return pListeBien;
 	}

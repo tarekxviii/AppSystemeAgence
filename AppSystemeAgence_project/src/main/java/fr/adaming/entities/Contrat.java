@@ -2,18 +2,34 @@ package fr.adaming.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@Entity
+@Table(name="contrats")
+@XmlRootElement
 public class Contrat {
 	
+	@Column(name="id_contrat")
 	private int id_contrat;
 	
+	@Column(name="prix_contrat")
 	private double prix_contrat;
 	
+	@Column(name="date_contrat")
 	private Date dateSignature;
 	
-	//OneToOne
+	@OneToOne
+	@JoinColumn(name="bien_id",referencedColumnName="id_bien")
 	private Bien cBien;
 	
-	//OneToOne
+	@OneToOne
+	@JoinColumn(name="client_id",referencedColumnName="id_client")
 	private Client cClient;
 	
 	
@@ -58,6 +74,7 @@ public class Contrat {
 	/**
 	 * @return the id_contrat
 	 */
+	@XmlElement
 	public int getId_contrat() {
 		return id_contrat;
 	}
@@ -72,6 +89,7 @@ public class Contrat {
 	/**
 	 * @return the prix_contrat
 	 */
+	@XmlElement
 	public double getPrix_contrat() {
 		return prix_contrat;
 	}
@@ -86,6 +104,7 @@ public class Contrat {
 	/**
 	 * @return the dateSignature
 	 */
+	@XmlElement
 	public Date getDateSignature() {
 		return dateSignature;
 	}
@@ -100,6 +119,7 @@ public class Contrat {
 	/**
 	 * @return the cBien
 	 */
+	@XmlElement
 	public Bien getcBien() {
 		return cBien;
 	}
@@ -114,6 +134,7 @@ public class Contrat {
 	/**
 	 * @return the cClient
 	 */
+	@XmlElement
 	public Client getcClient() {
 		return cClient;
 	}
@@ -125,6 +146,8 @@ public class Contrat {
 		this.cClient = cClient;
 	}
 
+	
+	
 	
 	
 	
