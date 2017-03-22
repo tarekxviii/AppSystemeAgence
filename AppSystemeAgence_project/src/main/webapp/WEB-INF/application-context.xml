@@ -31,8 +31,8 @@
 		<property name="dataSource" ref="dataSourceBean" />
 
 		<!-- Declarer les classes persistentes -->
-		<property name="annotatedClasses">
-			<value>fr.adaming.entities.Client</value>
+		<property name="packagesToScan">
+			<value>fr.adaming.entities</value>
 		</property>
 
 		<!-- Les propriétés de Hibernate -->
