@@ -2,19 +2,45 @@ package fr.adaming.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+@Entity
+@Table(name="visites")
+@XmlRootElement
 public class Visite {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_visite")
 	private int id_visite;
 	
+	@Column(name="date_visite")
 	private Date date_visite;
 	
 	//OneToMany
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="bien_id", referencedColumnName="id_bien")
 	private Bien vBien;
 	
 	//OneToMany
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="client_id", referencedColumnName="id_client")
 	private Client vClient;
 	
 	//OneToMany
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="resp_id", referencedColumnName="id_resp")
 	private Responsable vResponsable;
 
 	/**
@@ -23,43 +49,34 @@ public class Visite {
 	public Visite() {
 		super();
 	}
-	
-	
-	// Salut
+
 
 	/**
+	 * Constructeur sans id
+	 * 
 	 * @param date_visite
-	 * @param vBien
-	 * @param vClient
-	 * @param vResponsable
 	 */
-	public Visite(Date date_visite, Bien vBien, Client vClient, Responsable vResponsable) {
+	public Visite(Date date_visite) {
 		super();
 		this.date_visite = date_visite;
-		this.vBien = vBien;
-		this.vClient = vClient;
-		this.vResponsable = vResponsable;
 	}
 
 	/**
+	 * constructeur avec id
+	 * 
 	 * @param id_visite
 	 * @param date_visite
-	 * @param vBien
-	 * @param vClient
-	 * @param vResponsable
 	 */
-	public Visite(int id_visite, Date date_visite, Bien vBien, Client vClient, Responsable vResponsable) {
+	public Visite(int id_visite, Date date_visite) {
 		super();
 		this.id_visite = id_visite;
 		this.date_visite = date_visite;
-		this.vBien = vBien;
-		this.vClient = vClient;
-		this.vResponsable = vResponsable;
 	}
 
 	/**
 	 * @return the id_visite
 	 */
+	@XmlElement
 	public int getId_visite() {
 		return id_visite;
 	}
@@ -74,6 +91,7 @@ public class Visite {
 	/**
 	 * @return the date_visite
 	 */
+	@XmlElement
 	public Date getDate_visite() {
 		return date_visite;
 	}
@@ -88,6 +106,7 @@ public class Visite {
 	/**
 	 * @return the vBien
 	 */
+	@XmlTransient
 	public Bien getvBien() {
 		return vBien;
 	}
@@ -102,6 +121,7 @@ public class Visite {
 	/**
 	 * @return the vClient
 	 */
+	@XmlTransient
 	public Client getvClient() {
 		return vClient;
 	}
@@ -116,6 +136,7 @@ public class Visite {
 	/**
 	 * @return the vResponsable
 	 */
+	@XmlTransient
 	public Responsable getvResponsable() {
 		return vResponsable;
 	}
