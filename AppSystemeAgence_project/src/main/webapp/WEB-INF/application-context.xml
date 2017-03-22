@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+
+	<context:annotation-config />
+
+	<context:component-scan base-package="fr.adaming" />
+
+	<context:property-placeholder location="classpath*:dataSource-info.properties" />
+
+	<!-- Definition du bean dataSource -->
+	<bean id="dataSourceBean"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<!-- Expression language : $ pour faire référence à des fichiers, # pour 
+			faire référence à des classes ou objets java -->
+		<property name="driverClassName" value="${driverClassName}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${username}" />
+		<property name="password" value="${password}" />
+	</bean>
+
+	<!-- Definition du bean session factory -->
+	<bean id="sessionFactoryBean"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<!-- Injection de la dataSource -->
+		<property name="dataSource" ref="dataSourceBean" />
+
+		<!-- Declarer les classes persistentes -->
+		<property name="annotatedClasses">
+			<value>fr.adaming.entities.Client</value>
+		</property>
+
+		<!-- Les propriétés de Hibernate -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${dialect}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hbm2ddl}</prop>
+				<prop key="hibernate.show_sql">${show_sql}</prop>
+				<prop key="hibernate.connection.username">root</prop>
+				<prop key="hibernate.connection.password">root</prop>
+			</props>
+		</property>
+
+	</bean>
+
+
+	<!-- Definition du bean Transaction -->
+
+	<bean id="transactionManagerBean"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactoryBean" />
+	</bean>
+
+	<!-- Detection des annotations des transaction : @Transactionnal -->
+	<tx:annotation-driven transaction-manager="transactionManagerBean" />
+
+</beans>
