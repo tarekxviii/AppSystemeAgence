@@ -2,24 +2,42 @@ package fr.adaming.entities;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+@Entity
+@Table(name="categories")
+@XmlRootElement
 public class Categorie {
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_cat")
 	private int id_cat;
-	
+	@Column(name="loyerMin")
 	private double loyerMin;
-	
+	@Column(name="loyerMax")
 	private double loyerMax;
-	
+	@Column(name="prixMin")
 	private double prixMin;
-	
+	@Column(name="prixMax")
 	private double prixMax;
-	
+	@Column(name="typeBien")
 	private String typeBien;
 	
-	//ManyToMany
+	@ManyToMany(fetch=FetchType.LAZY, mappedBy="cListeInteret")
+	
 	private List<Client> cListeClient;
 	
-	//OneToMany
+	@OneToMany(mappedBy="bCategorie",fetch=FetchType.LAZY)
 	private List<Bien> cListeBien;
 
 	/**
@@ -29,26 +47,25 @@ public class Categorie {
 		super();
 	}
 
+	
+
 	/**
 	 * @param loyerMin
 	 * @param loyerMax
 	 * @param prixMin
 	 * @param prixMax
 	 * @param typeBien
-	 * @param cListeClient
-	 * @param cListeBien
 	 */
-	public Categorie(double loyerMin, double loyerMax, double prixMin, double prixMax, String typeBien,
-			List<Client> cListeClient, List<Bien> cListeBien) {
+	public Categorie(double loyerMin, double loyerMax, double prixMin, double prixMax, String typeBien) {
 		super();
 		this.loyerMin = loyerMin;
 		this.loyerMax = loyerMax;
 		this.prixMin = prixMin;
 		this.prixMax = prixMax;
 		this.typeBien = typeBien;
-		this.cListeClient = cListeClient;
-		this.cListeBien = cListeBien;
 	}
+
+
 
 	/**
 	 * @param id_cat
@@ -57,11 +74,8 @@ public class Categorie {
 	 * @param prixMin
 	 * @param prixMax
 	 * @param typeBien
-	 * @param cListeClient
-	 * @param cListeBien
 	 */
-	public Categorie(int id_cat, double loyerMin, double loyerMax, double prixMin, double prixMax, String typeBien,
-			List<Client> cListeClient, List<Bien> cListeBien) {
+	public Categorie(int id_cat, double loyerMin, double loyerMax, double prixMin, double prixMax, String typeBien) {
 		super();
 		this.id_cat = id_cat;
 		this.loyerMin = loyerMin;
@@ -69,13 +83,14 @@ public class Categorie {
 		this.prixMin = prixMin;
 		this.prixMax = prixMax;
 		this.typeBien = typeBien;
-		this.cListeClient = cListeClient;
-		this.cListeBien = cListeBien;
 	}
+
+
 
 	/**
 	 * @return the id_cat
 	 */
+	@XmlElement
 	public int getId_cat() {
 		return id_cat;
 	}
@@ -90,6 +105,7 @@ public class Categorie {
 	/**
 	 * @return the loyerMin
 	 */
+	@XmlElement
 	public double getLoyerMin() {
 		return loyerMin;
 	}
@@ -104,6 +120,7 @@ public class Categorie {
 	/**
 	 * @return the loyerMax
 	 */
+	@XmlElement
 	public double getLoyerMax() {
 		return loyerMax;
 	}
@@ -118,6 +135,7 @@ public class Categorie {
 	/**
 	 * @return the prixMin
 	 */
+	@XmlElement
 	public double getPrixMin() {
 		return prixMin;
 	}
@@ -132,6 +150,7 @@ public class Categorie {
 	/**
 	 * @return the prixMax
 	 */
+	@XmlElement
 	public double getPrixMax() {
 		return prixMax;
 	}
@@ -146,6 +165,7 @@ public class Categorie {
 	/**
 	 * @return the typeBien
 	 */
+	@XmlElement
 	public String getTypeBien() {
 		return typeBien;
 	}
@@ -160,6 +180,7 @@ public class Categorie {
 	/**
 	 * @return the cListeClient
 	 */
+	@XmlElement
 	public List<Client> getcListeClient() {
 		return cListeClient;
 	}
@@ -174,6 +195,7 @@ public class Categorie {
 	/**
 	 * @return the cListeBien
 	 */
+	@XmlElement
 	public List<Bien> getcListeBien() {
 		return cListeBien;
 	}
