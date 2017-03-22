@@ -3,40 +3,62 @@ package fr.adaming.entities;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
+@Entity
+@Table(name="biens")
+@XmlRootElement
 public class Bien {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_bien")
 	private int id_bien;
-	
+	@Column(name="hab0_Com1")
 	private boolean hab0_Com1;
-	
+	@Column(name="loc0_Ach1")
 	private boolean loc0_Ach1;
-	
+	@Column(name="revenuCadastral")
 	private double revenuCadastral;
-	
+	@Column(name="type_bien")
 	private String type_bien;
-	
+	@Column(name="disponibilite")
 	private boolean disponibilite;
-	
+	@Column(name="inscription")
 	private Date inscription;
-	
+	@Column(name="cautionLoc")
 	private double cautionLoc;
-	
+	@Column(name="loyerMensuel")
 	private double loyerMensuel;
-	
+	@Column(name="charges")
 	private double charges;
-	
+	@Column(name="prixAchat")
 	private double prixAchat;
-	
+	@Column(name="etat")
 	private String etat;
 	
-	//ManyToOne
+	@ManyToOne
+	@JoinColumn (name="categorie_id_fk",referencedColumnName="id_cat")
 	private Categorie bCategorie;
-	//ManyToOne
+	@ManyToOne
+	@JoinColumn (name="propriettaire_id_fk",referencedColumnName="id_prop")
 	private Proprietaire bProprietaire;
-	//OneToMany
+	@OneToMany(mappedBy="vBien",fetch=FetchType.LAZY)
 	private List<Visite> bListeVisite;
-	//OneToOne
+	@OneToOne(fetch=FetchType.LAZY, mappedBy="cBien")
 	private Contrat bContrat;
 	
 	/**
@@ -46,9 +68,9 @@ public class Bien {
 		super();
 	}
 
+	
+
 	/**
-	 * Constructeur sans id
-	 * 
 	 * @param hab0_Com1
 	 * @param loc0_Ach1
 	 * @param revenuCadastral
@@ -60,14 +82,9 @@ public class Bien {
 	 * @param charges
 	 * @param prixAchat
 	 * @param etat
-	 * @param bCategorie
-	 * @param bProprietaire
-	 * @param bListeVisite
-	 * @param bContrat
 	 */
 	public Bien(boolean hab0_Com1, boolean loc0_Ach1, double revenuCadastral, String type_bien, boolean disponibilite,
-			Date inscription, double cautionLoc, double loyerMensuel, double charges, double prixAchat, String etat,
-			Categorie bCategorie, Proprietaire bProprietaire, List<Visite> bListeVisite, Contrat bContrat) {
+			Date inscription, double cautionLoc, double loyerMensuel, double charges, double prixAchat, String etat) {
 		super();
 		this.hab0_Com1 = hab0_Com1;
 		this.loc0_Ach1 = loc0_Ach1;
@@ -80,15 +97,11 @@ public class Bien {
 		this.charges = charges;
 		this.prixAchat = prixAchat;
 		this.etat = etat;
-		this.bCategorie = bCategorie;
-		this.bProprietaire = bProprietaire;
-		this.bListeVisite = bListeVisite;
-		this.bContrat = bContrat;
 	}
 
+
+
 	/**
-	 * constructeur plein
-	 * 
 	 * @param id_bien
 	 * @param hab0_Com1
 	 * @param loc0_Ach1
@@ -101,15 +114,10 @@ public class Bien {
 	 * @param charges
 	 * @param prixAchat
 	 * @param etat
-	 * @param bCategorie
-	 * @param bProprietaire
-	 * @param bListeVisite
-	 * @param bContrat
 	 */
 	public Bien(int id_bien, boolean hab0_Com1, boolean loc0_Ach1, double revenuCadastral, String type_bien,
 			boolean disponibilite, Date inscription, double cautionLoc, double loyerMensuel, double charges,
-			double prixAchat, String etat, Categorie bCategorie, Proprietaire bProprietaire, List<Visite> bListeVisite,
-			Contrat bContrat) {
+			double prixAchat, String etat) {
 		super();
 		this.id_bien = id_bien;
 		this.hab0_Com1 = hab0_Com1;
@@ -123,15 +131,14 @@ public class Bien {
 		this.charges = charges;
 		this.prixAchat = prixAchat;
 		this.etat = etat;
-		this.bCategorie = bCategorie;
-		this.bProprietaire = bProprietaire;
-		this.bListeVisite = bListeVisite;
-		this.bContrat = bContrat;
 	}
+
+
 
 	/**
 	 * @return the id_bien
 	 */
+	@XmlElement
 	public int getId_bien() {
 		return id_bien;
 	}
@@ -146,6 +153,7 @@ public class Bien {
 	/**
 	 * @return the hab0_Com1
 	 */
+	@XmlElement
 	public boolean isHab0_Com1() {
 		return hab0_Com1;
 	}
@@ -160,6 +168,7 @@ public class Bien {
 	/**
 	 * @return the loc0_Ach1
 	 */
+	@XmlElement
 	public boolean isLoc0_Ach1() {
 		return loc0_Ach1;
 	}
@@ -167,6 +176,7 @@ public class Bien {
 	/**
 	 * @param loc0_Ach1 the loc0_Ach1 to set
 	 */
+	
 	public void setLoc0_Ach1(boolean loc0_Ach1) {
 		this.loc0_Ach1 = loc0_Ach1;
 	}
@@ -174,6 +184,7 @@ public class Bien {
 	/**
 	 * @return the revenuCadastral
 	 */
+	@XmlElement
 	public double getRevenuCadastral() {
 		return revenuCadastral;
 	}
@@ -181,6 +192,7 @@ public class Bien {
 	/**
 	 * @param revenuCadastral the revenuCadastral to set
 	 */
+	
 	public void setRevenuCadastral(double revenuCadastral) {
 		this.revenuCadastral = revenuCadastral;
 	}
@@ -188,6 +200,7 @@ public class Bien {
 	/**
 	 * @return the type_bien
 	 */
+	@XmlElement
 	public String getType_bien() {
 		return type_bien;
 	}
@@ -202,6 +215,7 @@ public class Bien {
 	/**
 	 * @return the disponibilite
 	 */
+	@XmlElement
 	public boolean isDisponibilite() {
 		return disponibilite;
 	}
@@ -216,6 +230,7 @@ public class Bien {
 	/**
 	 * @return the inscription
 	 */
+	@XmlElement
 	public Date getInscription() {
 		return inscription;
 	}
@@ -230,6 +245,7 @@ public class Bien {
 	/**
 	 * @return the cautionLoc
 	 */
+	@XmlElement
 	public double getCautionLoc() {
 		return cautionLoc;
 	}
@@ -244,6 +260,7 @@ public class Bien {
 	/**
 	 * @return the loyerMensuel
 	 */
+	@XmlElement
 	public double getLoyerMensuel() {
 		return loyerMensuel;
 	}
@@ -258,6 +275,7 @@ public class Bien {
 	/**
 	 * @return the charges
 	 */
+	@XmlElement
 	public double getCharges() {
 		return charges;
 	}
@@ -272,6 +290,7 @@ public class Bien {
 	/**
 	 * @return the prixAchat
 	 */
+	@XmlElement
 	public double getPrixAchat() {
 		return prixAchat;
 	}
@@ -286,6 +305,7 @@ public class Bien {
 	/**
 	 * @return the etat
 	 */
+	@XmlElement
 	public String getEtat() {
 		return etat;
 	}
@@ -300,6 +320,7 @@ public class Bien {
 	/**
 	 * @return the bCategorie
 	 */
+	@XmlTransient
 	public Categorie getbCategorie() {
 		return bCategorie;
 	}
@@ -314,6 +335,7 @@ public class Bien {
 	/**
 	 * @return the bProprietaire
 	 */
+	@XmlTransient
 	public Proprietaire getbProprietaire() {
 		return bProprietaire;
 	}
@@ -328,6 +350,7 @@ public class Bien {
 	/**
 	 * @return the bListeVisite
 	 */
+	@XmlTransient
 	public List<Visite> getbListeVisite() {
 		return bListeVisite;
 	}
@@ -342,6 +365,7 @@ public class Bien {
 	/**
 	 * @return the bContrat
 	 */
+	@XmlTransient
 	public Contrat getbContrat() {
 		return bContrat;
 	}
@@ -352,13 +376,6 @@ public class Bien {
 	public void setbContrat(Contrat bContrat) {
 		this.bContrat = bContrat;
 	}
-	
-	
-	
-	
-	
-	
-
 	
 	
 }

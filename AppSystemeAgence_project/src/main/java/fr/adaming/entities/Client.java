@@ -1,15 +1,23 @@
 package fr.adaming.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @Table(name="clients")
@@ -30,6 +38,19 @@ public class Client implements Serializable{
 		private String tel_client;
 		@Column(name="mdp_client")
 		private String mdp_client;
+		
+		
+		@OneToOne(fetch=FetchType.LAZY,mappedBy="cClient")
+		private Contrat cContrat;
+		
+		@OneToMany(mappedBy="vClient",fetch=FetchType.LAZY)
+		private List<Visite> cListeVisite;
+		
+		@ManyToMany(fetch=FetchType.LAZY)
+		@JoinTable(name = "table_jointure_client_visite",joinColumns=@JoinColumn(name="client_id_fk"),inverseJoinColumns=@JoinColumn(name="visite_id_fk"))
+		private List<Categorie> cListeInteret;
+		
+		
 		/**
 		 * Ctor vide
 		 */
@@ -131,6 +152,34 @@ public class Client implements Serializable{
 		public void setMdp_client(String mdp_client) {
 			this.mdp_client = mdp_client;
 		}
+		
+		
+		@XmlTransient
+		public Contrat getcContrat() {
+			return cContrat;
+		}
+		public void setcContrat(Contrat cContrat) {
+			this.cContrat = cContrat;
+		}
+		
+		@XmlTransient
+		public List<Visite> getcListeVisite() {
+			return cListeVisite;
+		}
+		public void setcListeVisite(List<Visite> cListeVisite) {
+			this.cListeVisite = cListeVisite;
+		}
+		
+		@XmlElement
+		public List<Categorie> getcListeInteret() {
+			return cListeInteret;
+		}
+		public void setcListeInteret(List<Categorie> cListeInteret) {
+			this.cListeInteret = cListeInteret;
+		}
+		
+		
+		
 		
 		
 		
