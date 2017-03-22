@@ -16,7 +16,6 @@ public class Contrat {
 	//OneToOne
 	private Client cClient;
 	
-	//vous êtes tous des connards y compris nono
 	
 
 	/**
