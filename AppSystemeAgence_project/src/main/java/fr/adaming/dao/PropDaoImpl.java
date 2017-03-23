@@ -1,5 +1,7 @@
 package fr.adaming.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,30 @@ public class PropDaoImpl implements IPropDao {
 		
 		s.save(prop);	
 		
+	}
+
+	@Override
+	public void deleteDao(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateDao(Proprietaire prop) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Proprietaire> getAllProprietaire() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Proprietaire getProprietaireById(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
