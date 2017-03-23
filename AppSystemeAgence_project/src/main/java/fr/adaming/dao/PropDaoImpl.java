@@ -35,26 +35,52 @@ public class PropDaoImpl implements IPropDao {
 
 	@Override
 	public void deleteDao(int id) {
-		// TODO Auto-generated method stub
+
+		Session s=sf.getCurrentSession();
+		
+		s.delete(s.get(Proprietaire.class, id));
 		
 	}
 
 	@Override
 	public void updateDao(Proprietaire prop) {
-		// TODO Auto-generated method stub
 		
+		Session s=sf.getCurrentSession();
+		
+		// Recupération du propriétaire a modifier
+		Proprietaire p1=(Proprietaire) s.get(Proprietaire.class, prop.getId_prop());
+		
+		
+		// Affectation des nouvelles valeurs aux attributs
+		p1.setNom_prop(prop.getNom_prop());
+		p1.setAdresse_prop(prop.getAdresse_prop());
+		p1.setPassword_prop(prop.getPassword_prop());
+		p1.setTelephonePrive_prop(prop.getTelephonePrive_prop());
+		p1.setTelephoneTravail_prop(prop.getTelephoneTravail_prop());
+		
+		// Modification dans la base de données
+		s.saveOrUpdate(p1);
 	}
 
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Proprietaire> getAllProprietaire() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Session s=sf.getCurrentSession();
+		
+		// Ecriture de la requete
+		String req="select p from Proprietaire p";
+		
+		return s.createQuery(req).list();
 	}
 
 	@Override
 	public Proprietaire getProprietaireById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Session s=sf.getCurrentSession();
+		
+		return (Proprietaire) s.get(Proprietaire.class, id);
 	}
 	
 	
