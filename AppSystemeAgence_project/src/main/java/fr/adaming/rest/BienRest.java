@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.adaming.entities.Bien;
 import fr.adaming.entities.Proprietaire;
 import fr.adaming.service.IBienService;
+import fr.adaming.service.IPropService;
 
 @RestController
 @RequestMapping(value = "/bien")
@@ -27,6 +28,16 @@ public class BienRest {
 	public void setBienService(IBienService bienService) {
 		this.bienService = bienService;
 	}
+	
+	@Autowired
+	IPropService propservice;
+
+	/**
+	 * @param propservice the propservice to set
+	 */
+	public void setPropservice(IPropService propservice) {
+		this.propservice = propservice;
+	}
 
 	/////////////////////////// Methode ajouter un Bien ////////////////////////
 	/**
@@ -38,7 +49,9 @@ public class BienRest {
 	@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public int addBienWS(@RequestBody Bien bienAdd) {
 		try {
-			System.out.println("----------------------------- " + bienAdd.toString());
+			Proprietaire prop = propservice.getProprietaireById(bienAdd.getNum_prop());
+			bienAdd.setbProprietaire(prop);
+			
 			bienService.addService(bienAdd);
 			return new Integer(1);
 		} catch (Exception e) {
@@ -60,15 +73,14 @@ public class BienRest {
 			return new Integer(0);
 		}
 	}
-	
-	
-	@RequestMapping(value="/delete/{id_param}", method=RequestMethod.DELETE, produces="application/json")
-	public int deleteBienWS(@PathVariable("id_param") int id_prop){
-		try{
+
+	@RequestMapping(value = "/delete/{id_param}", method = RequestMethod.DELETE, produces = "application/json")
+	public int deleteBienWS(@PathVariable("id_param") int id_prop) {
+		try {
 			bienService.deleteService(id_prop);
-			return new Integer (1);	
-		}catch (Exception e) {
-			return new Integer (0);
+			return new Integer(1);
+		} catch (Exception e) {
+			return new Integer(0);
 		}
 	}
 
