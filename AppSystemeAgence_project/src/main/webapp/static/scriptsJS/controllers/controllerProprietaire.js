@@ -39,23 +39,6 @@ app.controller("addPropCtrl",
 				}
 			})
 		}
-		// Déclarer le pays dans le rootScope
-		$rootScope.proprietaireModif = {
-			id_prop : undefined,
-			nom_prop : "",
-			adresse_prop : "",
-			telephonePrive_prop : "",
-			telephoneTravail_prop : "",
-			password_prop : "",
-		}
-		$scope.updateLien = function(prop) {
-			$rootScope.proprietaireModif.id_prop = prop.id_prop;
-			$rootScope.proprietaireModif.nom_prop = prop.nom_prop;
-			$rootScope.proprietaireModif.adresse_prop = prop.adresse_prop;
-			$rootScope.proprietaireModif.telephonePrive_prop = prop.telephonePrive_prop;
-			$rootScope.proprietaireModif.telephoneTravail_prop = prop.telephoneTravail_prop;
-			$location.path("modifier");
-		}
 
 	}).controller("deletePropCtrl", function($scope, proprietaireProvider, $location) {
 	$scope.id = undefined;
@@ -69,24 +52,14 @@ app.controller("addPropCtrl",
 	}
 }).controller("updatePropCtrl",
 	function($scope, $rootScope, proprietaireProvider, $location) {
-		if ($rootScope.proprietaireModif.id_prop ==undefined)  {
-			$scope.proprietaireModif={
+		$scope.proprietaireModif = {
 			id_prop : undefined,
 			nom_prop : "",
 			adresse_prop : "",
 			telephonePrive_prop : "",
 			telephoneTravail_prop : "",
 			password_prop : "",
-			};
-		}else{
-			$scope.proprietaireModif.id_prop = $rootScope.prop.id_prop;
-			$scope.proprietaireModif.nom_prop = $rootScope.prop.nom_prop;
-			$scope.proprietaireModif.adresse_prop = $rootScope.prop.adresse_prop;
-			$scope.proprietaireModif.telephonePrive_prop = $rootScope.prop.telephonePrive_prop;
-			$scope.proprietaireModif.telephoneTravail_prop = $rootScope.prop.telephoneTravail_prop;
-			
-		}
-
+		};
 		$scope.modifierProp = function() {
 			proprietaireProvider.updateProprietaire($scope.proprietaireModif, function(callback) {
 
