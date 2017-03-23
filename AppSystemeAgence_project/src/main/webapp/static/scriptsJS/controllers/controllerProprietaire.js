@@ -57,4 +57,14 @@ app.controller("addPropCtrl",
 				$location.path("modifier");
 			}
 
-		}).
+		}).controller("deletePropCtrl", function($scope, proprietaireProvider, $location) {
+			$scope.id = undefined;
+			$scope.supprimerProp = function() {
+				proprietaireProvider.deleteProprietaire($scope.id, function(callback) {
+
+					if (callback != undefined && callback != "") {
+						$location.path("accueil");
+					}
+				})
+			}
+		})

@@ -36,8 +36,23 @@ app.factory("proprietaireProvider", function($http) {
 		})
 
 	}
+	function deleteProprietaire(id,callback) {
+		$http({
+			method : 'DELETE',
+			url : urlglobal + '/proprietaire/delete/'+id,
+		}).success(function(response) {
+			console.log(response);
+			callback(response);
+
+		}).error(function(response) {
+			console.log('Erreur : ' + response.statusText);
+
+		})
+
+	}
 	return {
 		addProprietaire : addProprietaire,
 		getProprietaire : getProprietaire,
+		deleteProprietaire : deleteProprietaire,
 	}
 })

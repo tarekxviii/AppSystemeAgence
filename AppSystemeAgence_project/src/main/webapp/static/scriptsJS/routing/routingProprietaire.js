@@ -8,5 +8,11 @@ app.config(function($routeProvider){
 	}).when("/afficherProprietaire", {
 		templateUrl: "pages/proprietaire/afficher.html",
 		controller: "getPropCtrl"
+	}).when("/supprimerProprietaire", {
+		templateUrl: "pages/proprietaire/supprimer.html",
+		controller: "deletePropCtrl"
+	}).when("/modifierProprietaire", {
+		templateUrl: "pages/proprietaire/modifier.html",
+		controller: "updatePropCtrl"
 	})
 });
