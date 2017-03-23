@@ -13,4 +13,10 @@ public class RespServiceImpl implements IRespService {
 	@Autowired
 	IRespDao respdao;
 
+	public void setRespdao(IRespDao respdao) {
+		this.respdao = respdao;
+	}
+	
+	
+
 }

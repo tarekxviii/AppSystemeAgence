@@ -13,4 +13,10 @@ public class BienServiceImpl implements IBienService{
 	@Autowired
 	IBienDao bienDao;
 
+	public void setBienDao(IBienDao bienDao) {
+		this.bienDao = bienDao;
+	}
+	
+	
+
 }

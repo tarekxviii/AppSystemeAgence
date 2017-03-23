@@ -12,4 +12,11 @@ public class VisiteServiceImpl implements IVisiteService {
 
 	@Autowired
 	IVisiteDao visitedao;
+
+	public void setVisitedao(IVisiteDao visitedao) {
+		this.visitedao = visitedao;
+	}
+	
+	
+	
 }
