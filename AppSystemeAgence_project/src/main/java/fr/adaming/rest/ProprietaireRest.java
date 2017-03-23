@@ -1,7 +1,6 @@
 package fr.adaming.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,19 +24,46 @@ public class ProprietaireRest {
 		this.proprietaireService = proprietaireService;
 	}
 	
+	///////////////////////////Methode ajouter un Proprietaire ////////////////////////
 	/**
+	 * Methode ajouter un Proprietaire
 	 * 
 	 * @param prop
-	 * @return
+	 * @return 1 si prop ajouter si non 0
 	 */
 	@RequestMapping(value="/add",method=RequestMethod.POST, consumes="application/json", produces="application/json")
-	public int addPropWS(Proprietaire prop){
+	public int addPropWS(Proprietaire propAdd){
 		try{
-			proprietaireService.addService(prop);
+			proprietaireService.addService(propAdd);
 			return new Integer (1);
 		}catch(Exception e){
 			return new Integer (0);
 		}
+		
+		///////////////////////////Methode modifier un Proprietaire ////////////////////////
+	
+//		public int updatePropWS(Proprietaire propUpdate){
+//			try{
+//				proprietaireService.
+//				return new Integer (1);
+//			}catch (Exception e) {
+//				return new Integer (0);
+//			}
+//		}
+		
+		///////////////////////////Methode supprimer un Proprietaire ////////////////////////
+		
+//		public int deletePropWS(int id_prop){
+//			try{
+//				proprietaireService.
+//				return new Integer (1);	
+//			}catch (Exception e) {
+//				return new Integer (0);
+//			}
+//		}
+		
+		///////////////////////////Methode afficher la liste de tout les proprietaires ////////////////////////
+
 		
 	}
 
