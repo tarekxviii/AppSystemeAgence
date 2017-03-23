@@ -3,9 +3,11 @@ package fr.adaming.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import fr.adaming.entities.Proprietaire;
 
+@Repository
 public class PropDaoImpl implements IPropDao {
 
 	
@@ -28,5 +30,7 @@ public class PropDaoImpl implements IPropDao {
 		s.save(prop);	
 		
 	}
+	
+	
 
 }
