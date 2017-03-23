@@ -16,6 +16,10 @@ public class PropServiceImpl implements IPropService {
 	@Autowired
 	IPropDao propdao;
 	
+	public void setPropdao(IPropDao propdao) {
+		this.propdao = propdao;
+	}
+
 	@Override
 	public void addService(Proprietaire prop) {
 		propdao.addDao(prop);
