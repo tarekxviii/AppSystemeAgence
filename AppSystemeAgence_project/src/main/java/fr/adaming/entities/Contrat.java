@@ -36,17 +36,14 @@ public class Contrat {
 	
 	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="bien_id",referencedColumnName="id_bien")
-	@Fetch(FetchMode.SUBSELECT)
 	private Bien cBien;
 	
 	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="client_id",referencedColumnName="id_client")
-	@Fetch(FetchMode.SUBSELECT)
 	private Client cClient;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="responsable_id", referencedColumnName="id_resp")
-	@Fetch(FetchMode.SUBSELECT)
 	private Responsable cResponsable;
 	
 	

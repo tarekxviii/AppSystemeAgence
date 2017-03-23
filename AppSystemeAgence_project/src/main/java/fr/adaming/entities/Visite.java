@@ -33,19 +33,16 @@ public class Visite {
 	
 	//OneToMany
 	@ManyToOne(fetch=FetchType.EAGER)
-	@Fetch(FetchMode.SUBSELECT)
 	@JoinColumn(name="bien_id", referencedColumnName="id_bien")
 	private Bien vBien;
 	
 	//OneToMany
 	@ManyToOne(fetch=FetchType.EAGER)
-	@Fetch(FetchMode.SUBSELECT)
 	@JoinColumn(name="client_id", referencedColumnName="id_client")
 	private Client vClient;
 	
 	//OneToMany
 	@ManyToOne(fetch=FetchType.EAGER)
-	@Fetch(FetchMode.SUBSELECT)
 	@JoinColumn(name="resp_id", referencedColumnName="id_resp")
 	private Responsable vResponsable;
 

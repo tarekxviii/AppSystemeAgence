@@ -44,7 +44,6 @@ public class Client implements Serializable{
 		
 		
 		@OneToOne(fetch=FetchType.EAGER,mappedBy="cClient")
-		@Fetch(FetchMode.SUBSELECT)
 		private Contrat cContrat;
 		
 		@OneToMany(mappedBy="vClient",fetch=FetchType.EAGER)

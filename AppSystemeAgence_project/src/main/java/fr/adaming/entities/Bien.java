@@ -66,12 +66,10 @@ public class Bien {
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn (name="categorie_id_fk",referencedColumnName="id_cat")
-	@Fetch(FetchMode.SUBSELECT)
 	private Categorie bCategorie;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn (name="propriettaire_id_fk",referencedColumnName="id_prop")
-	@Fetch(FetchMode.SUBSELECT)
 	private Proprietaire bProprietaire;
 	
 	@OneToMany(mappedBy="vBien",fetch=FetchType.EAGER)
