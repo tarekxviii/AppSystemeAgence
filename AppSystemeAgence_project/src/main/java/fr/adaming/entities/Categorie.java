@@ -14,6 +14,9 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 @Entity
 @Table(name="categories")
 @XmlRootElement
@@ -33,11 +36,12 @@ public class Categorie {
 	@Column(name="typeBien")
 	private String typeBien;
 	
-	@ManyToMany(fetch=FetchType.LAZY, mappedBy="cListeInteret")
-	
+	@ManyToMany(fetch=FetchType.EAGER, mappedBy="cListeInteret")
+	@Fetch(FetchMode.SUBSELECT)
 	private List<Client> cListeClient;
 	
-	@OneToMany(mappedBy="bCategorie",fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="bCategorie",fetch=FetchType.EAGER)
+	@Fetch(FetchMode.SUBSELECT)
 	private List<Bien> cListeBien;
 
 	/**

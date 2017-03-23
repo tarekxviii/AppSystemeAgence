@@ -15,6 +15,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name="visites")
 @XmlRootElement
@@ -29,17 +32,20 @@ public class Visite {
 	private Date date_visite;
 	
 	//OneToMany
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
+	@Fetch(FetchMode.SUBSELECT)
 	@JoinColumn(name="bien_id", referencedColumnName="id_bien")
 	private Bien vBien;
 	
 	//OneToMany
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
+	@Fetch(FetchMode.SUBSELECT)
 	@JoinColumn(name="client_id", referencedColumnName="id_client")
 	private Client vClient;
 	
 	//OneToMany
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
+	@Fetch(FetchMode.SUBSELECT)
 	@JoinColumn(name="resp_id", referencedColumnName="id_resp")
 	private Responsable vResponsable;
 

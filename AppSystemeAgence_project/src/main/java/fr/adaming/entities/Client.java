@@ -19,6 +19,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name="clients")
 @XmlRootElement
@@ -40,13 +43,16 @@ public class Client implements Serializable{
 		private String mdp_client;
 		
 		
-		@OneToOne(fetch=FetchType.LAZY,mappedBy="cClient")
+		@OneToOne(fetch=FetchType.EAGER,mappedBy="cClient")
+		@Fetch(FetchMode.SUBSELECT)
 		private Contrat cContrat;
 		
-		@OneToMany(mappedBy="vClient",fetch=FetchType.LAZY)
+		@OneToMany(mappedBy="vClient",fetch=FetchType.EAGER)
+		@Fetch(FetchMode.SUBSELECT)
 		private List<Visite> cListeVisite;
 		
-		@ManyToMany(fetch=FetchType.LAZY)
+		@ManyToMany(fetch=FetchType.EAGER)
+		@Fetch(FetchMode.SUBSELECT)
 		@JoinTable(name = "table_jointure_client_visite",joinColumns=@JoinColumn(name="client_id_fk"),inverseJoinColumns=@JoinColumn(name="visite_id_fk"))
 		private List<Categorie> cListeInteret;
 		

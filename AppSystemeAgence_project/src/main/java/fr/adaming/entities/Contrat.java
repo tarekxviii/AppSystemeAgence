@@ -16,6 +16,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name="contrats")
 @XmlRootElement
@@ -31,16 +34,19 @@ public class Contrat {
 	@Column(name="date_contrat")
 	private Date dateSignature;
 	
-	@OneToOne(fetch=FetchType.LAZY)
+	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="bien_id",referencedColumnName="id_bien")
+	@Fetch(FetchMode.SUBSELECT)
 	private Bien cBien;
 	
-	@OneToOne(fetch=FetchType.LAZY)
+	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="client_id",referencedColumnName="id_client")
+	@Fetch(FetchMode.SUBSELECT)
 	private Client cClient;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="responsable_id", referencedColumnName="id_resp")
+	@Fetch(FetchMode.SUBSELECT)
 	private Responsable cResponsable;
 	
 	

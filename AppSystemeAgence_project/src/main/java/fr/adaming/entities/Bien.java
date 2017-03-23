@@ -18,6 +18,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name="biens")
 @XmlRootElement
@@ -61,15 +64,18 @@ public class Bien {
 	@Column(name="etat")
 	private String etat;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn (name="categorie_id_fk",referencedColumnName="id_cat")
+	@Fetch(FetchMode.SUBSELECT)
 	private Categorie bCategorie;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn (name="propriettaire_id_fk",referencedColumnName="id_prop")
+	@Fetch(FetchMode.SUBSELECT)
 	private Proprietaire bProprietaire;
 	
-	@OneToMany(mappedBy="vBien",fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="vBien",fetch=FetchType.EAGER)
+	@Fetch(FetchMode.SUBSELECT)
 	private List<Visite> bListeVisite;
 	
 	@OneToOne(fetch=FetchType.LAZY, mappedBy="cBien")

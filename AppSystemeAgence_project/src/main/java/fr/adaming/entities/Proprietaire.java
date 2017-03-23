@@ -12,6 +12,9 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name="proprietaires")
 @XmlRootElement
@@ -32,7 +35,8 @@ public class Proprietaire {
 	private String password_prop;
 	
 	
-	@OneToMany(mappedBy="bProprietaire",fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="bProprietaire",fetch=FetchType.EAGER)
+	@Fetch(FetchMode.SUBSELECT)
 	private List<Bien> pListeBien;
 
 	/**

@@ -24,7 +24,7 @@ Liste des fonctionnalités accessibles aux responsables :
 		- Modification d'un propriétaire - Rest
 		- Suppression d'un propriétaire - Rest
 		- Afficher la liste des propriétaire - Rest
-		-Afficher par Id - ID
+		-Afficher par Id - Dao
 		
 		
 	- Gestion des biens immobiliers : 

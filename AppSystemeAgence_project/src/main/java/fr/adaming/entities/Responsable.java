@@ -13,6 +13,9 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name="responsables")
 @XmlRootElement
@@ -29,10 +32,12 @@ public class Responsable {
 	@Column(name="password_resp")
 	private String password_resp;
 	
-	@OneToMany(mappedBy="vResponsable", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="vResponsable", fetch=FetchType.EAGER)
+	@Fetch(FetchMode.SUBSELECT)
 	private List<Visite> rListeVisite;
 	
-	@OneToMany(mappedBy="cResponsable", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="cResponsable", fetch=FetchType.EAGER)
+	@Fetch(FetchMode.SUBSELECT)
 	private List<Contrat> rListeContrat;
  
 	/**
