@@ -20,10 +20,11 @@ Liste des fonctionnalités accessibles aux responsables :
 		
 	-  Gestion des propriétaires  :
 	
-		- Creation d'un propriétaire
-		- Modification d'un propriétaire
-		- Suppression d'un propriétaire
-		- Afficher la liste des propriétaire
+		- Creation d'un propriétaire - Fonctionnel
+		- Modification d'un propriétaire - Rest
+		- Suppression d'un propriétaire - Rest
+		- Afficher la liste des propriétaire - Rest
+		-Afficher par Id - ID
 		
 		
 	- Gestion des biens immobiliers : 

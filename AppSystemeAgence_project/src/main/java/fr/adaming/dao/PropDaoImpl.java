@@ -9,6 +9,12 @@ import org.springframework.stereotype.Repository;
 
 import fr.adaming.entities.Proprietaire;
 
+/**
+ * 
+ * @author inti0292
+ *
+ */
+
 @Repository
 public class PropDaoImpl implements IPropDao {
 
