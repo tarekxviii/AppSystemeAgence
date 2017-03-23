@@ -16,6 +16,7 @@ app.controller("addBienCtrl",
 			prixAchat : "",
 			etat : "",
 			num_prop : "",
+			nom_categorie:"",
 		};
 
 		$scope.ajouterBien = function() {

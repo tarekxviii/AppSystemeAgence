@@ -68,6 +68,9 @@ public class Bien {
 	@Transient
 	private int num_prop;
 	
+	@Transient
+	private String nom_categorie;
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn (name="categorie_id_fk",referencedColumnName="id_cat")
 	private Categorie bCategorie;
@@ -224,6 +227,80 @@ public class Bien {
 		this.prixAchat = prixAchat;
 		this.etat = etat;
 		this.num_prop = num_prop;
+	}
+
+
+
+	/**
+	 * @param hab0_Com1
+	 * @param loc0_Ach1
+	 * @param revenuCadastral
+	 * @param type_bien
+	 * @param disponibilite
+	 * @param inscription
+	 * @param cautionLoc
+	 * @param loyerMensuel
+	 * @param charges
+	 * @param prixAchat
+	 * @param etat
+	 * @param num_prop
+	 * @param nom_categorie
+	 */
+	public Bien(boolean hab0_Com1, boolean loc0_Ach1, double revenuCadastral, String type_bien, boolean disponibilite,
+			Date inscription, double cautionLoc, double loyerMensuel, double charges, double prixAchat, String etat,
+			int num_prop, String nom_categorie) {
+		super();
+		this.hab0_Com1 = hab0_Com1;
+		this.loc0_Ach1 = loc0_Ach1;
+		this.revenuCadastral = revenuCadastral;
+		this.type_bien = type_bien;
+		this.disponibilite = disponibilite;
+		this.inscription = inscription;
+		this.cautionLoc = cautionLoc;
+		this.loyerMensuel = loyerMensuel;
+		this.charges = charges;
+		this.prixAchat = prixAchat;
+		this.etat = etat;
+		this.num_prop = num_prop;
+		this.nom_categorie = nom_categorie;
+	}
+
+
+
+	/**
+	 * @param id_bien
+	 * @param hab0_Com1
+	 * @param loc0_Ach1
+	 * @param revenuCadastral
+	 * @param type_bien
+	 * @param disponibilite
+	 * @param inscription
+	 * @param cautionLoc
+	 * @param loyerMensuel
+	 * @param charges
+	 * @param prixAchat
+	 * @param etat
+	 * @param num_prop
+	 * @param nom_categorie
+	 */
+	public Bien(int id_bien, boolean hab0_Com1, boolean loc0_Ach1, double revenuCadastral, String type_bien,
+			boolean disponibilite, Date inscription, double cautionLoc, double loyerMensuel, double charges,
+			double prixAchat, String etat, int num_prop, String nom_categorie) {
+		super();
+		this.id_bien = id_bien;
+		this.hab0_Com1 = hab0_Com1;
+		this.loc0_Ach1 = loc0_Ach1;
+		this.revenuCadastral = revenuCadastral;
+		this.type_bien = type_bien;
+		this.disponibilite = disponibilite;
+		this.inscription = inscription;
+		this.cautionLoc = cautionLoc;
+		this.loyerMensuel = loyerMensuel;
+		this.charges = charges;
+		this.prixAchat = prixAchat;
+		this.etat = etat;
+		this.num_prop = num_prop;
+		this.nom_categorie = nom_categorie;
 	}
 
 
@@ -487,6 +564,25 @@ public class Bien {
 	 */
 	public void setNum_prop(int num_prop) {
 		this.num_prop = num_prop;
+	}
+
+
+
+	/**
+	 * @return the nom_categorie
+	 */
+	@XmlElement
+	public String getNom_categorie() {
+		return nom_categorie;
+	}
+
+
+
+	/**
+	 * @param nom_categorie the nom_categorie to set
+	 */
+	public void setNom_categorie(String nom_categorie) {
+		this.nom_categorie = nom_categorie;
 	}
 	
 	
