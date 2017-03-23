@@ -12,6 +12,12 @@ public class ContratServiceImpl implements IContratService {
 	
 	@Autowired
 	IContratDao contratDao;
+
+	public void setContratDao(IContratDao contratDao) {
+		this.contratDao = contratDao;
+	}
+	
+	
 	
 	
 

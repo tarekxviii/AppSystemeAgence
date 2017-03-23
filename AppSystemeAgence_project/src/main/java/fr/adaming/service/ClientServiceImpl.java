@@ -13,4 +13,10 @@ public class ClientServiceImpl implements IClientService {
 	@Autowired
 	IClientDao clientDao;
 
+	public void setClientDao(IClientDao clientDao) {
+		this.clientDao = clientDao;
+	}
+	
+	
+
 }
