@@ -12,19 +12,19 @@ public class ContratDaoImpl implements IContratDao {
 	@Override
 	public void addDao(Contrat contrat) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void deleteDao(int id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void updateDao(Contrat contrat) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

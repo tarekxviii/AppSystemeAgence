@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.adaming.entities.Bien;
-import fr.adaming.entities.Proprietaire;
 import fr.adaming.service.IBienService;
 
 @RestController
@@ -60,15 +59,14 @@ public class BienRest {
 			return new Integer(0);
 		}
 	}
-	
-	
-	@RequestMapping(value="/delete/{id_param}", method=RequestMethod.DELETE, produces="application/json")
-	public int deleteBienWS(@PathVariable("id_param") int id_prop){
-		try{
+
+	@RequestMapping(value = "/delete/{id_param}", method = RequestMethod.DELETE, produces = "application/json")
+	public int deleteBienWS(@PathVariable("id_param") int id_prop) {
+		try {
 			bienService.deleteService(id_prop);
-			return new Integer (1);	
-		}catch (Exception e) {
-			return new Integer (0);
+			return new Integer(1);
+		} catch (Exception e) {
+			return new Integer(0);
 		}
 	}
 
