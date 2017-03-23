@@ -3,6 +3,7 @@ package fr.adaming.service;
 import java.util.List;
 
 import fr.adaming.entities.Bien;
+import fr.adaming.entities.Categorie;
 
 public interface IBienService {
 
@@ -13,5 +14,7 @@ public interface IBienService {
 	public void updateService(Bien bien);
 
 	public List<Bien> getAllBien();
+	
+	public Categorie getCategoriByName(String nom_cat);
 
 }

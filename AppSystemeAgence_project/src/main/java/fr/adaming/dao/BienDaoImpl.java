@@ -2,12 +2,14 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import fr.adaming.entities.Bien;
+import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Responsable;
 
 @Repository
@@ -88,6 +90,20 @@ public class BienDaoImpl implements IBienDao {
 		String req = "select b from Bien b";
 
 		return s.createQuery(req).list();
+	}
+	
+	
+	public Categorie getCategorieByName(String nom_cat){
+		
+		Session s=sf.getCurrentSession();
+		
+		String req="select c from Categorie c where nom_categorie=:pNomCat";
+		
+		Query query=s.createQuery(req);
+		
+		query.setString("pNomCat", nom_cat);
+		
+		return (Categorie) query.uniqueResult();
 	}
 
 }

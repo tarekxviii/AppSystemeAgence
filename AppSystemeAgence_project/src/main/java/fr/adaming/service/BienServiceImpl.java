@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IBienDao;
 import fr.adaming.entities.Bien;
+import fr.adaming.entities.Categorie;
 
 @Service
 @Transactional
@@ -42,6 +43,12 @@ public class BienServiceImpl implements IBienService {
 	public List<Bien> getAllBien() {
 
 		return bienDao.getAllBien();
+	}
+
+	@Override
+	public Categorie getCategoriByName(String nom_cat) {
+	
+		return bienDao.getCategorieByName(nom_cat);
 	}
 
 }
