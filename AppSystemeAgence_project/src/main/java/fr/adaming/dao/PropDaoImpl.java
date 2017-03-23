@@ -22,13 +22,18 @@ public class PropDaoImpl implements IPropDao {
 	@Autowired
 	private SessionFactory sf;
 
+
 	/**
-	 * @param sf the sf to set
+	 * @param sf
 	 */
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;
 	}
 
+
+	/* (non-Javadoc)
+	 * @see fr.adaming.dao.IPropDao#addDao(fr.adaming.entities.Proprietaire)
+	 */
 	@Override
 	public void addDao(Proprietaire prop) {
 		
@@ -39,6 +44,9 @@ public class PropDaoImpl implements IPropDao {
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see fr.adaming.dao.IPropDao#deleteDao(int)
+	 */
 	@Override
 	public void deleteDao(int id) {
 
@@ -48,6 +56,9 @@ public class PropDaoImpl implements IPropDao {
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see fr.adaming.dao.IPropDao#updateDao(fr.adaming.entities.Proprietaire)
+	 */
 	@Override
 	public void updateDao(Proprietaire prop) {
 		
@@ -69,6 +80,9 @@ public class PropDaoImpl implements IPropDao {
 	}
 
 	
+	/* (non-Javadoc)
+	 * @see fr.adaming.dao.IPropDao#getAllProprietaire()
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Proprietaire> getAllProprietaire() {
@@ -81,6 +95,9 @@ public class PropDaoImpl implements IPropDao {
 		return s.createQuery(req).list();
 	}
 
+	/* (non-Javadoc)
+	 * @see fr.adaming.dao.IPropDao#getProprietaireById(int)
+	 */
 	@Override
 	public Proprietaire getProprietaireById(int id) {
 		
