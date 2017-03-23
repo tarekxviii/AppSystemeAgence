@@ -11,8 +11,8 @@ import fr.adaming.entities.Bien;
 
 @Service
 @Transactional
-public class BienServiceImpl implements IBienService{
-	
+public class BienServiceImpl implements IBienService {
+
 	@Autowired
 	IBienDao bienDao;
 
@@ -23,27 +23,25 @@ public class BienServiceImpl implements IBienService{
 	@Override
 	public void addService(Bien bien) {
 		bienDao.addDao(bien);
-		
+
 	}
 
 	@Override
 	public void deleteService(int id) {
 		bienDao.deleteDao(id);
-		
+
 	}
 
 	@Override
 	public void updateService(Bien bien) {
 		bienDao.updateDao(bien);
-		
+
 	}
 
 	@Override
 	public List<Bien> getAllBien() {
-		
+
 		return bienDao.getAllBien();
 	}
-	
-	
 
 }
