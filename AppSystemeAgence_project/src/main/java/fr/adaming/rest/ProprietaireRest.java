@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value="/proprietaire")
 public class ProprietaireRest {
 	
-	@Autowired
-	IProprietaireService proprietaireService;
+//	@Autowired
+//	IProprietaireService proprietaireService;
 
 	/**
 	 * Setter pour l'injection des méthodes de proprietaireService
 	 * 
 	 * @param proprietaireService the proprietaireService to set
 	 */
-	public void setProprietaireService(IProprietaireService proprietaireService) {
-		this.proprietaireService = proprietaireService;
-	}
+//	public void setProprietaireService(IProprietaireService proprietaireService) {
+//		this.proprietaireService = proprietaireService;
+//	}
 	
 	
 	
