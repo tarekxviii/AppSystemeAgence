@@ -1,0 +1,55 @@
+<h1 align="center">Modifier un propriétaire</h1>
+
+
+<form class="form-horizontal">
+
+<div class="form-group">
+		<label for="inputNomPays" class="col-sm-2 control-label">Id
+			du propriétaire</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="nomID"
+				placeholder="Nom" ng-model="proprietaireModif.id_prop">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputNomPays" class="col-sm-2 control-label">Nom
+			du propriétaire</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="nomID"
+				placeholder="Nom" ng-model="proprietaireModif.nom_prop">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputPopulation" class="col-sm-2 control-label">Adresse du propriétaire</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="adresseID"
+				placeholder="adresse" ng-model="proprietaireModif.adresse_prop">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputPopulation" class="col-sm-2 control-label">Téléphone privé</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="priveID"
+				placeholder="téléphone privé" ng-model="proprietaireModif.telephonePrive_prop">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputPopulation" class="col-sm-2 control-label">Téléphone Travail</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="travailID"
+				placeholder="téléphone travail" ng-model="proprietaireModif.telephoneTravail_prop">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputPopulation" class="col-sm-2 control-label">Mot de passe</label>
+		<div class="col-sm-10">
+			<input type="password" class="form-control" id="mdpID"
+				placeholder="mot de passe" ng-model="proprietaireModif.password_prop">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-default" ng-click="modifierProp()">Modifier le proprietaire</button>
+		</div>
+	</div>
+</form>
