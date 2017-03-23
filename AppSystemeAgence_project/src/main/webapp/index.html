@@ -1,11 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="appAgence">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+
+<!-- JQuery libraries-->
+<script type="text/javascript"
+	src="static/resources/bootstrap/js/jquery.js"></script>
+
+<!-- Bootstrap libraries-->
+<link rel="stylesheet" type="text/css"
+	href="static/resources/bootstrap/css/bootstrap.css">
+<script type="text/javascript"
+	src="static/resources/bootstrap/js/bootstrap.js"></script>
+
+<!-- AngularJs libraries-->
+<script src="static/resources/angular/angular.js"></script>
+<script src="static/resources/angular/angular-route.js"></script>
+<script src="static/resources/angular/angular-resource.js"></script>
+
+
+<!-- import des sripts Angular-->
+<script src="static/scriptsJS/module/app.js"></script>
+<script src="static/scriptsJS/providers/providerProprietaire.js"></script>
+<script src="static/scriptsJS/routing/routingProprietaire.js"></script>
+<script src="static/scriptsJS/controllers/controllerProprietaire.js"></script>
+
+<title>index</title>
 </head>
 <body>
-<h1>Application </h1>
+		<div class="btn-group">
+			<button class="btn btn-default dropdown-toggle" type="button"
+				id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="true">
+				Gestion des propriétaires <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				<li><a href="#/ajouterProprietaire">Ajouter un
+						propriétaire</a></li>
+				<li><a href="#/proprietaire/modifier.html">Modifier un
+						propriétaire</a></li>
+				<li><a href="#/proprietaire/supprimer.html">Supprimer un
+						propriétaire</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#/proprietaire/afficher.html">Afficher les
+						propriétaires</a></li>
+			</ul>
+		</div>
+		<div class="btn-group">
+			<button class="btn btn-default dropdown-toggle" type="button"
+				id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="true">
+				Gestion des clients <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				<li><a href="#/proprietaire/ajouter.html">Ajouter un client</a></li>
+				<li><a href="#/proprietaire/modifier.html">Modifier un
+						client</a></li>
+				<li><a href="#/proprietaire/supprimer.html">Supprimer un
+						client</a></li>
+				<li><a href="#/proprietaire/ajouter.html">Ajouter une
+						visite</a></li>
+				<li><a href="#/proprietaire/ajouter.html">Décommander un
+						visite</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#/proprietaire/afficher.html">Afficher les
+						clients</a></li>
+			</ul>
+		</div>
+		<div class="btn-group">
+			<button class="btn btn-default dropdown-toggle" type="button"
+				id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="true">
+				Gestion des biens <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				<li><a href="#/proprietaire/ajouter.html">Ajouter un bien</a></li>
+				<li><a href="#/proprietaire/modifier.html">Modifier un bien</a></li>
+				<li><a href="#/proprietaire/supprimer.html">Supprimer un
+						bien</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#/proprietaire/afficher.html">Afficher les
+						biens</a></li>
+			</ul>
+		</div>
+
+	<div ng-view></div>
 
 </body>
 </html>
