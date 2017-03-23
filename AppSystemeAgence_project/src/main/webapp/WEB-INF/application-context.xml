@@ -59,4 +59,5 @@
 	<!-- Detection des annotations des transaction : @Transactionnal -->
 	<tx:annotation-driven transaction-manager="transactionManagerBean" />
 
+
 </beans>
