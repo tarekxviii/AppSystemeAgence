@@ -12,7 +12,6 @@ app.factory("proprietaireProvider", function($http) {
 			headers : {
 				'Content-Type' : 'application/json'
 			}
-
 		}).success(function(response) {
 			console.log(response);
 			callback(response);
@@ -23,7 +22,22 @@ app.factory("proprietaireProvider", function($http) {
 		})
 
 	}
+	function getProprietaire(callback) {
+		$http({
+			method : 'GET',
+			url : urlglobal + '/proprietaire/getAll',
+		}).success(function(response) {
+			console.log(response.data);
+			callback(response);
+
+		}).error(function(response) {
+			console.log('Erreur : ' + response.statusText);
+
+		})
+
+	}
 	return {
-	addProprietaire:addProprietaire
+		addProprietaire : addProprietaire,
+		getProprietaire : getProprietaire,
 	}
 })

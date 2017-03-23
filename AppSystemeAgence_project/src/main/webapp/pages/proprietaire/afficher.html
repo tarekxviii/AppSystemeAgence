@@ -1,0 +1,29 @@
+<h1 align="center">Liste des propriétaires</h1>
+
+<div class="table-responsive">
+	<table class="table table-bordered" style="text-align: center">
+		<thead>
+			<tr>
+				<th style="text-align: center">Nom</th>
+				<th style="text-align: center">Adresse</th>
+				<th style="text-align: center">Téléphone travail</th>
+				<th style="text-align: center">Téléphone personnel</th>
+				<th style="text-align: center">Mot de passe</th>
+			</tr>
+		</thead>
+		<tbody ng-repeat="prop in proprietaires |orderBy:'nom_prop'">
+			<tr>
+				<td>{{prop.nom_prop}}</td>
+				<td>{{prop.adresse_prop}}</td>
+				<td>{{prop.telephoneTravail_prop}}</td>
+				<td>{{prop.telephonePrive_prop}}</td>
+				<td>{{prop.password_prop}}</td>
+				<td><a ng-click="updateLien(prop)">Modifier</a> | <a
+					ng-click="deleteLien(prop.id)">Supprimer</a></td>
+			</tr>
+
+		</tbody>
+
+	</table>
+
+</div>

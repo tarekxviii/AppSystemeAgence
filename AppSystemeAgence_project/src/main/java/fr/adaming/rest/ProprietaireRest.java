@@ -56,7 +56,7 @@ public class ProprietaireRest {
 		 * @return
 		 */
 		@RequestMapping(value="/update", method=RequestMethod.PUT, consumes="application/json", produces="application/json")
-		public int updatePropWS(Proprietaire propUpdate){
+		public int updatePropWS(@RequestBody Proprietaire propUpdate){
 			try{
 				proprietaireService.updateService(propUpdate);
 				return new Integer (1);
