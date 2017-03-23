@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.adaming.entities.Bien;
+import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Proprietaire;
 import fr.adaming.service.IBienService;
 import fr.adaming.service.IPropService;
@@ -49,10 +50,15 @@ public class BienRest {
 	@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public int addBienWS(@RequestBody Bien bienAdd) {
 		try {
+			
+			Categorie cat = bienService.getCategoriByName(bienAdd.getNom_categorie());
+			bienAdd.setbCategorie(cat);
+			
 			Proprietaire prop = propservice.getProprietaireById(bienAdd.getNum_prop());
 			bienAdd.setbProprietaire(prop);
 			
 			bienService.addService(bienAdd);
+			
 			return new Integer(1);
 		} catch (Exception e) {
 			return new Integer(0);
