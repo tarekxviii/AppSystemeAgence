@@ -27,37 +27,51 @@ public class Bien {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_bien")
 	private int id_bien;
+	
 	@Column(name="hab0_Com1")
 	private boolean hab0_Com1;
+	
 	@Column(name="loc0_Ach1")
 	private boolean loc0_Ach1;
+	
 	@Column(name="revenuCadastral")
 	private double revenuCadastral;
+	
 	@Column(name="type_bien")
 	private String type_bien;
+	
 	@Column(name="disponibilite")
 	private boolean disponibilite;
+	
 	@Column(name="inscription")
 	private Date inscription;
+	
 	@Column(name="cautionLoc")
 	private double cautionLoc;
+	
 	@Column(name="loyerMensuel")
 	private double loyerMensuel;
+	
 	@Column(name="charges")
 	private double charges;
+	
 	@Column(name="prixAchat")
 	private double prixAchat;
+	
 	@Column(name="etat")
 	private String etat;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn (name="categorie_id_fk",referencedColumnName="id_cat")
 	private Categorie bCategorie;
-	@ManyToOne
+	
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn (name="propriettaire_id_fk",referencedColumnName="id_prop")
 	private Proprietaire bProprietaire;
+	
 	@OneToMany(mappedBy="vBien",fetch=FetchType.LAZY)
 	private List<Visite> bListeVisite;
+	
 	@OneToOne(fetch=FetchType.LAZY, mappedBy="cBien")
 	private Contrat bContrat;
 	

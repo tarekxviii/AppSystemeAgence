@@ -21,7 +21,7 @@ public class Proprietaire {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id_prop;
-	
+
 	private String nom_prop;
 	
 	private String adresse_prop;
