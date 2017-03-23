@@ -52,7 +52,7 @@ public class RespDaoImpl implements IRespDao {
 		Responsable r1 = (Responsable) s.get(Responsable.class, resp.getId_resp());
 
 		// Affectation des nouvelles valeurs aux attributs
-		r1.setId_resp(resp.getId_resp());
+		
 		r1.setMail_resp(resp.getMail_resp());
 		r1.setPassword_resp(resp.getPassword_resp());
 		r1.setrListeContrat(resp.getrListeContrat());
