@@ -19,7 +19,6 @@ public class PropDaoImpl implements IPropDao {
 		this.sf = sf;
 	}
 	
-	
 	@Override
 	public void addDao(Proprietaire prop) {
 		
