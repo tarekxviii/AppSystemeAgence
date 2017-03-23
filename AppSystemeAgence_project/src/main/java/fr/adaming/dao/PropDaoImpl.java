@@ -22,7 +22,7 @@ public class PropDaoImpl implements IPropDao {
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;
 	}
-	
+
 	@Override
 	public void addDao(Proprietaire prop) {
 		
