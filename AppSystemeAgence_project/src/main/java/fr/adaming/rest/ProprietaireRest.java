@@ -1,5 +1,9 @@
 package fr.adaming.rest;
 
+import java.util.List;
+
+import javax.swing.text.html.FormSubmitEvent.MethodType;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -64,7 +68,11 @@ public class ProprietaireRest {
 		
 		///////////////////////////Methode afficher la liste de tout les proprietaires ////////////////////////
 
-		
+//		@RequestMapping(value="/getAll",method=RequestMethod.POST, produces="application/json")
+//		public List<Proprietaire> getAllPropWS(){
+//			proprietaireService.getAllProprietaire();
+//		}
+//		
 	}
 
 
