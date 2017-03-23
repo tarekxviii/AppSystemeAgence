@@ -29,17 +29,18 @@ public class Responsable {
 	@Column(name="password_resp")
 	private String password_resp;
 	
-	//ManyToOne
 	@OneToMany(mappedBy="vResponsable", fetch=FetchType.LAZY)
 	private List<Visite> rListeVisite;
-
+	
+	@OneToMany(mappedBy="cResponsable", fetch=FetchType.LAZY)
+	private List<Contrat> rListeContrat;
+ 
 	/**
 	 * constructeur vide
 	 */
 	public Responsable() {
 		super();
 	}
-
 
 	/**
 	 * constructeur sans id
@@ -126,6 +127,25 @@ public class Responsable {
 	public void setrListeVisite(List<Visite> rListeVisite) {
 		this.rListeVisite = rListeVisite;
 	}
+
+
+	/**
+	 * @return the rListeContrat
+	 */
+	@XmlElement
+	public List<Contrat> getrListeContrat() {
+		return rListeContrat;
+	}
+
+
+	/**
+	 * @param rListeContrat the rListeContrat to set
+	 */
+	public void setrListeContrat(List<Contrat> rListeContrat) {
+		this.rListeContrat = rListeContrat;
+	}
+	
+	
 	
 	
 

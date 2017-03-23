@@ -180,7 +180,7 @@ public class Categorie {
 	/**
 	 * @return the cListeClient
 	 */
-	@XmlElement
+	@XmlTransient
 	public List<Client> getcListeClient() {
 		return cListeClient;
 	}

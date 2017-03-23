@@ -9,10 +9,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @Table(name="contrats")
@@ -37,6 +39,10 @@ public class Contrat {
 	@JoinColumn(name="client_id",referencedColumnName="id_client")
 	private Client cClient;
 	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="responsable_id", referencedColumnName="id_resp")
+	private Responsable cResponsable;
+	
 	
 
 	/**
@@ -46,35 +52,30 @@ public class Contrat {
 		super();
 	}
 
+
 	/**
 	 * @param prix_contrat
 	 * @param dateSignature
-	 * @param cBien
-	 * @param cClient
 	 */
-	public Contrat(double prix_contrat, Date dateSignature, Bien cBien, Client cClient) {
+	public Contrat(double prix_contrat, Date dateSignature) {
 		super();
 		this.prix_contrat = prix_contrat;
 		this.dateSignature = dateSignature;
-		this.cBien = cBien;
-		this.cClient = cClient;
 	}
-
+	
+	
 	/**
 	 * @param id_contrat
 	 * @param prix_contrat
 	 * @param dateSignature
-	 * @param cBien
-	 * @param cClient
 	 */
-	public Contrat(int id_contrat, double prix_contrat, Date dateSignature, Bien cBien, Client cClient) {
+	public Contrat(int id_contrat, double prix_contrat, Date dateSignature) {
 		super();
 		this.id_contrat = id_contrat;
 		this.prix_contrat = prix_contrat;
 		this.dateSignature = dateSignature;
-		this.cBien = cBien;
-		this.cClient = cClient;
 	}
+
 
 	/**
 	 * @return the id_contrat
@@ -150,6 +151,23 @@ public class Contrat {
 	public void setcClient(Client cClient) {
 		this.cClient = cClient;
 	}
+
+	/**
+	 * @return the cResponsable
+	 */
+	@XmlTransient
+	public Responsable getcResponsable() {
+		return cResponsable;
+	}
+
+	/**
+	 * @param cResponsable the cResponsable to set
+	 */
+	public void setcResponsable(Responsable cResponsable) {
+		this.cResponsable = cResponsable;
+	}
+	
+	
 
 	
 	

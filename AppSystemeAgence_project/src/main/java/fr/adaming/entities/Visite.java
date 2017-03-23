@@ -106,7 +106,7 @@ public class Visite {
 	/**
 	 * @return the vBien
 	 */
-	@XmlTransient
+	@XmlElement
 	public Bien getvBien() {
 		return vBien;
 	}
@@ -121,7 +121,7 @@ public class Visite {
 	/**
 	 * @return the vClient
 	 */
-	@XmlTransient
+	@XmlElement
 	public Client getvClient() {
 		return vClient;
 	}
