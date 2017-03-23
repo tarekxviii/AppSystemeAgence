@@ -22,7 +22,7 @@
 		</div>
 	</form>
 
-
+<br/>
 
 	<form class="form-horizontal">
 		<div class="radio">
@@ -39,7 +39,7 @@
 		</div>
 	</form>
 
-
+<br/>
 
 	<form class="form-horizontal">
 		<div class="radio">
@@ -57,70 +57,72 @@
 	</form>
 
 
-
+<br/>
 
 
 	<div class="form-group">
-
-		<div class="col-sm-10">
-			<label for="inputPopulation" class="col-sm-2 control-label">Revenu
-				Cadastral</label> <input type="number" class="form-control" id="nomID"
+<label for="inputPopulation" class="col-sm-2 control-label">Revenu
+				Cadastral</label> 
+		<div class="col-sm-6">
+			<input type="number" class="form-control" id="nomID"
 				placeholder="Nom" ng-model="bienForm.revenuCadastral">
 		</div>
 
 	</div>
-
+<br/>
 
 	<div class="form-group">
-
-		<div class="col-sm-10">
-			<label for="inputPopulation" class="col-sm-2 control-label">Type
-				de bien</label> <input type="text" class="form-control" id="typeID"
+	<label for="inputPopulation" class="col-sm-2 control-label">Type
+				de bien</label> 
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="typeID"
 				placeholder="Nom" ng-model="bienForm.type_bien">
 		</div>
 
 	</div>
 
 
-
+<br/>
 
 	<div class="form-group">
 
 		<label for="inputPopulation" class="col-sm-2 control-label">Date
 			d'inscription</label>
-		<div class="col-sm-10">
+		<div class="col-sm-6">
 			<input type="date" class="form-control" id="adresseID"
 				placeholder="adresse" ng-model="bienForm.inscription">
 		</div>
 
 	</div>
 
+
+<br/>
 	<div class="form-group">
 
 		<label for="inputPopulation" class="col-sm-2 control-label">Caution
 			Locative</label>
-		<div class="col-sm-10">
+		<div class="col-sm-6">
 			<input type="number" class="form-control" id="cautionID"
 				placeholder="adresse" ng-model="bienForm.cautionLoc">
 		</div>
 
 	</div>
 
-
+<br/>
 	<div class="form-group">
 		<label for="inputPopulation" class="col-sm-2 control-label">Loyer
 			Mensuel</label>
-		<div class="col-sm-10">
+		<div class="col-sm-6">
 			<input type="number" class="form-control" id="cautionID"
 				placeholder="adresse" ng-model="bienForm.loyerMensuel">
 		</div>
 
 	</div>
 
-
+<br/>
 	<div class="form-group">
 		<label for="inputPopulation" class="col-sm-2 control-label">Charges</label>
-		<div class="col-sm-10">
+		<div class="col-sm-6">
 			<input type="number" class="form-control" id="chargeID"
 				placeholder="adresse" ng-model="bienForm.charges">
 		</div>
@@ -128,27 +130,32 @@
 	</div>
 
 
+<br/>
+
 	<div class="form-group">
 
 		<label for="inputPopulation" class="col-sm-2 control-label">Prix
 			Achat</label>
-		<div class="col-sm-10">
+		<div class="col-sm-6">
 			<input type="number" class="form-control" id="prixAchatID"
 				placeholder="adresse" ng-model="bienForm.prixAchat">
 		</div>
 
 	</div>
 
+<br/>
 
+<label for="inputPopulation" class="col-sm-10 control-label" style="text-align: center">Etat</label>
 	<select class="form-control" ng-model="bienForm.etat">
 		<option>A Restaurer</option>
 		<option>Correct</option>
 		<option>Impeccable</option>
 	</select>
+	
 
 
 	<div class="form-group">
-		<div class="col-sm-offset-2 col-sm-10">
+		<div class="col-sm-offset-2 col-sm-6">
 			<button type="submit" class="btn btn-default"
 				ng-click="ajouterBien()">Ajouter le bien</button>
 		</div>
