@@ -25,11 +25,11 @@ public class ContratRest {
 
 	@Autowired
 	private IContratService contratService;
-
+	@Autowired
 	private IBienService bienService;
-
+	@Autowired
 	private IClientService clientService;
-
+	@Autowired
 	private IRespService respService;
 
 	/**
