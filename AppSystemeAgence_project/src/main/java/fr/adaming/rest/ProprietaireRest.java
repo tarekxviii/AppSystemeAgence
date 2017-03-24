@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.adaming.entities.Bien;
+import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Proprietaire;
 import fr.adaming.service.IPropService;
 
@@ -109,7 +111,6 @@ public class ProprietaireRest {
 				return proprietaireService.getProprietaireById(id_prop); 
 	
 		}
-		
 		
 	}
 

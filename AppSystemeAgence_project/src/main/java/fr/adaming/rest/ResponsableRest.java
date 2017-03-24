@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.adaming.entities.Bien;
+import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Proprietaire;
 import fr.adaming.entities.Responsable;
 import fr.adaming.service.IRespService;
@@ -65,6 +67,13 @@ public class ResponsableRest {
 	public Responsable getPropById(@PathVariable("id_param") int id_resp) {
 		return responsableService.getResponsableById(id_resp);
 
+	}
+	
+	///////////////////////////Methode pour afficher la liste des bien d'une catégorie////////////////////////
+	
+	@RequestMapping(value = "/getBienByCat", method = RequestMethod.GET, produces = "application/json", consumes = "application/json")
+	public List<Bien> getBienByCatWS(@RequestBody Categorie cat){
+		return responsableService.getBienByCatService(cat);
 	}
 
 }

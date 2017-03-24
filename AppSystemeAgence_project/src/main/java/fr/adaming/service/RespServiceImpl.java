@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IRespDao;
+import fr.adaming.entities.Bien;
+import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Responsable;
 
 @Service
@@ -69,6 +71,14 @@ public class RespServiceImpl implements IRespService {
 	public Responsable getResponsableById(int id) {
 
 		return respdao.getResponsableById(id);
+	}
+
+	/**
+	 * 
+	 */
+	@Override
+	public List<Bien> getBienByCatService(Categorie cat) {
+		return respdao.getBienByCat(cat);
 	}
 
 }

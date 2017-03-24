@@ -2,6 +2,8 @@ package fr.adaming.service;
 
 import java.util.List;
 
+import fr.adaming.entities.Bien;
+import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Responsable;
 
 public interface IRespService {
@@ -31,6 +33,13 @@ public interface IRespService {
 	 * @return
 	 */
 	public Responsable getResponsableById(int id);
+	
+	/**
+	 * 
+	 * @param cat
+	 * @return
+	 */
+	public List<Bien> getBienByCatService(Categorie cat);
 	
 	
 
