@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.adaming.entities.AssociationClientCat;
 import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Client;
 import fr.adaming.service.IBienService;
@@ -108,20 +109,20 @@ public class ClientRest {
 	
 	
 	@RequestMapping(value="/updateCatClient", method=RequestMethod.PUT, consumes="application/json", produces="application/json")
-	public int updateCatClientWS(@RequestBody Client clientUpdate, @RequestBody Categorie catUpdate){
+	public int updateCatClientWS(@RequestBody AssociationClientCat assos){
 		try{
 			Client clientChanger;
 			Categorie catChanger;
 			List<Categorie> listeInt = new ArrayList<>();
 			
-			catChanger = bienService.getCategoriByName(catUpdate.getTypeBien());
-			clientChanger = clientService.getClientById(clientUpdate.getId_client());
+			catChanger = bienService.getCategoriByName(assos.getTypeCat());
+			clientChanger = clientService.getClientById(assos.getIdClient());
 			
 			listeInt.add(catChanger);
 			
 			clientChanger.setcListeInteret(listeInt);
 			
-			clientService.updateService(clientUpdate);
+			clientService.updateService(clientChanger);
 			
 			return new Integer (1);
 		}catch (Exception e) {

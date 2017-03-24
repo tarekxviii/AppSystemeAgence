@@ -68,11 +68,11 @@ app.factory("clientProvider", function($http) {
 		});
 
 	}
-	function associerBien(bienAssociationForm, catAssociationForm, callback) {
+	function associerBien(bienAssociationForm, callback) {
 		$http({
 			method : 'PUT',
 			url : urlglobal + '/bien/updateCatClient',
-			data : angular.toJson(bienAssociationForm, catAssociationForm),
+			data : angular.toJson(bienAssociationForm),
 			headers : {
 				'Content-Type' : 'application/json'
 			}

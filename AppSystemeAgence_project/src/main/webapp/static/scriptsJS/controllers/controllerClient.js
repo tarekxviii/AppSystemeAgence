@@ -71,25 +71,14 @@ app.controller("addClientCtrl",
 					}
 				})
 			}
-		}).controller("associerBienCtrl",
+		}).controller("associerClientCtrl",
 				function($scope, $rootScope, bienProvider, $location) {
-			$scope.hide = function() {
-				$scope.boll = true;
-				$scope.boll2 = false
-			}
-
-			$scope.hide2 = function() {
-				$scope.boll = false;
-				$scope.boll2 = true;
-			}
 			$scope.bienAssociationForm = {
-				id_bien : undefined,
-			}
-			$scope.catAssociationForm = {
-				typeBien : "",
+				idClient : undefined,
+				typeCat : "",
 			};
 			$scope.associerBien = function() {
-				bienProvider.associerBien ($scope.bienAssociationForm, $scope.catAssociationForm, function(callback) {
+				bienProvider.associerBien ($scope.bienAssociationForm, function(callback) {
 
 					if (callback != undefined && callback != "") {
 						$location.path("accueil");

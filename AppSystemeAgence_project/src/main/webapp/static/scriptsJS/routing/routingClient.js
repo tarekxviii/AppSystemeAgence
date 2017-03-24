@@ -14,8 +14,8 @@ app.config(function($routeProvider){
 	}).when("/modifierClient", {
 		templateUrl: "pages/client/modifier.html",
 		controller: "updateClientCtrl"
-	}).when("/associationBien", {
-		templateUrl: "pages/bien/association.html",
-		controller: "associerBienCtrl"
+	}).when("/associationClient", {
+		templateUrl: "pages/client/association.html",
+		controller: "associerClientCtrl"
 	})
 });
