@@ -97,7 +97,7 @@ public class BienDaoImpl implements IBienDao {
 		
 		Session s=sf.getCurrentSession();
 		
-		String req="select c from Categorie c where nom_categorie=:pNomCat";
+		String req="select c from Categorie c where typeBien=:pNomCat";
 		
 		Query query=s.createQuery(req);
 		
