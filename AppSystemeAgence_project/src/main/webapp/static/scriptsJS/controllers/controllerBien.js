@@ -81,16 +81,23 @@ app.controller("addBienCtrl",
 
 	}).controller("getBienDispoCtrl",
 	function($scope, $rootScope, bienProvider, $location) {
-		bienProvider.getBienDispo(function(callback) {
-			$scope.biens = callback.data;
+		bienProvider.getBienDispoAchete(function(callback) {
+			$scope.biensAchete = callback.data;
+		});
+		bienProvider.getBienDispoLoue(function(callback) {
+			$scope.biensLoue = callback.data;
 		});
 		$scope.deleteLien = function(id) {
 
 			bienProvider.deleteBien(id, function(callback) {
 
 				if (callback != undefined && callback != "") {
-					bienProvider.getBienDispo(function(callback) {
-						$scope.biens = callback.data;
+					bienProvider.getBienDispoAchete(function(callback) {
+						$scope.biensAchete = callback.data;
+
+					});
+					bienProvider.getBienDispoLoue(function(callback) {
+						$scope.biensLoue = callback.data;
 
 					});
 				}
