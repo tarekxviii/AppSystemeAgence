@@ -79,6 +79,24 @@ app.controller("addBienCtrl",
 			})
 		}
 
+	}).controller("getBienDispoCtrl",
+	function($scope, $rootScope, bienProvider, $location) {
+		bienProvider.getBienDispo(function(callback) {
+			$scope.biens = callback.data;
+		});
+		$scope.deleteLien = function(id) {
+
+			bienProvider.deleteBien(id, function(callback) {
+
+				if (callback != undefined && callback != "") {
+					bienProvider.getBienDispo(function(callback) {
+						$scope.biens = callback.data;
+
+					});
+				}
+			})
+		}
+
 	}).controller("deleteBienCtrl", function($scope, bienProvider, $location) {
 	$scope.id = undefined;
 	$scope.supprimerBien = function() {

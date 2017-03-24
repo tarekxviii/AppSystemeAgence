@@ -51,6 +51,20 @@ app.factory("bienProvider", function($http) {
 		});
 
 	}
+	function getBienDispo(callback) {
+		$http({
+			method : 'GET',
+			url : urlglobal + '/bien/getDispo',
+		}).then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+
+		},function errorCallback(response) {
+			console.log('Erreur : ' + response.statusText);
+
+		});
+
+	}
 	function deleteBien(id,callback) {
 		$http({
 			method : 'DELETE',
@@ -87,6 +101,7 @@ app.factory("bienProvider", function($http) {
 		addBien : addBien,
 		getBienLoue : getBienLoue,
 		getBienAchete : getBienAchete,
+		getBienDispo : getBienDispo,
 		deleteBien : deleteBien,
 		updateBien : updateBien,
 
