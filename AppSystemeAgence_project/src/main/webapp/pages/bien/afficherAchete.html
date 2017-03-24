@@ -1,0 +1,31 @@
+<h1 align="center">Liste des biens</h1>
+
+<div class="table-responsive">
+	<table class="table table-bordered" style="text-align: center">
+		<thead>
+			<tr>
+				<th style="text-align: center">Type</th>
+				<th style="text-align: center">Prix d'achat</th>
+				<th style="text-align: center">Etat</th>
+				<th style="text-align: center">Disponibilite</th>
+				<th style="text-align: center">Revenu cadastral</th>
+				<th style="text-align: center">Categorie</th>
+				<th style="text-align: center">Proprietaire</th>
+			</tr>
+		</thead>
+		<tbody ng-repeat="bien in biens">
+			<tr>
+				<td>{{bien.type_bien}}</td>
+				<td>{{bien.prixAchat}}</td>
+				<td>{{bien.etat}}</td>
+				<td>{{bien.revenuCadastral}}</td>
+				<td>{{bien.bCategorie.typeBien}}</td>
+				<td>{{bien.bProprietaire.nom_prop}}</td>
+				<td><a ng-click="deleteLien(bien.id_bien)">Supprimer</a></td>
+			</tr>
+
+		</tbody>
+
+	</table>
+
+</div>
