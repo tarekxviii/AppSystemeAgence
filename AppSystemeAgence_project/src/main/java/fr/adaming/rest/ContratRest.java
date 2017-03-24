@@ -64,7 +64,7 @@ public class ContratRest {
 		this.respService = respService;
 	}
 
-	@RequestMapping(value = "/add", consumes = "application/json", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/add",method = RequestMethod.POST, consumes = "application/json",  produces = "application/json")
 	public int addContratWs(@RequestBody Contrat contrat, @RequestBody Client client, @RequestBody Bien bien,
 			@RequestBody Responsable resp) {
 

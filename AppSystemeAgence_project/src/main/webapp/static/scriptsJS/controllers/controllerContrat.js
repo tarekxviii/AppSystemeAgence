@@ -4,7 +4,7 @@
 app.controller("addContratCtrl",
 	function($scope, $rootScope, contratProvider, $location) {
 		$scope.bienForm = {
-			id_prop : undefined,
+			id_bien : undefined,
 		};
 		$scope.clientForm = {
 			id_client : undefined,
