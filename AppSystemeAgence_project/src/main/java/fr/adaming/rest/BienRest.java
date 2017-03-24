@@ -154,12 +154,41 @@ public class BienRest {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value="/getBienByProp/{id_param}", method = RequestMethod.GET, produces = "application/json")
-	public List<Bien> getBienByPropWS(@PathVariable("id_param") int id_prop){
+	@RequestMapping(value="/getBienByPropLoue/{id_param}", method = RequestMethod.GET, produces = "application/json")
+	public List<Bien> getBienByPropLoueWS(@PathVariable("id_param") int id_prop){
 		
 		List<Bien> listeBienByProp = bienService.getBienProp(id_prop);
 		
-		return listeBienByProp;
+		List<Bien> listeBienByPropLoue=new ArrayList<>();
+		
+		for (Bien bien : listeBienByProp) {
+			if(bien.isLoc0_Ach1()==false){
+				listeBienByPropLoue.add(bien);
+			}
+		}
+		
+		return listeBienByPropLoue;
+	}
+	
+	
+	/**
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value="/getBienByPropAchete/{id_param}", method = RequestMethod.GET, produces = "application/json")
+	public List<Bien> getBienByPropAcheteWS(@PathVariable("id_param") int id_prop){
+		
+		List<Bien> listeBienByProp = bienService.getBienProp(id_prop);
+		
+		List<Bien> listeBienByPropAchete=new ArrayList<>();
+		
+		for (Bien bien : listeBienByProp) {
+			if(bien.isLoc0_Ach1()==true){
+				listeBienByPropAchete.add(bien);
+			}
+		}
+		
+		return listeBienByPropAchete;
 	}
 	
 	
