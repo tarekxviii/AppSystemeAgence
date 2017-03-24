@@ -27,13 +27,13 @@
 	<form class="form-horizontal">
 		<div class="radio">
 			<label> <input type="radio" name="optionsRadios"
-				id="optionsRadios3" value="false" ng-model="bienForm.loc0_Ach1">
+				id="optionsRadios3" value="false" ng-model="bienForm.loc0_Ach1" ng-value="boll">
 				A Louer
 			</label>
 		</div>
 		<div class="radio">
 			<label> <input type="radio" name="optionsRadios"
-				id="optionsRadios4" value="true" ng-model="bienForm.loc0_Ach1">
+				id="optionsRadios4" value="true" ng-model="bienForm.loc0_Ach1" ng-value="boll">
 				A acheter
 			</label>
 		</div>
@@ -97,7 +97,7 @@
 
 
 	<br />
-	<div class="form-group">
+	<div class="form-group" ng-show="boll">
 
 		<label for="inputPopulation" class="col-sm-2 control-label">Caution
 			Locative</label>
@@ -109,7 +109,7 @@
 	</div>
 
 	<br />
-	<div class="form-group">
+	<div class="form-group" ng-show="boll">
 		<label for="inputPopulation" class="col-sm-2 control-label">Loyer
 			Mensuel</label>
 		<div class="col-sm-6">
@@ -120,7 +120,7 @@
 	</div>
 
 	<br />
-	<div class="form-group">
+	<div class="form-group" ng-show="boll">
 		<label for="inputPopulation" class="col-sm-2 control-label">Charges</label>
 		<div class="col-sm-6">
 			<input type="number" class="form-control" id="chargeID"
@@ -132,7 +132,7 @@
 
 	<br />
 
-	<div class="form-group">
+	<div class="form-group" ng-show="boll">
 
 		<label for="inputPopulation" class="col-sm-2 control-label">Prix
 			Achat</label>

@@ -3,6 +3,10 @@
  */
 app.controller("addBienCtrl",
 	function($scope, $rootScope, bienProvider, $location) {
+	
+
+		$scope.boll=false;
+	
 		$scope.bienForm = {
 			hab0_Com1 : false,
 			loc0_Ach1 : false,
@@ -20,6 +24,8 @@ app.controller("addBienCtrl",
 		};
 
 		$scope.ajouterBien = function() {
+	
+			
 			console.log("-----------    " + $scope.bienForm);
 			bienProvider.addBien($scope.bienForm, function(callback) {
 
