@@ -23,10 +23,24 @@ app.factory("bienProvider", function($http) {
 
 	}
 	
-	function getBien(callback) {
+	function getBienAchete(callback) {
 		$http({
 			method : 'GET',
-			url : urlglobal + '/bien/getAll',
+			url : urlglobal + '/bien/getAllAchete',
+		}).then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+
+		},function errorCallback(response) {
+			console.log('Erreur : ' + response.statusText);
+
+		});
+
+	}
+	function getBienLoue(callback) {
+		$http({
+			method : 'GET',
+			url : urlglobal + '/bien/getAllLoue',
 		}).then(function successCallback(response) {
 			console.log(response.data);
 			callback(response);
@@ -71,7 +85,8 @@ app.factory("bienProvider", function($http) {
 	}
 	return {
 		addBien : addBien,
-		getBien : getBien,
+		getBienLoue : getBienLoue,
+		getBienAchete : getBienAchete,
 		deleteBien : deleteBien,
 		updateBien : updateBien,
 

@@ -6,9 +6,12 @@ app.config(function($routeProvider){
 	$routeProvider.when("/ajouterBien", {
 		templateUrl: "pages/bien/ajouter.html",
 		controller: "addBienCtrl"
-	}).when("/afficherBien", {
-		templateUrl: "pages/bien/afficher.html",
-		controller: "getBienCtrl"
+	}).when("/afficherBienALouer", {
+		templateUrl: "pages/bien/afficherLoue.html",
+		controller: "getBienLoueCtrl"
+	}).when("/afficherBienAAcheter", {
+		templateUrl: "pages/bien/afficherAchete.html",
+		controller: "getBienAcheteCtrl"
 	}).when("/supprimerBien", {
 		templateUrl: "pages/bien/supprimer.html",
 		controller: "deleteBienCtrl"
