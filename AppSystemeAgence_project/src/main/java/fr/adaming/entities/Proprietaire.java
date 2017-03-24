@@ -15,6 +15,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="proprietaires")
 @XmlRootElement
@@ -37,6 +39,7 @@ public class Proprietaire {
 	
 	@OneToMany(mappedBy="bProprietaire",fetch=FetchType.EAGER)
 	@Fetch(FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Bien> pListeBien;
 
 	/**
