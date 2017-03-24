@@ -1,0 +1,52 @@
+<h1 align="center">Creer un contrat</h1>
+
+
+<form class="form-horizontal">
+	<div class="form-group">
+		<label for="inputNomPays" class="col-sm-2 control-label">Id du client</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="nomClientID"
+				placeholder="Nom" ng-model="clientForm.id_client">
+		</div>
+	</div>
+<div class="form-group">
+		<label for="inputNomPays" class="col-sm-2 control-label">Id du responsable</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="nomRespID"
+				placeholder="Nom" ng-model="respForm.id_resp">
+		</div>
+	</div>
+<div class="form-group">
+		<label for="inputNomPays" class="col-sm-2 control-label">Id du Bien</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="nomBienID"
+				placeholder="Nom" ng-model="bienForm.id_bien">
+		</div>
+	</div>
+	
+	
+		<div class="form-group">
+
+		<label for="inputPopulation" class="col-sm-2 control-label">Date
+			du contrat</label>
+		<div class="col-sm-6">
+			<input type="date" class="form-control" id="adresseID"
+				placeholder="adresse" ng-model="contratForm.dateSignature">
+		</div>
+		
+			<div class="form-group">
+		<label for="inputPopulation" class="col-sm-2 control-label">Montant du contrat</label>
+		<div class="col-sm-6">
+			<input type="number" class="form-control" id="chargeID"
+				placeholder="adresse" ng-model="contratForm.prix_contrat">
+		</div>
+
+	</div>
+
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-default" ng-click="ajouterContrat()">Creer le contrat</button>
+		</div>
+	</div>
+</form>
