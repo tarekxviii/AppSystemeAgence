@@ -116,4 +116,14 @@ public class BienDaoImpl implements IBienDao {
 		return (Bien) s.get(Bien.class, id);
 	}
 
+
+	@Override
+	public List<Bien> getBienDispo() {
+		Session s=sf.getCurrentSession();
+		String req = "select b from Bien b where b.disponibilite=1";
+
+		return s.createQuery(req).list();
+		
+	}
+
 }

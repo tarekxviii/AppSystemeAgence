@@ -18,5 +18,7 @@ public interface IBienService {
 	public Categorie getCategoriByName(String nom_cat);
 	
 	public Bien getBienById(int id);
+	
+	public List<Bien> getBienDispo();
 
 }

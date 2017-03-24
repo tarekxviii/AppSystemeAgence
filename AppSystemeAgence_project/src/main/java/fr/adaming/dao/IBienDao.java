@@ -20,4 +20,6 @@ public interface IBienDao {
 	
 	public Bien getBienById(int id);
 	
+	public List<Bien> getBienDispo();
+	
 }

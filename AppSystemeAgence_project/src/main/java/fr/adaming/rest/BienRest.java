@@ -108,6 +108,17 @@ public class BienRest {
 		}
 		return listeBienAchete;
 	}
+	/**
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value="/getDispo", method = RequestMethod.GET, produces = "application/json")
+	public List<Bien> getBienDispoAcheteWS(){
+		
+		List<Bien> listeBienDispo = bienService.getBienDispo();
+		
+		return listeBienDispo;
+	}
 	
 	
 	
