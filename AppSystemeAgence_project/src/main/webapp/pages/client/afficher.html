@@ -1,0 +1,25 @@
+<h1 align="center">Liste des clients</h1>
+
+<div class="table-responsive">
+	<table class="table table-bordered" style="text-align: center">
+		<thead>
+			<tr>
+				<th style="text-align: center">Nom</th>
+				<th style="text-align: center">Prenom</th>
+				<th style="text-align: center">Téléphone</th>
+				<th style="text-align: center">Password</th>
+			</tr>
+		</thead>
+		<tbody ng-repeat="client in clients |orderBy:'nom_client'">
+			<tr>
+				<td>{{client.nom_client}}</td>
+				<td>{{client.prenom_client}}</td>
+				<td>{{client.tel_client}}</td>
+				<td>{{client.mdp_client}}</td>
+			</tr>
+
+		</tbody>
+
+	</table>
+
+</div>
