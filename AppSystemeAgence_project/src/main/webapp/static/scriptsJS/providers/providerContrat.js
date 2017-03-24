@@ -4,12 +4,12 @@
 
 app.factory("contratProvider", function($http) {
 	var urlglobal = "http://localhost:8080/AppSystemeAgence_project";
-	
-	function addContrat(contratForm,bienForm,respForm,clientForm, callback) {
+
+	function addContrat(contratForm, bienForm, respForm, clientForm, callback) {
 		$http({
 			method : 'POST',
 			url : urlglobal + '/contrat/add',
-			data : angular.toJson(bienForm,contratForm,respForm,clientForm),
+			data : angular.toJson(bienForm, contratForm, respForm, clientForm),
 			headers : {
 				'Content-Type' : 'application/json'
 			}
@@ -23,10 +23,28 @@ app.factory("contratProvider", function($http) {
 		});
 
 	}
-	function deleteContrat(id,callback) {
+	function deleteContrat(id, callback) {
 		$http({
 			method : 'DELETE',
-			url : urlglobal + '/contrat/delete/'+id,
+			url : urlglobal + '/contrat/delete/' + id,
+		}).success(function(response) {
+			console.log(response);
+			callback(response);
+
+		}).error(function(response) {
+			console.log('Erreur : ' + response.statusText);
+
+		});
+
+	}
+	function updateContrat(contratModif, bienModif, respModif, clientModif, callback) {
+		$http({
+			method : 'PUT',
+			url : urlglobal + '/contrat/update',
+			data : angular.toJson(bienModif, contratModif, respModif, clientModif),
+			headers : {
+				'Content-Type' : 'application/json'
+			}
 		}).success(function(response) {
 			console.log(response);
 			callback(response);
@@ -39,6 +57,7 @@ app.factory("contratProvider", function($http) {
 	}
 	return {
 		addContrat : addContrat,
-		deleteContrat:deleteContrat,
+		deleteContrat : deleteContrat,
+		updateContrat : updateContrat,
 	}
 })

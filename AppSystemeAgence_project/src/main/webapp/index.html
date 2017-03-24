@@ -34,6 +34,11 @@
 <script src="static/scriptsJS/routing/routingClient.js"></script>
 <script src="static/scriptsJS/controllers/controllerClient.js"></script>
 
+<!-- import des sripts Angular pour les clients-->
+<script src="static/scriptsJS/providers/providerContrat.js"></script>
+<script src="static/scriptsJS/routing/routingContrat.js"></script>
+<script src="static/scriptsJS/controllers/controllerContrat.js"></script>
+
 <title>index</title>
 </head>
 <body>
@@ -86,6 +91,20 @@
 			<li role="separator" class="divider"></li>
 			<li><a href="#/afficherClient">Afficher les
 					clients</a></li>
+		</ul>
+	</div>
+	<div class="btn-group">
+		<button class="btn btn-default dropdown-toggle" type="button"
+			id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+			aria-expanded="true">
+			Gestion des contrats <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+			<li><a href="#/ajouterContrat">Ajouter un contrat</a></li>
+			<li><a href="#/modifierContrat">Modifier un
+					contrat</a></li>
+			<li><a href="#/supprimerContrat">Supprimer un
+					contrat</a></li>
 		</ul>
 	</div>
 
