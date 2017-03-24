@@ -25,4 +25,14 @@ app.controller("addContratCtrl",
 				}
 			})
 		}
+	}).controller("deleteContratCtrl", function($scope, contratProvider, $location) {
+		$scope.id = undefined;
+		$scope.supprimerContrat = function() {
+			contratProvider.deleteContrat($scope.id, function(callback) {
+
+				if (callback != undefined && callback != "") {
+					$location.path("accueil");
+				}
+			})
+		}
 	})

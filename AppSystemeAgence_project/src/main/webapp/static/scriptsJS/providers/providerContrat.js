@@ -23,7 +23,22 @@ app.factory("contratProvider", function($http) {
 		});
 
 	}
+	function deleteContrat(id,callback) {
+		$http({
+			method : 'DELETE',
+			url : urlglobal + '/contrat/delete/'+id,
+		}).success(function(response) {
+			console.log(response);
+			callback(response);
+
+		}).error(function(response) {
+			console.log('Erreur : ' + response.statusText);
+
+		});
+
+	}
 	return {
 		addContrat : addContrat,
+		deleteContrat:deleteContrat,
 	}
 })
