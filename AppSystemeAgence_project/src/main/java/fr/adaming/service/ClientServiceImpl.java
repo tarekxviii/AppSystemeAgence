@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IClientDao;
+import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Client;
 
 @Service
@@ -46,6 +47,12 @@ public class ClientServiceImpl implements IClientService {
 	@Override
 	public Client getClientById(int id) {
 		return clientDao.getClientById(id);
+	}
+
+	@Override
+	public void updateCategorie(Categorie cat) {
+		clientDao.updateCat(cat);
+		
 	}
 	
 	

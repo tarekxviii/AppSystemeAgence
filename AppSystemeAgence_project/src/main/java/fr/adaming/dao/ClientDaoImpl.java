@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Proprietaire;
 
@@ -80,6 +81,19 @@ public class ClientDaoImpl implements IClientDao {
 		Session s = sf.getCurrentSession();
 
 		return (Client) s.get(Client.class, id);
+	}
+
+	@Override
+	public void updateCat(Categorie cat) {
+	
+		Session s=sf.getCurrentSession();
+		
+		Categorie categorie=(Categorie) s.get(Categorie.class, cat.getId_cat());
+	
+		categorie.setcListeClient(cat.getcListeClient());
+		
+		s.saveOrUpdate(categorie);
+		
 	}
 
 }
