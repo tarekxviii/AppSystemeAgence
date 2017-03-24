@@ -68,7 +68,7 @@ app.factory("bienProvider", function($http) {
 	function getBienProp(id, callback) {
 		$http({
 			method : 'GET',
-			url : urlglobal + '/bien/getDispo/' + id,
+			url : urlglobal + '/bien/getBienByProp/' + id,
 		}).then(function successCallback(response) {
 			console.log(response.data);
 			callback(response);
