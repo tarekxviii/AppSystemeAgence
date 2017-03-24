@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.adaming.entities.Client;
-import fr.adaming.entities.Proprietaire;
 import fr.adaming.service.IClientService;
 
 @RestController
