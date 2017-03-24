@@ -5,11 +5,11 @@
 app.factory("contratProvider", function($http) {
 	var urlglobal = "http://localhost:8080/AppSystemeAgence_project";
 
-	function addContrat(contratForm, bienForm, respForm, clientForm, callback) {
+	function addContrat(formForm, callback) {
 		$http({
 			method : 'POST',
 			url : urlglobal + '/contrat/add',
-			data : angular.toJson(bienForm, contratForm, respForm, clientForm),
+			data : angular.toJson(formForm),
 			headers : {
 				'Content-Type' : 'application/json'
 			}
