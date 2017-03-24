@@ -3,19 +3,19 @@
  */
 app.controller("addBienCtrl",
 	function($scope, $rootScope, bienProvider, $location) {
-	
-		$scope.hide=function(){
-			$scope.boll=true;
-			$scope.boll2=false
+
+		$scope.hide = function() {
+			$scope.boll = true;
+			$scope.boll2 = false
 		}
-		
-		$scope.hide2=function(){
-			$scope.boll=false;
-			$scope.boll2=true;
+
+		$scope.hide2 = function() {
+			$scope.boll = false;
+			$scope.boll2 = true;
 		}
-		
-		
-	
+
+
+
 		$scope.bienForm = {
 			hab0_Com1 : false,
 			loc0_Ach1 : false,
@@ -33,8 +33,8 @@ app.controller("addBienCtrl",
 		};
 
 		$scope.ajouterBien = function() {
-	
-			
+
+
 			console.log("-----------    " + $scope.bienForm);
 			bienProvider.addBien($scope.bienForm, function(callback) {
 
@@ -91,6 +91,15 @@ app.controller("addBienCtrl",
 	}
 }).controller("updateBienCtrl",
 	function($scope, $rootScope, bienProvider, $location) {
+		$scope.hide = function() {
+			$scope.boll = true;
+			$scope.boll2 = false
+		}
+
+		$scope.hide2 = function() {
+			$scope.boll = false;
+			$scope.boll2 = true;
+		}
 		$scope.bienModif = {
 			id_bien : undefined,
 			revenuCadastral : "",
