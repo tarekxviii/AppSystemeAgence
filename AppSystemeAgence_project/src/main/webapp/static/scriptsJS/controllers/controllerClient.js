@@ -71,4 +71,29 @@ app.controller("addClientCtrl",
 					}
 				})
 			}
+		}).controller("associerBienCtrl",
+				function($scope, $rootScope, bienProvider, $location) {
+			$scope.hide = function() {
+				$scope.boll = true;
+				$scope.boll2 = false
+			}
+
+			$scope.hide2 = function() {
+				$scope.boll = false;
+				$scope.boll2 = true;
+			}
+			$scope.bienAssociationForm = {
+				id_bien : undefined,
+			}
+			$scope.catAssociationForm = {
+				typeBien : "",
+			};
+			$scope.associerBien = function() {
+				bienProvider.associerBien ($scope.bienAssociationForm, $scope.catAssociationForm, function(callback) {
+
+					if (callback != undefined && callback != "") {
+						$location.path("accueil");
+					}
+				})
+			}
 		})

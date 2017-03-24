@@ -18,5 +18,5 @@ app.config(function($routeProvider){
 	}).when("/modifierBien", {
 		templateUrl: "pages/bien/modifier.html",
 		controller: "updateBienCtrl"
-})
+	})
 });		

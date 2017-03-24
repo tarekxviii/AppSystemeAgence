@@ -68,10 +68,29 @@ app.factory("clientProvider", function($http) {
 		});
 
 	}
+	function associerBien(bienAssociationForm, catAssociationForm, callback) {
+		$http({
+			method : 'PUT',
+			url : urlglobal + '/bien/updateCatClient',
+			data : angular.toJson(bienAssociationForm, catAssociationForm),
+			headers : {
+				'Content-Type' : 'application/json'
+			}
+		}).success(function(response) {
+			console.log(response);
+			callback(response);
+
+		}).error(function(response) {
+			console.log('Erreur : ' + response.statusText);
+
+		});
+
+	}
 	return {
 		addClient : addClient,
 		getClient : getClient,
 		deleteClient : deleteClient,
 		updateClient : updateClient,
+		associerBien : associerBien,
 	}
 })
