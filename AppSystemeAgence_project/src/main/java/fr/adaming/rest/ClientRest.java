@@ -26,11 +26,10 @@ public class ClientRest {
 	}
 	
 	@RequestMapping(value="/add",method=RequestMethod.POST, consumes="application/json", produces="application/json")
-	public int addPropWS(@RequestBody Client clientAdd){
+	public int addClientWS(@RequestBody Client clientAdd){
 		try{
 			System.out.println("----------------------------- "+clientAdd.getNom_client());
 			clientService.addService(clientAdd);
-			proprietaireService.addService(propAdd);
 			return new Integer (1);
 		}catch(Exception e){
 			return new Integer (0);
@@ -39,9 +38,9 @@ public class ClientRest {
 	
 
 	@RequestMapping(value="/update", method=RequestMethod.PUT, consumes="application/json", produces="application/json")
-	public int updatePropWS(@RequestBody Proprietaire propUpdate){
+	public int updateClientWS(@RequestBody Client clientUpdate){
 		try{
-			proprietaireService.updateService(propUpdate);
+			clientService.updateService(clientUpdate);
 			return new Integer (1);
 		}catch (Exception e) {
 			return new Integer (0);
@@ -51,9 +50,9 @@ public class ClientRest {
 	
 	
 	@RequestMapping(value="/delete/{id_param}", method=RequestMethod.DELETE, produces="application/json")
-	public int deletePropWS(@PathVariable("id_param") int id_prop){
+	public int deleteClientWS(@PathVariable("id_param") int id_client){
 		try{
-			proprietaireService.deleteService(id_prop);
+			clientService.deleteService(id_client);
 			return new Integer (1);	
 		}catch (Exception e) {
 			return new Integer (0);
@@ -61,13 +60,13 @@ public class ClientRest {
 	}
 	
 	@RequestMapping(value="/getAll",method=RequestMethod.GET, produces="application/json")
-	public List<Proprietaire> getAllPropWS(){
-		return proprietaireService.getAllProprietaire();
+	public List<Client> getAllClientWS(){
+		return clientService.getAllClient();
 	}
 	
 	@RequestMapping(value="/getById",method=RequestMethod.GET, produces="application/json")
-	public Proprietaire getPropById(@PathVariable("id_param") int id_prop){
-			return proprietaireService.getProprietaireById(id_prop); 
+	public Client getClientById(@PathVariable("id_param") int id_client){
+			return clientService.getClientById(id_client); 
 
 	}
 	
