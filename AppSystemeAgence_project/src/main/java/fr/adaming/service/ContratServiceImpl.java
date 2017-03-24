@@ -29,20 +29,24 @@ public class ContratServiceImpl implements IContratService {
 
 	@Override
 	public void deleteService(int id) {
-		// TODO Auto-generated method stub
+
+
+		contratDao.deleteDao(id);
 		
 	}
 
 	@Override
 	public void updateService(Contrat contrat) {
-		// TODO Auto-generated method stub
+
+
+		contratDao.updateDao(contrat);
 		
 	}
 
 	@Override
 	public List<Contrat> getAllContrat() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return contratDao.getAllContrat();
 	}
 
 	@Override

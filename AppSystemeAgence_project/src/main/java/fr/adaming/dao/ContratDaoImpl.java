@@ -34,20 +34,43 @@ public class ContratDaoImpl implements IContratDao {
 
 	@Override
 	public void deleteDao(int id) {
-		// TODO Auto-generated method stub
+		
+		Session s=sf.getCurrentSession();
+		
+		s.delete(id);
 
 	}
 
 	@Override
 	public void updateDao(Contrat contrat) {
-		// TODO Auto-generated method stub
+		
+		
+		Session s=sf.getCurrentSession();
+		
+		
+		Contrat cont=(Contrat) s.get(Contrat.class, contrat.getId_contrat());
+		
+		cont.setPrix_contrat(contrat.getPrix_contrat());
+		cont.setDateSignature(contrat.getDateSignature());
+		
+		cont.setcBien(contrat.getcBien());
+		cont.setcClient(contrat.getcClient());
+		cont.setcResponsable(contrat.getcResponsable());
+		
+		s.saveOrUpdate(cont);
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Contrat> getAllContrat() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Session s=sf.getCurrentSession();
+		
+		// Ecriture de la requete
+		String req="select c from Contrat c";
+		
+		return s.createQuery(req).list();
 	}
 
 	@Override

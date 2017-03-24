@@ -51,4 +51,10 @@ public class BienServiceImpl implements IBienService {
 		return bienDao.getCategorieByName(nom_cat);
 	}
 
+	@Override
+	public Bien getBienById(int id) {
+		
+		return bienDao.getBienById(id);
+	}
+
 }
