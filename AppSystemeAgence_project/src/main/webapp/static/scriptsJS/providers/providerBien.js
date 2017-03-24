@@ -3,7 +3,7 @@
  */
 app.factory("bienProvider", function($http) {
 	var urlglobal = "http://localhost:8080/AppSystemeAgence_project";
-	
+
 	function addBien(bienForm, callback) {
 		$http({
 			method : 'POST',
@@ -22,7 +22,7 @@ app.factory("bienProvider", function($http) {
 		});
 
 	}
-	
+
 	function getBienAchete(callback) {
 		$http({
 			method : 'GET',
@@ -31,7 +31,7 @@ app.factory("bienProvider", function($http) {
 			console.log(response.data);
 			callback(response);
 
-		},function errorCallback(response) {
+		}, function errorCallback(response) {
 			console.log('Erreur : ' + response.statusText);
 
 		});
@@ -45,7 +45,7 @@ app.factory("bienProvider", function($http) {
 			console.log(response.data);
 			callback(response);
 
-		},function errorCallback(response) {
+		}, function errorCallback(response) {
 			console.log('Erreur : ' + response.statusText);
 
 		});
@@ -59,16 +59,30 @@ app.factory("bienProvider", function($http) {
 			console.log(response.data);
 			callback(response);
 
-		},function errorCallback(response) {
+		}, function errorCallback(response) {
 			console.log('Erreur : ' + response.statusText);
 
 		});
 
 	}
-	function deleteBien(id,callback) {
+	function getBienProp(id, callback) {
+		$http({
+			method : 'GET',
+			url : urlglobal + '/bien/getDispo/' + id,
+		}).then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+
+		}, function errorCallback(response) {
+			console.log('Erreur : ' + response.statusText);
+
+		});
+
+	}
+	function deleteBien(id, callback) {
 		$http({
 			method : 'DELETE',
-			url : urlglobal + '/bien/delete/'+id,
+			url : urlglobal + '/bien/delete/' + id,
 		}).success(function(response) {
 			console.log(response);
 			callback(response);
@@ -102,8 +116,8 @@ app.factory("bienProvider", function($http) {
 		getBienLoue : getBienLoue,
 		getBienAchete : getBienAchete,
 		getBienDispo : getBienDispo,
+		getBienProp : getBienProp,
 		deleteBien : deleteBien,
 		updateBien : updateBien,
-
 	}
 })

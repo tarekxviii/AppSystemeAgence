@@ -15,6 +15,9 @@ app.config(function($routeProvider){
 	}).when("/afficherBienDisponible", {
 		templateUrl: "pages/bien/afficherDispo.html",
 		controller: "getBienDispoCtrl"
+	}).when("/afficherBienProp", {
+		templateUrl: "pages/bien/afficherBienProp.html",
+		controller: "getBienPropCtrl"
 	}).when("/supprimerBien", {
 		templateUrl: "pages/bien/supprimer.html",
 		controller: "deleteBienCtrl"

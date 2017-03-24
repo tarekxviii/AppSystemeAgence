@@ -63,4 +63,10 @@ public class BienServiceImpl implements IBienService {
 		return bienDao.getBienDispo();
 	}
 
+	@Override
+	public List<Bien> getBienProp(int id_prop) {
+		
+		return bienDao.getBienProp(id_prop);
+	}
+
 }

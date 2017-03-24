@@ -126,4 +126,14 @@ public class BienDaoImpl implements IBienDao {
 		
 	}
 
+
+	@Override
+	public List<Bien> getBienProp(int id_prop) {
+		Session s=sf.getCurrentSession();
+		String req = "select b from Bien b where b.bProprietaire.id_prop=:p_id_prop";
+		Query query=s.createQuery(req);
+		query.setInteger("p_id_prop", id_prop);
+		return query.list();
+	}
+
 }

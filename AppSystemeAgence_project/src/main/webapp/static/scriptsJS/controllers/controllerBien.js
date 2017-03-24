@@ -97,6 +97,16 @@ app.controller("addBienCtrl",
 			})
 		}
 
+	}).controller("getBienPropCtrl", function($scope, bienProvider) {
+		$scope.id = undefined;
+		$scope.indiceShow = false;
+		$scope.rechercher = function() {
+			bienProvider.getBienProp($scope.id, function(callback) {
+				$scope.indiceShow = true;
+				$scope.biens = callback.data;
+
+			})
+		}
 	}).controller("deleteBienCtrl", function($scope, bienProvider, $location) {
 	$scope.id = undefined;
 	$scope.supprimerBien = function() {

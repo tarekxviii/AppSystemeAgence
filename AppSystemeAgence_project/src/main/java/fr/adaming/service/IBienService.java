@@ -20,5 +20,7 @@ public interface IBienService {
 	public Bien getBienById(int id);
 	
 	public List<Bien> getBienDispo();
+	
+	public List<Bien> getBienProp(int id_prop);
 
 }

@@ -22,4 +22,6 @@ public interface IBienDao {
 	
 	public List<Bien> getBienDispo();
 	
+	public List<Bien> getBienProp(int id_prop);
+	
 }

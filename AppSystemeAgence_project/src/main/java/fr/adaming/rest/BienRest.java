@@ -119,6 +119,17 @@ public class BienRest {
 		
 		return listeBienDispo;
 	}
+	/**
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value="/getBienByProp/{id_param}", method = RequestMethod.GET, produces = "application/json")
+	public List<Bien> getBienByPropWS(@PathVariable("id_param") int id_prop){
+		
+		List<Bien> listeBienByProp = bienService.getBienProp(id_prop);
+		
+		return listeBienByProp;
+	}
 	
 	
 	
