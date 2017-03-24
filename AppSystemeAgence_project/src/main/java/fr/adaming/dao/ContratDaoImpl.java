@@ -37,7 +37,7 @@ public class ContratDaoImpl implements IContratDao {
 		
 		Session s=sf.getCurrentSession();
 		
-		s.delete(id);
+		s.delete(s.get(Contrat.class, id));
 
 	}
 
