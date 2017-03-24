@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.adaming.entities.Bien;
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Contrat;
-import fr.adaming.entities.Proprietaire;
 import fr.adaming.entities.Responsable;
 import fr.adaming.service.IBienService;
 import fr.adaming.service.IClientService;
@@ -65,16 +64,23 @@ public class ContratRest {
 	}
 
 	@RequestMapping(value = "/add",method = RequestMethod.POST, consumes = "application/json",  produces = "application/json")
-	public int addContratWs(@RequestBody Contrat contrat, @RequestBody Client client, @RequestBody Bien bien,
-			@RequestBody Responsable resp) {
+	public int addContratWs(@RequestBody Object[] tabObject) {
 
 		try {
-
+			
+			
+			Responsable resp=(Responsable) tabObject[2];
 			resp = respService.getResponsableById(resp.getId_resp());
-
+	
+			Client client=(Client) tabObject[1];
 			client = clientService.getClientById(client.getId_client());
 
+			Bien bien = (Bien) tabObject[0];
 			bien = bienService.getBienById(bien.getId_bien());
+			
+			
+			Contrat contrat=(Contrat) tabObject[3];
+			
 
 			// Affectation des associations
 			contrat.setcBien(bien);
