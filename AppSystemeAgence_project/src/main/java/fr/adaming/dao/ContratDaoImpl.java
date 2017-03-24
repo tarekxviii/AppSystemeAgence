@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import fr.adaming.entities.Contrat;
@@ -11,7 +12,7 @@ import fr.adaming.entities.Contrat;
 @Repository
 public class ContratDaoImpl implements IContratDao {
 
-	
+	@Autowired
 	private SessionFactory sf;
 	
 	

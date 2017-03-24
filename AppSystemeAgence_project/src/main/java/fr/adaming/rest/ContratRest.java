@@ -24,13 +24,13 @@ import fr.adaming.service.IRespService;
 public class ContratRest {
 
 	@Autowired
-	private IContratService contratService;
+	IContratService contratService;
 	@Autowired
-	private IBienService bienService;
+	IBienService bienService;
 	@Autowired
-	private IClientService clientService;
+	IClientService clientService;
 	@Autowired
-	private IRespService respService;
+	IRespService respService;
 
 	/**
 	 * @param contratService
