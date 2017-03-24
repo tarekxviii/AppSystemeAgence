@@ -1,5 +1,6 @@
 package fr.adaming.rest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,11 +66,58 @@ public class BienRest {
 		}
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	@RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = "application/json")
 	public List<Bien> getAllBienWS() {
 		return bienService.getAllBien();
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value="/getAllLoue", method = RequestMethod.GET, produces = "application/json")
+	public List<Bien> getAllBienLoueWS(){
+		List<Bien> listeBienLoue= new ArrayList<>();
+		List<Bien> listeBien = bienService.getAllBien();
+		
+		for(Bien b : listeBien){
+			if (b.isLoc0_Ach1()== false){
+				listeBienLoue.add(b);
+			}
+		}
+		return listeBienLoue;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value="/getAllAchete", method = RequestMethod.GET, produces = "application/json")
+	public List<Bien> getAllBienAcheteWS(){
+		List<Bien> listeBienAchete= new ArrayList<>();
+		List<Bien> listeBien = bienService.getAllBien();
+		
+		for(Bien b : listeBien){
+			if (b.isLoc0_Ach1()== true){
+				listeBienAchete.add(b);
+			}
+		}
+		return listeBienAchete;
+	}
+	
+	
+	
+	
 
+	/**
+	 * 
+	 * @param bienUpdate
+	 * @return
+	 */
 	@RequestMapping(value = "/update", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
 	public int updateBienWS(@RequestBody Bien bienUpdate) {
 		try {
