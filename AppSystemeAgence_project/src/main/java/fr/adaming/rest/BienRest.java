@@ -120,7 +120,15 @@ public class BienRest {
 	 */
 	@RequestMapping(value = "/update", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
 	public int updateBienWS(@RequestBody Bien bienUpdate) {
+		
+		
 		try {
+			
+			Categorie cat = bienService.getCategoriByName(bienUpdate.getNom_categorie());
+			bienUpdate.setbCategorie(cat);
+			
+			Proprietaire prop = propservice.getProprietaireById(bienUpdate.getNum_prop());
+			bienUpdate.setbProprietaire(prop);
 			bienService.updateService(bienUpdate);
 			return new Integer(1);
 		} catch (Exception e) {
