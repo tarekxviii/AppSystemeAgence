@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.adaming.entities.Bien;
 import fr.adaming.entities.Client;
 import fr.adaming.entities.Contrat;
+import fr.adaming.entities.ContratInfos;
 import fr.adaming.entities.Responsable;
 import fr.adaming.service.IBienService;
 import fr.adaming.service.IClientService;
@@ -63,24 +64,23 @@ public class ContratRest {
 		this.respService = respService;
 	}
 
-	@RequestMapping(value = "/add",method = RequestMethod.POST, consumes = "application/json",  produces = "application/json")
-	public int addContratWs(@RequestBody Object[] tabObject) {
+	@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+	public int addContratWs(@RequestBody ContratInfos contratInfos) {
 
 		try {
-			
-			
-			Responsable resp=(Responsable) tabObject[2];
-			resp = respService.getResponsableById(resp.getId_resp());
-	
-			Client client=(Client) tabObject[1];
-			client = clientService.getClientById(client.getId_client());
 
-			Bien bien = (Bien) tabObject[0];
-			bien = bienService.getBienById(bien.getId_bien());
 			
+			Responsable resp = respService.getResponsableById(contratInfos.getRespId());
+
+			Contrat contrat=new Contrat();
 			
-			Contrat contrat=(Contrat) tabObject[3];
+			contrat.setDateSignature(contratInfos.getContratDate());
+			contrat.setPrix_contrat(contratInfos.getContratMontant());
 			
+			Bien bien = bienService.getBienById(contratInfos.getBienId());
+
+			
+			Client client = clientService.getClientById(contratInfos.getClientId());
 
 			// Affectation des associations
 			contrat.setcBien(bien);

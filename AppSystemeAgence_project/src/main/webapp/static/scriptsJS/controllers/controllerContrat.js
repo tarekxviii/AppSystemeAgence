@@ -4,20 +4,19 @@
 app.controller("addContratCtrl",
 	function($scope, $rootScope, contratProvider, $location) {
 	
-	$scope.formForm = [bienForm = {
-			id_bien : undefined,
-		},clientForm = {
-				id_client : undefined,
-			},respForm = {
-					id_resp : undefined,
-			},contratForm = {
-					dateSignature : "",
-					prix_contrat : "",
-				}]
+	$scope.contratInfoForm={
+			respId:undefined,
+			clientId:undefined,
+			bienId:undefined,
+			contratDate:undefined,
+			contratMontant:undefined
+			};
+			
+	
 	
 
 		$scope.ajouterContrat = function() {
-			contratProvider.addContrat($scope.formForm, function(callback) {
+			contratProvider.addContrat($scope.contratInfoForm, function(callback) {
 
 				if (callback != undefined && callback != "") {
 					$location.path("accueil");
