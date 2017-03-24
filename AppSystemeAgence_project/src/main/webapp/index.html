@@ -64,6 +64,24 @@
 					propriétaires</a></li>
 		</ul>
 	</div>
+
+	<div class="btn-group">
+		<button class="btn btn-default dropdown-toggle" type="button"
+			id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+			aria-expanded="true">
+			Gestion des propriétaires <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+			<li><a href="#/ajouterResponsable">Ajouter un responsable</a></li>
+			<li><a href="#/modifierResponsable">Modifier un responsable</a></li>
+			<li><a href="#/supprimerResponsable">Supprimer un
+					responsable</a></li>
+			<li role="separator" class="divider"></li>
+			<li><a href="#/afficherResponsable">Afficher les
+					responsables</a></li>
+		</ul>
+	</div>
+
 	<div class="btn-group">
 		<button class="btn btn-default dropdown-toggle" type="button"
 			id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
@@ -79,8 +97,9 @@
 					acheter</a></li>
 			<li><a href="#/afficherBienALouer">Afficher les biens à
 					louer</a></li>
-					<li role="separator" class="divider"></li>
-			<li><a href="#/afficherBienDisponible">Afficher les biens disponibles</a></li>
+			<li role="separator" class="divider"></li>
+			<li><a href="#/afficherBienDisponible">Afficher les biens
+					disponibles</a></li>
 		</ul>
 	</div>
 	<div class="btn-group">
@@ -91,15 +110,12 @@
 		</button>
 		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 			<li><a href="#/ajouterClient">Ajouter un client</a></li>
-			<li><a href="#/modifierClient">Modifier un
-					client</a></li>
-			<li><a href="#/supprimerClient">Supprimer un
-					client</a></li>
+			<li><a href="#/modifierClient">Modifier un client</a></li>
+			<li><a href="#/supprimerClient">Supprimer un client</a></li>
 			<li role="separator" class="divider"></li>
-			<li><a href="#/afficherClient">Afficher les
-					clients</a></li>
-			<li><a href="#/associationClient">Associer les
-					clients à une catégorie</a></li>		
+			<li><a href="#/afficherClient">Afficher les clients</a></li>
+			<li><a href="#/associationClient">Associer les clients à une
+					catégorie</a></li>
 		</ul>
 	</div>
 	<div class="btn-group">
@@ -110,13 +126,11 @@
 		</button>
 		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 			<li><a href="#/ajouterContrat">Ajouter un contrat</a></li>
-			<li><a href="#/modifierContrat">Modifier un
-					contrat</a></li>
-			<li><a href="#/supprimerContrat">Supprimer un
-					contrat</a></li>
+			<li><a href="#/modifierContrat">Modifier un contrat</a></li>
+			<li><a href="#/supprimerContrat">Supprimer un contrat</a></li>
 		</ul>
 	</div>
-	
+
 
 	<div ng-view></div>
 
