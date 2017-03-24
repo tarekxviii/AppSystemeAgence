@@ -4,8 +4,17 @@
 app.controller("addBienCtrl",
 	function($scope, $rootScope, bienProvider, $location) {
 	
-
-		$scope.boll=false;
+		$scope.hide=function(){
+			$scope.boll=true;
+			$scope.boll2=false
+		}
+		
+		$scope.hide2=function(){
+			$scope.boll=false;
+			$scope.boll2=true;
+		}
+		
+		
 	
 		$scope.bienForm = {
 			hab0_Com1 : false,
