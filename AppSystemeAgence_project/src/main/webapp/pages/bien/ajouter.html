@@ -1,10 +1,14 @@
-<h1 align="center">Ajouter un bien</h1>
+<br/>
 
 
+<h1 style="margin-left: 130px;color: white">Ajouter un bien</h1>
+
+<br/>
+<br/>
 <form class="form-horizontal">
 
 
-
+<div style="text-align: left;padding-left: 20px">
 	<form class="form-horizontal">
 		<div class="radio">
 
@@ -21,9 +25,9 @@
 
 		</div>
 	</form>
-
+</span>
 	<br />
-
+<span style="margin-top: -75px;margin-left: 150px;position: absolute;">
 	<form class="form-horizontal">
 		<div class="radio">
 			<label> <input type="radio" name="optionsRadios"
@@ -38,9 +42,9 @@
 			</label>
 		</div>
 	</form>
-
+</span>
 	<br />
-
+<span style="margin-top: -95px;margin-left: 300px;position: absolute;">
 	<form class="form-horizontal">
 		<div class="radio">
 			<label> <input type="radio" name="optionsRadios"
@@ -55,117 +59,134 @@
 			</label>
 		</div>
 	</form>
-
-
+</span>
+</div>
 	<br />
 
 
 	<div class="form-group">
-		<label for="inputPopulation" class="col-sm-2 control-label">Revenu
+		<label for="inputPopulation" class="col-sm-3 control-label">Revenu
 			Cadastral</label>
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 			<input type="number" class="form-control" id="nomID"
 				placeholder="Nom" ng-model="bienForm.revenuCadastral">
 		</div>
 
 	</div>
-	<br />
-
+	
+<br/>
+<div style="text-align: left">
 	<div class="form-group">
-		<label for="inputPopulation" class="col-sm-2 control-label">Type
+		<label for="inputPopulation" class="col-sm-3 control-label">Type
 			de bien</label>
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 			<input type="text" class="form-control" id="typeID" placeholder="Nom"
 				ng-model="bienForm.type_bien">
 		</div>
 
 	</div>
+</div>
 
-
-	<br />
+<br/>
+<br/>
+<br/>
 
 	<div class="form-group">
 
-		<label for="inputPopulation" class="col-sm-2 control-label">Date
+		<label for="inputPopulation" class="col-sm-3 control-label">Date
 			d'inscription</label>
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 			<input type="date" class="form-control" id="adresseID"
 				placeholder="adresse" ng-model="bienForm.inscription">
 		</div>
 
 	</div>
 
+<br/>
+<br/>
 
-	<br />
 	<div class="form-group" ng-show="boll">
 
-		<label for="inputPopulation" class="col-sm-2 control-label">Caution
+		<label for="inputPopulation" class="col-sm-3 control-label">Caution
 			Locative</label>
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 			<input type="number" class="form-control" id="cautionID"
 				placeholder="adresse" ng-model="bienForm.cautionLoc">
 		</div>
-
+<br/>
+	<br/>
 	</div>
+	
 
-	<br />
 	<div class="form-group" ng-show="boll">
-		<label for="inputPopulation" class="col-sm-2 control-label">Loyer
+		<label for="inputPopulation" class="col-sm-3 control-label">Loyer
 			Mensuel</label>
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 			<input type="number" class="form-control" id="cautionID"
 				placeholder="adresse" ng-model="bienForm.loyerMensuel">
 		</div>
-
+<br/>
+<br/>
 	</div>
 
-	<br />
+
 	<div class="form-group" ng-show="boll">
-		<label for="inputPopulation" class="col-sm-2 control-label">Charges</label>
-		<div class="col-sm-6">
+		<label for="inputPopulation" class="col-sm-3 control-label">Charges</label>
+		<div class="col-sm-4">
 			<input type="number" class="form-control" id="chargeID"
 				placeholder="adresse" ng-model="bienForm.charges">
 		</div>
-
+<br/><br/>
 	</div>
 
 
-	<br />
+
 
 	<div class="form-group" ng-show="boll2">
 
-		<label for="inputPopulation" class="col-sm-2 control-label">Prix
+		<label for="inputPopulation" class="col-sm-3 control-label">Prix
 			Achat</label>
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 			<input type="number" class="form-control" id="prixAchatID"
 				placeholder="adresse" ng-model="bienForm.prixAchat">
 		</div>
-
+<br/>
+<br/>
 	</div>
 
-	<br />
 
 	<div class="form-group">
 
-		<label for="inputPopulation" class="col-sm-2 control-label">Numero
+		<label for="inputPopulation" class="col-sm-3 control-label">Numero
 			du Proprietaire</label>
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 			<input type="number" class="form-control" id="numPropID"
 				placeholder="adresse" ng-model="bienForm.num_prop">
 		</div>
 
 	</div>
+<br/>
+<br/>
+<br ng-show="boll"/>
+<div  ng-show="boll2">
+<br/>
 
-	<br /> <label for="inputPopulation" class="col-sm-10 control-label"
-		style="text-align: center">Etat</label> <select class="form-control"
-		ng-model="bienForm.etat" ng-show="boll2">
+	 <label for="inputPopulation" class="col-sm-3 control-label"
+		>Etat</label><div class="col-sm-4"> <select class="form-control"
+		ng-model="bienForm.etat">
 		<option>A Restaurer</option>
 		<option>Correct</option>
 		<option>Impeccable</option>
-	</select> <br /> 
-	
-	<label for="inputPopulation2" class="col-sm-10 control-label"
-		style="text-align: center">Catégorie du bien</label> <select class="form-control"
+	</select> 
+	</div>
+		<br/>
+	<br/>
+	<br/>
+	</div>
+
+	<label for="inputPopulation2" class="col-sm-3 control-label"
+		>Catégorie du bien</label>
+		<div class="col-sm-4"><select class="form-control"
 		ng-model="bienForm.typeBien" >
 		<option>Terrain vide</option>
 		<option>T1</option>
@@ -173,14 +194,17 @@
 		<option>T3</option>
 		<option>T4</option>
 		<option>T5</option>
-	</select> <br />
+	</select> </div> <br />
 
-
+<br/>
+<br/>
+<br/>
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-6">
 			<button type="submit" class="btn btn-default"
-				ng-click="ajouterBien()">Ajouter le bien</button>
+				ng-click="ajouterBien()" style="margin-left: 100px;">Ajouter le bien</button>
 		</div>
 	</div>
 
 </form>
+
