@@ -16,7 +16,7 @@ app.controller("addVisiteCtrl",
 	
 
 		$scope.ajouterVisite = function() {
-			contratProvider.addVisite($scope.contratInfoForm, function(callback) {
+			visiteProvider.addVisite($scope.contratInfoForm, function(callback) {
 
 				if (callback != undefined && callback != "") {
 					$location.path("accueil");
