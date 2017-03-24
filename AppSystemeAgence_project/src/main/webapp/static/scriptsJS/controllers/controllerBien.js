@@ -34,9 +34,9 @@ app.controller("addBienCtrl",
 				}
 			})
 		}
-	}).controller("getBienCtrl",
+	}).controller("getBienLoueCtrl",
 	function($scope, $rootScope, bienProvider, $location) {
-		bienProvider.getBien(function(callback) {
+		bienProvider.getBienLoue(function(callback) {
 			$scope.biens = callback.data;
 		});
 		$scope.deleteLien = function(id) {
@@ -44,7 +44,25 @@ app.controller("addBienCtrl",
 			bienProvider.deleteBien(id, function(callback) {
 
 				if (callback != undefined && callback != "") {
-					bienProvider.getBien(function(callback) {
+					bienProvider.getBienLoue(function(callback) {
+						$scope.biens = callback.data;
+
+					});
+				}
+			})
+		}
+
+	}).controller("getBienAcheteCtrl",
+	function($scope, $rootScope, bienProvider, $location) {
+		bienProvider.getBienAchete(function(callback) {
+			$scope.biens = callback.data;
+		});
+		$scope.deleteLien = function(id) {
+
+			bienProvider.deleteBien(id, function(callback) {
+
+				if (callback != undefined && callback != "") {
+					bienProvider.getBienAchete(function(callback) {
 						$scope.biens = callback.data;
 
 					});
