@@ -68,10 +68,10 @@ app.factory("clientProvider", function($http) {
 		});
 
 	}
-	function associerBien(bienAssociationForm, callback) {
+	function associerClient(bienAssociationForm, callback) {
 		$http({
 			method : 'PUT',
-			url : urlglobal + '/bien/updateCatClient',
+			url : urlglobal + '/client/updateCatClient',
 			data : angular.toJson(bienAssociationForm),
 			headers : {
 				'Content-Type' : 'application/json'
@@ -91,6 +91,6 @@ app.factory("clientProvider", function($http) {
 		getClient : getClient,
 		deleteClient : deleteClient,
 		updateClient : updateClient,
-		associerBien : associerBien,
+		associerClient : associerClient,
 	}
 })

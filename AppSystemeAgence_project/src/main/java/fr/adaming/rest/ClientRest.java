@@ -110,22 +110,33 @@ public class ClientRest {
 	
 	@RequestMapping(value="/updateCatClient", method=RequestMethod.PUT, consumes="application/json", produces="application/json")
 	public int updateCatClientWS(@RequestBody AssociationClientCat assos){
+		
+		
 		try{
 			Client clientChanger;
 			Categorie catChanger;
 			List<Categorie> listeInt = new ArrayList<>();
 			
+			List<Client> listeClient=new ArrayList<>();
+			
 			catChanger = bienService.getCategoriByName(assos.getTypeCat());
+			System.out.println(catChanger.getId_cat());
 			clientChanger = clientService.getClientById(assos.getIdClient());
 			
 			listeInt.add(catChanger);
 			
+			listeClient.add(clientChanger);
+			
 			clientChanger.setcListeInteret(listeInt);
+
+			catChanger.setcListeClient(listeClient);
 			
 			clientService.updateService(clientChanger);
 			
+			
 			return new Integer (1);
 		}catch (Exception e) {
+		
 			return new Integer (0);
 		}
 	}
