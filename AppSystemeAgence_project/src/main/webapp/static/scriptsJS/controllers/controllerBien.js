@@ -118,6 +118,23 @@ app.controller("addBienCtrl",
 
 		});
 	}
+	$scope.deleteLien = function(id) {
+
+		bienProvider.deleteBien(id, function(callback) {
+
+			if (callback != undefined && callback != "") {
+				bienProvider.getBienPropAchete($scope.id, function(callback) {
+					$scope.indiceShow = true;
+					$scope.biensAchete = callback.data;
+				});
+				bienProvider.getBienPropLoue($scope.id, function(callback) {
+					$scope.indiceShow = true;
+					$scope.biensLoue = callback.data;
+
+				});
+			}
+		})
+	}
 }).controller("deleteBienCtrl", function($scope, bienProvider, $location) {
 	$scope.id = undefined;
 	$scope.supprimerBien = function() {
