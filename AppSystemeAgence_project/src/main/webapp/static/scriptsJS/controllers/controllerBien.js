@@ -105,16 +105,20 @@ app.controller("addBienCtrl",
 		}
 
 	}).controller("getBienPropCtrl", function($scope, bienProvider) {
-		$scope.id = undefined;
-		$scope.indiceShow = false;
-		$scope.rechercher = function() {
-			bienProvider.getBienProp($scope.id, function(callback) {
-				$scope.indiceShow = true;
-				$scope.biens = callback.data;
+	$scope.id = undefined;
+	$scope.indiceShow = false;
+	$scope.rechercher = function() {
+		bienProvider.getBienPropAchete($scope.id, function(callback) {
+			$scope.indiceShow = true;
+			$scope.biensAchete = callback.data;
 
-			})
-		}
-	}).controller("deleteBienCtrl", function($scope, bienProvider, $location) {
+		});bienProvider.getBienPropLoue($scope.id, function(callback) {
+			$scope.indiceShow = true;
+			$scope.biensLoue = callback.data;
+
+		});
+	}
+}).controller("deleteBienCtrl", function($scope, bienProvider, $location) {
 	$scope.id = undefined;
 	$scope.supprimerBien = function() {
 		bienProvider.deleteBien($scope.id, function(callback) {
@@ -155,4 +159,3 @@ app.controller("addBienCtrl",
 			})
 		}
 	})
-	

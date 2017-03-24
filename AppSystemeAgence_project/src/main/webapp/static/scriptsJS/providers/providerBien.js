@@ -80,10 +80,24 @@ app.factory("bienProvider", function($http) {
 		});
 
 	}
-	function getBienProp(id, callback) {
+	function getBienPropAchete(id, callback) {
 		$http({
 			method : 'GET',
-			url : urlglobal + '/bien/getBienByProp/' + id,
+			url : urlglobal + '/bien/getBienByPropAchete/' + id,
+		}).then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+
+		}, function errorCallback(response) {
+			console.log('Erreur : ' + response.statusText);
+
+		});
+
+	}
+	function getBienPropLoue(id, callback) {
+		$http({
+			method : 'GET',
+			url : urlglobal + '/bien/getBienByPropLoue/' + id,
 		}).then(function successCallback(response) {
 			console.log(response.data);
 			callback(response);
@@ -130,8 +144,10 @@ app.factory("bienProvider", function($http) {
 		addBien : addBien,
 		getBienLoue : getBienLoue,
 		getBienAchete : getBienAchete,
-		getBienDispo : getBienDispo,
-		getBienProp : getBienProp,
+		getBienDispoAchete : getBienDispoAchete,
+		getBienDispoLoue : getBienDispoLoue,
+		getBienPropAchete : getBienPropAchete,
+		getBienPropLoue : getBienPropLoue,
 		deleteBien : deleteBien,
 		updateBien : updateBien,
 	}
