@@ -106,4 +106,14 @@ public class BienDaoImpl implements IBienDao {
 		return (Categorie) query.uniqueResult();
 	}
 
+
+	@Override
+	public Bien getBienById(int id) {
+
+
+		Session s=sf.getCurrentSession();
+		
+		return (Bien) s.get(Bien.class, id);
+	}
+
 }

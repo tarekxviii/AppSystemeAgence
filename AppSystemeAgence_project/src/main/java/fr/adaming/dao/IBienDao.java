@@ -18,4 +18,6 @@ public interface IBienDao {
 	
 	public Categorie getCategorieByName(String nom_cat);
 	
+	public Bien getBienById(int id);
+	
 }
