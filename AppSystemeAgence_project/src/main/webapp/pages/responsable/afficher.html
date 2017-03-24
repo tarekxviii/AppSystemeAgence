@@ -1,25 +1,18 @@
-<h1 align="center">Liste des propriétaires</h1>
+<h1 align="center">Liste des responsable</h1>
 
 <div class="table-responsive">
 	<table class="table table-bordered" style="text-align: center">
 		<thead>
 			<tr>
-				<th style="text-align: center">Nom</th>
-				<th style="text-align: center">Adresse</th>
-				<th style="text-align: center">Téléphone travail</th>
-				<th style="text-align: center">Téléphone personnel</th>
-				<th style="text-align: center">Mot de passe</th>
-				<th style="text-align: center">Opérations</th>
+				<th style="text-align: center">Mail</th>
+				<th style="text-align: center">Password</th>
 			</tr>
 		</thead>
-		<tbody ng-repeat="prop in proprietaires |orderBy:'nom_prop'">
+		<tbody ng-repeat="resp in responsables |orderBy:'mail_resp'">
 			<tr>
-				<td>{{prop.nom_prop}}</td>
-				<td>{{prop.adresse_prop}}</td>
-				<td>{{prop.telephoneTravail_prop}}</td>
-				<td>{{prop.telephonePrive_prop}}</td>
-				<td>{{prop.password_prop}}</td>
-				<td><a ng-click="deleteLien(prop.id_prop)">Supprimer</a></td>
+				<td>{{resp.mail_resp}}</td>
+				<td>{{resp.password_resp}}</td>
+				<td><a ng-click="deleteLien(resp.id_resp)">Supprimer</a></td>
 			</tr>
 
 		</tbody>
