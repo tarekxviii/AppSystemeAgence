@@ -2,6 +2,8 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import fr.adaming.entities.Bien;
+import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Responsable;
 
 public interface IRespDao {
@@ -15,5 +17,7 @@ public interface IRespDao {
 	public List<Responsable> getAllResponsable();
 
 	public Responsable getResponsableById(int id);
+	
+	public List<Bien> getBienByCat(Categorie cat);
 
 }

@@ -2,11 +2,14 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import fr.adaming.entities.Bien;
+import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Responsable;
 
 @Repository
@@ -79,6 +82,20 @@ public class RespDaoImpl implements IRespDao {
 
 		return (Responsable) s.get(Responsable.class, id);
 
+	}
+
+	@Override
+	public List<Bien> getBienByCat(Categorie cat) {
+		Session s = sf.getCurrentSession();
+		
+		String req= "select b from Bien b where b.bCategorie.typeBien=:pNomCat";
+		
+		Query query = s.createQuery(req);
+		
+		query.setString("pNomCat", cat.getTypeBien());
+		
+		
+		return query.list();
 	}
 
 }
