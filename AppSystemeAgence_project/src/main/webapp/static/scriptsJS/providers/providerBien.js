@@ -51,10 +51,25 @@ app.factory("bienProvider", function($http) {
 		});
 
 	}
-	function getBienDispo(callback) {
+	function getBienDispoAchete(callback) {
 		$http({
 			method : 'GET',
-			url : urlglobal + '/bien/getDispo',
+			url : urlglobal + '/bien/getDispoAchete',
+		}).then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+
+		}, function errorCallback(response) {
+			console.log('Erreur : ' + response.statusText);
+
+		});
+
+	}
+	
+	function getBienDispoLoue(callback) {
+		$http({
+			method : 'GET',
+			url : urlglobal + '/bien/getDispoLoue',
 		}).then(function successCallback(response) {
 			console.log(response.data);
 			callback(response);

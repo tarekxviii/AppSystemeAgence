@@ -112,13 +112,44 @@ public class BienRest {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value="/getDispo", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value="/getDispoAchete", method = RequestMethod.GET, produces = "application/json")
 	public List<Bien> getBienDispoAcheteWS(){
 		
 		List<Bien> listeBienDispo = bienService.getBienDispo();
 		
-		return listeBienDispo;
+		List<Bien> listeBienDispoAchete=new ArrayList<>();
+		
+		for (Bien bien : listeBienDispo){
+			if(bien.isLoc0_Ach1()==true){
+				listeBienDispoAchete.add(bien);
+			}
+		}
+		
+		return listeBienDispoAchete;
 	}
+	
+	
+	/**
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value="/getDispoLoue", method = RequestMethod.GET, produces = "application/json")
+	public List<Bien> getBienDispoLoueWS(){
+		
+		List<Bien> listeBienDispo = bienService.getBienDispo();
+		
+		List<Bien> listeBienDispoLoue=new ArrayList<>();
+		
+		for (Bien bien : listeBienDispo){
+			if(bien.isLoc0_Ach1()==false){
+				listeBienDispoLoue.add(bien);
+			}
+		}
+		
+		return listeBienDispoLoue;
+	}
+	
+	
 	/**
 	 * 
 	 * @return

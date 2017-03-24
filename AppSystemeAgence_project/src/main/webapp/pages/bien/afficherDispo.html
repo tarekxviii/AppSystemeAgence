@@ -14,16 +14,16 @@
 				<th style="text-align: center">Proprietaire</th>
 			</tr>
 		</thead>
-		<tbody ng-repeat="bien in biens">
+		<tbody ng-repeat="bienAch in biensAchete">
 			<tr>
-				<td>{{bien.type_bien}}</td>
-				<td>{{bien.prixAchat}}</td>
-				<td>{{bien.etat}}</td>
-				<td>{{bien.disponibilite}}</td>
-				<td>{{bien.revenuCadastral}}</td>
-				<td>{{bien.bCategorie.typeBien}}</td>
-				<td>{{bien.bProprietaire.nom_prop}}</td>
-				<td><a ng-click="deleteLien(bien.id_bien)">Supprimer</a></td>
+				<td>{{bienAch.type_bien}}</td>
+				<td>{{bienAch.prixAchat}}</td>
+				<td>{{bienAch.etat}}</td>
+				<td>{{bienAch.disponibilite}}</td>
+				<td>{{bienAch.revenuCadastral}}</td>
+				<td>{{bienAch.bCategorie.typeBien}}</td>
+				<td>{{bienAch.bProprietaire.nom_prop}}</td>
+				<td><a ng-click="deleteLien(bienAch.id_bien)">Supprimer</a></td>
 			</tr>
 
 		</tbody>
@@ -49,7 +49,7 @@
 				<th style="text-align: center">Opérations</th>
 			</tr>
 		</thead>
-		<tbody ng-repeat="bien in biens">
+		<tbody ng-repeat="bien in biensLoue">
 			<tr>
 				<td>{{bien.type_bien}}</td>
 				<td>{{bien.cautionLoc}}</td>
