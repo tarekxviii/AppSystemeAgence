@@ -86,7 +86,6 @@ public class Bien {
 	private List<Visite> bListeVisite;
 	
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="cBien")
-	@Fetch(FetchMode.SUBSELECT)
 	private List<Contrat> bListeContrat;
 	
 	/**
@@ -534,7 +533,6 @@ public class Bien {
 	public void setbListeVisite(List<Visite> bListeVisite) {
 		this.bListeVisite = bListeVisite;
 	}
-
 
 
 
