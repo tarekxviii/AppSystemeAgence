@@ -41,7 +41,7 @@
 					<td>{{bienAch.type_bien}}</td>
 					<td>{{bienAch.prixAchat}}</td>
 					<td>{{bienAch.etat}}</td>
-					<td>{{bienAch.disponibilite}}</td>
+					<td ng-switch="bienAch.disponibilite"><p ng-switch-when="true">disponible</p><p ng-switch-when="false">indisponible</p></td>
 					<td>{{bienAch.revenuCadastral}}</td>
 					<td>{{bienAch.bCategorie.typeBien}}</td>
 					<td><a ng-click="deleteLien(bienAch.id_bien)">Supprimer</a></td>
@@ -75,7 +75,7 @@
 					<td>{{bien.cautionLoc}}</td>
 					<td>{{bien.loyerMensuel}}</td>
 					<td>{{bien.charges}}</td>
-					<td>{{{true:disponible,false:indisponible}[bien.disponibilite]}}</td>
+					<td ng-switch="bien.disponibilite"><p ng-switch-when="true">disponible</p><p ng-switch-when="false">indisponible</p></td>
 					<td>{{bien.revenuCadastral}}</td>
 					<td>{{bien.bCategorie.typeBien}}</td>
 					<td><a ng-click="deleteLien(bien.id_bien)">Supprimer</a></td>
