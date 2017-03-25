@@ -12,7 +12,7 @@
 				<th style="text-align: center">Revenu cadastral</th>
 				<th style="text-align: center">Categorie</th>
 				<th style="text-align: center">Proprietaire</th>
-				<th style="text-align: center">Opérations</th>
+				<th style="text-align: center">Operations</th>
 			</tr>
 		</thead>
 		<tbody ng-repeat="bien in biens">
@@ -21,7 +21,7 @@
 				<td>{{bien.cautionLoc}}</td>
 				<td>{{bien.loyerMensuel}}</td>
 				<td>{{bien.charges}}</td>
-				<td>{{bien.disponibilite}}</td>
+				<td ng-switch="bien.disponibilite"><p ng-switch-when="true">disponible</p><p ng-switch-when="false">indisponible</p></td>
 				<td>{{bien.revenuCadastral}}</td>
 				<td>{{bien.bCategorie.typeBien}}</td>
 				<td>{{bien.bProprietaire.nom_prop}}</td>

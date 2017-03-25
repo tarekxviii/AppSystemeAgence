@@ -17,6 +17,8 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name="categories")
 @XmlRootElement
@@ -36,12 +38,14 @@ public class Categorie {
 	@Column(name="typeBien")
 	private String typeBien;
 	
-	@ManyToMany(fetch=FetchType.EAGER, mappedBy="cListeInteret")
+	@ManyToMany(fetch=FetchType.LAZY, mappedBy="cListeInteret")
 	@Fetch(FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Client> cListeClient;
 	
-	@OneToMany(mappedBy="bCategorie",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="bCategorie",fetch=FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Bien> cListeBien;
 
 	/**

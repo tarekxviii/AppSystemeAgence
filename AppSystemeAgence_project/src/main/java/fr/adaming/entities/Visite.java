@@ -32,17 +32,17 @@ public class Visite {
 	private Date date_visite;
 	
 	//OneToMany
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="bien_id", referencedColumnName="id_bien")
 	private Bien vBien;
 	
 	//OneToMany
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="client_id", referencedColumnName="id_client")
 	private Client vClient;
 	
 	//OneToMany
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="resp_id", referencedColumnName="id_resp")
 	private Responsable vResponsable;
 

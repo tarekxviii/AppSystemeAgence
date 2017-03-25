@@ -1,17 +1,18 @@
 <h1 align="center">Liste des biens disponibles</h1>
 
 <div class="table-responsive">
-<h2 align="center">Liste des biens disponibles à l'achat</h2>
+	<h2 align="center">Liste des biens disponibles a l'achat</h2>
 	<table class="table table-bordered" style="text-align: center">
 		<thead>
 			<tr>
 				<th style="text-align: center">Type</th>
 				<th style="text-align: center">Prix d'achat</th>
 				<th style="text-align: center">Etat</th>
-				<th style="text-align: center">Disponibilite</th>
+
 				<th style="text-align: center">Revenu cadastral</th>
 				<th style="text-align: center">Categorie</th>
 				<th style="text-align: center">Proprietaire</th>
+				<th style="text-align: center">Operation</th>
 			</tr>
 		</thead>
 		<tbody ng-repeat="bienAch in biensAchete">
@@ -19,7 +20,7 @@
 				<td>{{bienAch.type_bien}}</td>
 				<td>{{bienAch.prixAchat}}</td>
 				<td>{{bienAch.etat}}</td>
-				<td>{{bienAch.disponibilite}}</td>
+
 				<td>{{bienAch.revenuCadastral}}</td>
 				<td>{{bienAch.bCategorie.typeBien}}</td>
 				<td>{{bienAch.bProprietaire.nom_prop}}</td>
@@ -34,7 +35,7 @@
 
 
 <div class="table-responsive">
-<h2 align="center">Liste des biens disponibles à la location</h2>
+	<h2 align="center">Liste des biens disponibles a la location</h2>
 	<table class="table table-bordered" style="text-align: center">
 		<thead>
 			<tr>
@@ -42,11 +43,11 @@
 				<th style="text-align: center">Caution</th>
 				<th style="text-align: center">Loyer</th>
 				<th style="text-align: center">Charges</th>
-				<th style="text-align: center">Disponibilite</th>
+
 				<th style="text-align: center">Revenu cadastral</th>
 				<th style="text-align: center">Categorie</th>
 				<th style="text-align: center">Proprietaire</th>
-				<th style="text-align: center">Opérations</th>
+				<th style="text-align: center">Operations</th>
 			</tr>
 		</thead>
 		<tbody ng-repeat="bien in biensLoue">
@@ -55,7 +56,7 @@
 				<td>{{bien.cautionLoc}}</td>
 				<td>{{bien.loyerMensuel}}</td>
 				<td>{{bien.charges}}</td>
-				<td>{{bien.disponibilite}}</td>
+
 				<td>{{bien.revenuCadastral}}</td>
 				<td>{{bien.bCategorie.typeBien}}</td>
 				<td>{{bien.bProprietaire.nom_prop}}</td>

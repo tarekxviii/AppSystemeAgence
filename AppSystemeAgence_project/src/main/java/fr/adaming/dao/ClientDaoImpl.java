@@ -55,7 +55,6 @@ public class ClientDaoImpl implements IClientDao {
 		c1.setPrenom_client(client.getPrenom_client());
 		c1.setTel_client(client.getTel_client());
 		c1.setMdp_client(client.getMdp_client());
-		c1.setcContrat(client.getcContrat());
 		c1.setcListeVisite(client.getcListeVisite());
 		c1.setcListeInteret(client.getcListeInteret());
 	

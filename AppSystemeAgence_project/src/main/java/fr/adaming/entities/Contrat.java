@@ -39,10 +39,12 @@ public class Contrat {
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="bien_id",referencedColumnName="id_bien")
+	@JsonIgnore
 	private Bien cBien;
 	
-	@OneToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="client_id",referencedColumnName="id_client")
+	@JsonIgnore
 	private Client cClient;
 	
 	@ManyToOne(fetch=FetchType.EAGER)

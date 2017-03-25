@@ -22,6 +22,8 @@ import javax.xml.bind.annotation.XmlTransient;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="clients")
 @XmlRootElement
@@ -43,16 +45,18 @@ public class Client implements Serializable{
 		private String mdp_client;
 		
 		
-		@OneToOne(fetch=FetchType.EAGER,mappedBy="cClient")
-		private Contrat cContrat;
+		@OneToMany(fetch=FetchType.LAZY,mappedBy="cClient")
+		@JsonIgnore
+		private List<Contrat> cListeContrat;
 		
-		@OneToMany(mappedBy="vClient",fetch=FetchType.EAGER)
-		@Fetch(FetchMode.SUBSELECT)
+		@OneToMany(mappedBy="vClient",fetch=FetchType.LAZY)
+		@JsonIgnore
 		private List<Visite> cListeVisite;
 		
-		@ManyToMany(fetch=FetchType.EAGER)
+		@ManyToMany(fetch=FetchType.LAZY)
 		@Fetch(FetchMode.SUBSELECT)
 		@JoinTable(name = "table_jointure_client_visite",joinColumns=@JoinColumn(name="client_id_fk"),inverseJoinColumns=@JoinColumn(name="visite_id_fk"))
+		@JsonIgnore
 		private List<Categorie> cListeInteret;
 		
 		
@@ -159,14 +163,21 @@ public class Client implements Serializable{
 		}
 		
 		
-		@XmlTransient
-		public Contrat getcContrat() {
-			return cContrat;
-		}
-		public void setcContrat(Contrat cContrat) {
-			this.cContrat = cContrat;
-		}
+	
 		
+		/**
+		 * @return the cListeContrat
+		 */
+		@XmlTransient
+		public List<Contrat> getcListeContrat() {
+			return cListeContrat;
+		}
+		/**
+		 * @param cListeContrat the cListeContrat to set
+		 */
+		public void setcListeContrat(List<Contrat> cListeContrat) {
+			this.cListeContrat = cListeContrat;
+		}
 		@XmlTransient
 		public List<Visite> getcListeVisite() {
 			return cListeVisite;
