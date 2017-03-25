@@ -17,7 +17,7 @@ app.controller(
 						function(callback) {
 
 							if (callback != undefined && callback != "") {
-								$location.path("accueil");
+								$location.path("afficherResponsable");
 							}
 						})
 			}
@@ -50,7 +50,7 @@ app.controller(
 						callback) {
 
 					if (callback != undefined && callback != "") {
-						$location.path("accueil");
+						$location.path("afficherResponsable");
 					}
 				})
 			}
@@ -67,7 +67,7 @@ app.controller(
 						function(callback) {
 
 							if (callback != undefined && callback != "") {
-								$location.path("accueil");
+								$location.path("afficherResponsable");
 							}
 						})
 			}

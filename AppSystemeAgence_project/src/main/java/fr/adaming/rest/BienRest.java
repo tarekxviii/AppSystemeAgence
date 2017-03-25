@@ -228,5 +228,10 @@ public class BienRest {
 			return new Integer(0);
 		}
 	}
+	
+	@RequestMapping(value="/getProp/{id_param}",method=RequestMethod.GET,produces="application/json")
+	public Proprietaire getPropByIdWS(@PathVariable("id_param") int id_prop){
+		return propservice.getProprietaireById(id_prop);
+	}
 
 }

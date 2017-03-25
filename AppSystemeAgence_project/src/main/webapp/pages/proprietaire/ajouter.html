@@ -1,45 +1,45 @@
-<h1 align="center">Ajouter un propriétaire</h1>
+<h1 align="center">Ajouter un proprietaire</h1>
+<br/>
 
-
-<form class="form-horizontal">
+<form class="form-horizontal" style="margin-left: 100px;">
 	<div class="form-group">
 		<label for="inputNomPays" class="col-sm-2 control-label">Nom
-			du propriétaire</label>
-		<div class="col-sm-10">
+			du proprietaire</label>
+		<div class="col-sm-6">
 			<input type="text" class="form-control" id="nomID"
 				placeholder="Nom" ng-model="proprietaireForm.nom_prop">
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="inputPopulation" class="col-sm-2 control-label">Adresse du propriétaire</label>
-		<div class="col-sm-10">
+		<label for="inputPopulation" class="col-sm-2 control-label">Adresse du proprietaire</label>
+		<div class="col-sm-6">
 			<input type="text" class="form-control" id="adresseID"
 				placeholder="adresse" ng-model="proprietaireForm.adresse_prop">
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="inputPopulation" class="col-sm-2 control-label">Téléphone privé</label>
-		<div class="col-sm-10">
+		<label for="inputPopulation" class="col-sm-2 control-label">Telephone prive</label>
+		<div class="col-sm-6">
 			<input type="text" class="form-control" id="priveID"
-				placeholder="téléphone privé" ng-model="proprietaireForm.telephonePrive_prop">
+				placeholder="telephone prive" ng-model="proprietaireForm.telephonePrive_prop">
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="inputPopulation" class="col-sm-2 control-label">Téléphone Travail</label>
-		<div class="col-sm-10">
+		<label for="inputPopulation" class="col-sm-2 control-label">Telephone Travail</label>
+		<div class="col-sm-6">
 			<input type="text" class="form-control" id="travailID"
-				placeholder="téléphone travail" ng-model="proprietaireForm.telephoneTravail_prop">
+				placeholder="telephone travail" ng-model="proprietaireForm.telephoneTravail_prop">
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="inputPopulation" class="col-sm-2 control-label">Mot de passe</label>
-		<div class="col-sm-10">
+		<div class="col-sm-6">
 			<input type="password" class="form-control" id="mdpID"
 				placeholder="mot de passe" ng-model="proprietaireForm.password_prop">
 		</div>
 	</div>
 	<div class="form-group">
-		<div class="col-sm-offset-2 col-sm-10">
+		<div class="col-sm-offset-2 col-sm-4">
 			<button type="submit" class="btn btn-default" ng-click="ajouterProp()">Ajouter le proprietaire</button>
 		</div>
 	</div>

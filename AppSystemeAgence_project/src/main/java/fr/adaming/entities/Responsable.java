@@ -16,6 +16,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="responsables")
 @XmlRootElement
@@ -32,12 +34,14 @@ public class Responsable {
 	@Column(name="password_resp")
 	private String password_resp;
 	
-	@OneToMany(mappedBy="vResponsable", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="vResponsable", fetch=FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Visite> rListeVisite;
 	
-	@OneToMany(mappedBy="cResponsable", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="cResponsable", fetch=FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Contrat> rListeContrat;
  
 	/**

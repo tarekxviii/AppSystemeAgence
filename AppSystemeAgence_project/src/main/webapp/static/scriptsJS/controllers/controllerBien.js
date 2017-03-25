@@ -136,11 +136,13 @@ app.controller("addBienCtrl",
 		bienProvider.getBienPropAchete($scope.id, function(callback) {
 			$scope.indiceShow = true;
 			$scope.biensAchete = callback.data;
-
+	
 		});bienProvider.getBienPropLoue($scope.id, function(callback) {
 			$scope.indiceShow = true;
 			$scope.biensLoue = callback.data;
 
+		});bienProvider.getProp($scope.id,function(callback){
+			$scope.prop=callback.data;
 		});
 	}
 	$scope.deleteLien = function(id) {

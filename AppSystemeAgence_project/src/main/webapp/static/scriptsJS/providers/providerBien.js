@@ -140,6 +140,21 @@ app.factory("bienProvider", function($http) {
 		});
 
 	}
+	
+	function getProp(id, callback) {
+		$http({
+			method : 'GET',
+			url : urlglobal + '/bien/getProp/' + id,
+		}).then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+
+		}, function errorCallback(response) {
+			console.log('Erreur : ' + response.statusText);
+
+		});
+
+	}
 	return {
 		addBien : addBien,
 		getBienLoue : getBienLoue,
@@ -150,5 +165,6 @@ app.factory("bienProvider", function($http) {
 		getBienPropLoue : getBienPropLoue,
 		deleteBien : deleteBien,
 		updateBien : updateBien,
+		getProp:getProp,
 	}
 })

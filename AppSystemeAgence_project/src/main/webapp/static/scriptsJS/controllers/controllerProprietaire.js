@@ -17,7 +17,7 @@ app.controller("addPropCtrl",
 			proprietaireProvider.addProprietaire($scope.proprietaireForm, function(callback) {
 
 				if (callback != undefined && callback != "") {
-					$location.path("accueil");
+					$location.path("afficherProprietaire");
 				}
 			})
 		}
@@ -46,7 +46,7 @@ app.controller("addPropCtrl",
 		proprietaireProvider.deleteProprietaire($scope.id, function(callback) {
 
 			if (callback != undefined && callback != "") {
-				$location.path("accueil");
+				$location.path("afficherProprietaire");
 			}
 		})
 	}
@@ -64,7 +64,7 @@ app.controller("addPropCtrl",
 			proprietaireProvider.updateProprietaire($scope.proprietaireModif, function(callback) {
 
 				if (callback != undefined && callback != "") {
-					$location.path("accueil");
+					$location.path("afficherProprietaire");
 				}
 			})
 		}

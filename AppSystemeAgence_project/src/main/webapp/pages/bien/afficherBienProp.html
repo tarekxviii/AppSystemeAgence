@@ -1,13 +1,12 @@
-<h1 align="center">Liste des biens qui appartiennent à un
-	propriétaire</h1>
+<h1 align="center">Liste des biens de {{prop.nom_prop}}</h1>
 
-
+<br/>
 
 <form class="form-horizontal">
 	<div class="form-group">
 		<label for="inputNomPays" class="col-sm-2 control-label">Id du
-			Propriétaire</label>
-		<div class="col-sm-10">
+			Proprietaire</label>
+		<div class="col-sm-4">
 			<input type="number" class="form-control" id="IDtotoSupID"
 				placeholder="id du proprietaire" ng-model="id">
 		</div>
@@ -15,7 +14,7 @@
 			<div class="col-sm-offset-2 col-sm-10">
 				<button type="submit" class="btn btn-default"
 					ng-click="rechercher()">Rechercher les biens du
-					propriétaire</button>
+					proprietaire</button>
 			</div>
 		</div>
 </form>
@@ -34,7 +33,6 @@
 					<th style="text-align: center">Disponibilite</th>
 					<th style="text-align: center">Revenu cadastral</th>
 					<th style="text-align: center">Categorie</th>
-					<th style="text-align: center">Proprietaire</th>
 					<th style="text-align: center">Opérations</th>
 				</tr>
 			</thead>
@@ -46,7 +44,6 @@
 					<td>{{bienAch.disponibilite}}</td>
 					<td>{{bienAch.revenuCadastral}}</td>
 					<td>{{bienAch.bCategorie.typeBien}}</td>
-					<td>{{bienAch.bProprietaire.nom_prop}}</td>
 					<td><a ng-click="deleteLien(bienAch.id_bien)">Supprimer</a></td>
 				</tr>
 
@@ -69,7 +66,6 @@
 					<th style="text-align: center">Disponibilite</th>
 					<th style="text-align: center">Revenu cadastral</th>
 					<th style="text-align: center">Categorie</th>
-					<th style="text-align: center">Proprietaire</th>
 					<th style="text-align: center">Opérations</th>
 				</tr>
 			</thead>
@@ -79,10 +75,9 @@
 					<td>{{bien.cautionLoc}}</td>
 					<td>{{bien.loyerMensuel}}</td>
 					<td>{{bien.charges}}</td>
-					<td>{{bien.disponibilite}}</td>
+					<td>{{{true:disponible,false:indisponible}[bien.disponibilite]}}</td>
 					<td>{{bien.revenuCadastral}}</td>
 					<td>{{bien.bCategorie.typeBien}}</td>
-					<td>{{bien.bProprietaire.nom_prop}}</td>
 					<td><a ng-click="deleteLien(bien.id_bien)">Supprimer</a></td>
 				</tr>
 			</tbody>
