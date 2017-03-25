@@ -86,6 +86,8 @@ public class Bien {
 	private List<Visite> bListeVisite;
 	
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="cBien")
+	@Fetch(FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Contrat> bListeContrat;
 	
 	/**

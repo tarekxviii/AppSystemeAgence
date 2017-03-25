@@ -39,7 +39,7 @@ app.controller("addBienCtrl",
 			bienProvider.addBien($scope.bienForm, function(callback) {
 
 				if (callback != undefined && callback != "") {
-					$location.path("accueil");
+					$location.path("afficherBien");
 				}
 			})
 		}
@@ -196,7 +196,7 @@ app.controller("addBienCtrl",
 			bienProvider.updateBien($scope.bienModif, function(callback) {
 
 				if (callback != undefined && callback != "") {
-					$location.path("accueil");
+					$location.path("afficherBien");
 				}
 			})
 		}
