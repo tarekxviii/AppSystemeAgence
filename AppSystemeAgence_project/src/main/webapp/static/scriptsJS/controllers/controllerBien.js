@@ -43,6 +43,31 @@ app.controller("addBienCtrl",
 				}
 			})
 		}
+	}).controller("getBienCtrl",
+	function($scope, $rootScope, bienProvider, $location) {
+		bienProvider.getBienLoue(function(callback) {
+			$scope.biensLoue = callback.data;
+		});
+		bienProvider.getBienAchete(function(callback) {
+			$scope.biensAchete = callback.data;
+		});
+		$scope.deleteLien = function(id) {
+
+			bienProvider.deleteBien(id, function(callback) {
+
+				if (callback != undefined && callback != "") {
+					bienProvider.getBienLoue(function(callback) {
+						$scope.biensLoue = callback.data;
+						
+
+					});
+					bienProvider.getBienAchete(function(callback) {
+					$scope.biensAchete = callback.data;
+					});
+				}
+			})
+		}
+
 	}).controller("getBienLoueCtrl",
 	function($scope, $rootScope, bienProvider, $location) {
 		bienProvider.getBienLoue(function(callback) {
@@ -141,7 +166,7 @@ app.controller("addBienCtrl",
 		bienProvider.deleteBien($scope.id, function(callback) {
 
 			if (callback != undefined && callback != "") {
-				$location.path("accueil");
+				$location.path("afficherBien");
 			}
 		})
 	}

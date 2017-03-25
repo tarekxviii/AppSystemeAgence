@@ -1,66 +1,64 @@
-<br/>
+<br />
 
 
-<h1 style="margin-left: 130px;color: white">Ajouter un bien</h1>
+<h1 style="margin-left: 130px; color: white">Ajouter un bien</h1>
 
-<br/>
-<br/>
+<br />
+<br />
 <form class="form-horizontal">
 
 
-<div style="text-align: left;padding-left: 20px">
-	<form class="form-horizontal">
-		<div class="radio">
+	<div style="text-align: left; padding-left: 20px">
+		<form class="form-horizontal">
+			<div class="radio">
 
-			<label> <input type="radio" name="optionsRadios"
-				id="optionsRadios1" value="false" ng-model="bienForm.hab0_Com1">
-				Habitation
-			</label>
-		</div>
-		<div class="radio">
-			<label> <input type="radio" name="optionsRadios"
-				id="optionsRadios2" value="true" ng-model="bienForm.hab0_Com1">
-				Commercial
-			</label>
+				<label> <input type="radio" name="optionsRadios"
+					id="optionsRadios1" value="false" ng-model="bienForm.hab0_Com1">
+					Habitation
+				</label>
+			</div>
+			<div class="radio">
+				<label> <input type="radio" name="optionsRadios"
+					id="optionsRadios2" value="true" ng-model="bienForm.hab0_Com1">
+					Commercial
+				</label>
 
-		</div>
-	</form>
-</span>
-	<br />
-<span style="margin-top: -75px;margin-left: 150px;position: absolute;">
-	<form class="form-horizontal">
-		<div class="radio">
-			<label> <input type="radio" name="optionsRadios"
-				id="optionsRadios3" value="false" ng-model="bienForm.loc0_Ach1" ng-click="hide()">
-				A Louer
-			</label>
-		</div>
-		<div class="radio">
-			<label> <input type="radio" name="optionsRadios"
-				id="optionsRadios4" value="true" ng-model="bienForm.loc0_Ach1" ng-click="hide2()">
-				A acheter
-			</label>
-		</div>
-	</form>
-</span>
-	<br />
-<span style="margin-top: -95px;margin-left: 300px;position: absolute;">
-	<form class="form-horizontal">
-		<div class="radio">
-			<label> <input type="radio" name="optionsRadios"
-				id="optionsRadios5" value="false" ng-model="bienForm.disponibilite">
-				Non Disponible
-			</label>
-		</div>
-		<div class="radio">
-			<label> <input type="radio" name="optionsRadios"
-				id="optionsRadios6" value="true" ng-model="bienForm.disponibilite">
-				Disponible
-			</label>
-		</div>
-	</form>
-</span>
-</div>
+			</div>
+		</form>
+		</span> <br /> <span
+			style="margin-top: -75px; margin-left: 150px; position: absolute;">
+			<form class="form-horizontal">
+				<div class="radio">
+					<label> <input type="radio" name="optionsRadios"
+						id="optionsRadios3" value="false" ng-model="bienForm.loc0_Ach1"
+						ng-click="hide()"> A Louer
+					</label>
+				</div>
+				<div class="radio">
+					<label> <input type="radio" name="optionsRadios"
+						id="optionsRadios4" value="true" ng-model="bienForm.loc0_Ach1"
+						ng-click="hide2()"> A acheter
+					</label>
+				</div>
+			</form>
+		</span> <br /> <span
+			style="margin-top: -95px; margin-left: 300px; position: absolute;">
+			<form class="form-horizontal">
+				<div class="radio">
+					<label> <input type="radio" name="optionsRadios"
+						id="optionsRadios5" value="false"
+						ng-model="bienForm.disponibilite"> Non Disponible
+					</label>
+				</div>
+				<div class="radio">
+					<label> <input type="radio" name="optionsRadios"
+						id="optionsRadios6" value="true" ng-model="bienForm.disponibilite">
+						Disponible
+					</label>
+				</div>
+			</form>
+		</span>
+	</div>
 	<br />
 
 
@@ -73,23 +71,21 @@
 		</div>
 
 	</div>
-	
-<br/>
-<div style="text-align: left">
-	<div class="form-group">
-		<label for="inputPopulation" class="col-sm-3 control-label">Type
-			de bien</label>
-		<div class="col-sm-4">
-			<input type="text" class="form-control" id="typeID" placeholder="Nom"
-				ng-model="bienForm.type_bien">
+
+	<br />
+	<div style="text-align: left">
+		<div class="form-group">
+			<label for="inputPopulation" class="col-sm-3 control-label">Type
+				de bien</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="typeID"
+					placeholder="Nom" ng-model="bienForm.type_bien">
+			</div>
+
 		</div>
-
 	</div>
-</div>
 
-<br/>
-<br/>
-<br/>
+	<br /> <br /> <br />
 
 	<div class="form-group">
 
@@ -102,8 +98,7 @@
 
 	</div>
 
-<br/>
-<br/>
+	<br /> <br />
 
 	<div class="form-group" ng-show="boll">
 
@@ -113,10 +108,9 @@
 			<input type="number" class="form-control" id="cautionID"
 				placeholder="adresse" ng-model="bienForm.cautionLoc">
 		</div>
-<br/>
-	<br/>
+		<br /> <br />
 	</div>
-	
+
 
 	<div class="form-group" ng-show="boll">
 		<label for="inputPopulation" class="col-sm-3 control-label">Loyer
@@ -125,8 +119,7 @@
 			<input type="number" class="form-control" id="cautionID"
 				placeholder="adresse" ng-model="bienForm.loyerMensuel">
 		</div>
-<br/>
-<br/>
+		<br /> <br />
 	</div>
 
 
@@ -136,7 +129,8 @@
 			<input type="number" class="form-control" id="chargeID"
 				placeholder="adresse" ng-model="bienForm.charges">
 		</div>
-<br/><br/>
+		<br />
+		<br />
 	</div>
 
 
@@ -150,8 +144,7 @@
 			<input type="number" class="form-control" id="prixAchatID"
 				placeholder="adresse" ng-model="bienForm.prixAchat">
 		</div>
-<br/>
-<br/>
+		<br /> <br />
 	</div>
 
 
@@ -165,44 +158,37 @@
 		</div>
 
 	</div>
-<br/>
-<br/>
-<br ng-show="boll"/>
-<div  ng-show="boll2">
-<br/>
-
-	 <label for="inputPopulation" class="col-sm-3 control-label"
-		>Etat</label><div class="col-sm-4"> <select class="form-control"
-		ng-model="bienForm.etat">
-		<option>A Restaurer</option>
-		<option>Correct</option>
-		<option>Impeccable</option>
-	</select> 
-	</div>
-		<br/>
-	<br/>
-	<br/>
+	<br /> <br /> <br ng-show="boll" />
+	<div ng-show="boll2">
+		<br /> <label for="inputPopulation" class="col-sm-3 control-label">Etat</label>
+		<div class="col-sm-4">
+			<select class="form-control" ng-model="bienForm.etat">
+				<option>A Restaurer</option>
+				<option>Correct</option>
+				<option>Impeccable</option>
+			</select>
+		</div>
+		<br /> <br /> <br />
 	</div>
 
-	<label for="inputPopulation2" class="col-sm-3 control-label"
-		>Catégorie du bien</label>
-		<div class="col-sm-4"><select class="form-control"
-		ng-model="bienForm.typeBien" >
-		<option>Terrain vide</option>
-		<option>T1</option>
-		<option>T2</option>
-		<option>T3</option>
-		<option>T4</option>
-		<option>T5</option>
-	</select> </div> <br />
-
-<br/>
-<br/>
-<br/>
+	<label for="inputPopulation2" class="col-sm-3 control-label">Catégorie
+		du bien</label>
+	<div class="col-sm-4">
+		<select class="form-control" ng-model="bienForm.typeBien">
+			<option>Terrain vide</option>
+			<option>T1</option>
+			<option>T2</option>
+			<option>T3</option>
+			<option>T4</option>
+			<option>T5</option>
+		</select>
+	</div>
+	<br /> <br /> <br /> <br />
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-6">
 			<button type="submit" class="btn btn-default"
-				ng-click="ajouterBien()" style="margin-left: 100px;">Ajouter le bien</button>
+				ng-click="ajouterBien()" style="margin-left: 100px;">Ajouter
+				le bien</button>
 		</div>
 	</div>
 

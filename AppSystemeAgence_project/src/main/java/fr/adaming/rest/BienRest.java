@@ -62,6 +62,7 @@ public class BienRest {
 			
 			return new Integer(1);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return new Integer(0);
 		}
 	}

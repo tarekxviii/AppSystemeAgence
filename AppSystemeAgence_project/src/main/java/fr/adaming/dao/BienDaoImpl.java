@@ -71,8 +71,8 @@ public class BienDaoImpl implements IBienDao {
 		b1.setEtat(bien.getEtat());
 		b1.setbCategorie(bien.getbCategorie());
 		b1.setbProprietaire(bien.getbProprietaire());
-		b1.setbListeVisite(bien.getbListeVisite());
-		b1.setbContrat(bien.getbContrat());
+		
+		
 
 		// Modification dans la base de données
 		s.saveOrUpdate(b1);

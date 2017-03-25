@@ -22,6 +22,8 @@ import javax.xml.bind.annotation.XmlTransient;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="biens")
 @XmlRootElement
@@ -83,8 +85,9 @@ public class Bien {
 	@Fetch(FetchMode.SUBSELECT)
 	private List<Visite> bListeVisite;
 	
-	@OneToOne(fetch=FetchType.LAZY, mappedBy="cBien")
-	private Contrat bContrat;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="cBien")
+	@Fetch(FetchMode.SUBSELECT)
+	private List<Contrat> bListeContrat;
 	
 	/**
 	 * constructeur vide
@@ -532,19 +535,25 @@ public class Bien {
 		this.bListeVisite = bListeVisite;
 	}
 
-	/**
-	 * @return the bContrat
-	 */
-	@XmlTransient
-	public Contrat getbContrat() {
-		return bContrat;
-	}
+
+
+
 
 	/**
-	 * @param bContrat the bContrat to set
+	 * @return the bListeContrat
 	 */
-	public void setbContrat(Contrat bContrat) {
-		this.bContrat = bContrat;
+	@XmlTransient
+	public List<Contrat> getbListeContrat() {
+		return bListeContrat;
+	}
+
+
+
+	/**
+	 * @param bListeContrat the bListeContrat to set
+	 */
+	public void setbListeContrat(List<Contrat> bListeContrat) {
+		this.bListeContrat = bListeContrat;
 	}
 
 

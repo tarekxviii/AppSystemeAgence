@@ -19,6 +19,8 @@ import javax.xml.bind.annotation.XmlTransient;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="contrats")
 @XmlRootElement
@@ -34,7 +36,7 @@ public class Contrat {
 	@Column(name="date_contrat")
 	private Date dateSignature;
 	
-	@OneToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="bien_id",referencedColumnName="id_bien")
 	private Bien cBien;
 	
