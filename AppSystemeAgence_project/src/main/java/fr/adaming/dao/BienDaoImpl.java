@@ -31,6 +31,7 @@ public class BienDaoImpl implements IBienDao {
 	
 	
 	/**
+	 * @param Objet de type "Bien"
 	 * Methode DAO pour ajouter un bien
 	 */
 	@Override
@@ -45,6 +46,7 @@ public class BienDaoImpl implements IBienDao {
 
 
 	/**
+	 * @param id du bien
 	 * Methode DAO pour supprimer un bien
 	 */
 	@Override
@@ -57,6 +59,7 @@ public class BienDaoImpl implements IBienDao {
 
 
 	/**
+	 * @param Objet de type "Bien"
 	 * Methode DAO pour modifier un bien
 	 */
 	@Override
@@ -94,6 +97,7 @@ public class BienDaoImpl implements IBienDao {
 
 
 	/**
+	 * @return Liste d'objet de type Bien
 	 * Methode DAO pour afficher tout les biens en liste
 	 */
 	@Override
@@ -108,6 +112,8 @@ public class BienDaoImpl implements IBienDao {
 	
 	
 	/**
+	 * @return Objet de type Categorie
+	 * @param String nom de la categorie, "nom_cat"
 	 * Methode DAO pour afficher les catégorie par leur nom
 	 */
 	public Categorie getCategorieByName(String nom_cat){
@@ -125,6 +131,8 @@ public class BienDaoImpl implements IBienDao {
 
 
 	/**
+	 * @param Id du bien 
+	 * @return Objet de type Bien
 	 * Methode DAO pour afficher un bien avec son id
 	 */
 	@Override
@@ -138,6 +146,8 @@ public class BienDaoImpl implements IBienDao {
 
 
 	/**
+	 * @return Liste de Bien disponible
+	 * 
 	 * Methode DAO pour afficher la liste des biens disponible
 	 */
 	@Override
@@ -150,6 +160,10 @@ public class BienDaoImpl implements IBienDao {
 	}
 
 	/**
+	 * @param Id du proprietaire
+	 * 
+	 *@return Liste de Bien d'un propriétaire
+	 *
 	 * Methode DAO pour afficher tout les biens d'un propriétaire (avec son id)
 	 */
 	@Override

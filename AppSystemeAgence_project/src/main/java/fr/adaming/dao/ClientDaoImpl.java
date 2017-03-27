@@ -30,6 +30,7 @@ public class ClientDaoImpl implements IClientDao {
 	}
 
 	/**
+	 * @param Objet de type Client
 	 * Methode DAO pour l'ajout d'un client
 	 */
 	@Override
@@ -42,6 +43,7 @@ public class ClientDaoImpl implements IClientDao {
 	}
 
 	/**
+	 * @param Id du client
 	 * Methode DAO pour supprimer un client
 	 */
 	@Override
@@ -53,6 +55,7 @@ public class ClientDaoImpl implements IClientDao {
 	}
 
 	/**
+	 * @param Objet de type Client
 	 * Methode DAO pour modifier un client
 	 */
 	@Override
@@ -79,6 +82,7 @@ public class ClientDaoImpl implements IClientDao {
 	}
 
 	/**
+	 * @return Liste d'objet de type Client
 	 * Methode DAO pour afficher la liste de tout les clients
 	 */
 	@Override
@@ -92,6 +96,8 @@ public class ClientDaoImpl implements IClientDao {
 	}
 
 	/**
+	 * @param Id d'un Client
+	 * @return Objet de type Client
 	 * Methode DAO pour afficher un client par son id
 	 */
 	@Override
@@ -103,6 +109,7 @@ public class ClientDaoImpl implements IClientDao {
 	}
 
 	/**
+	 * @param Objet de type Categorie
 	 * Methode DAO pour modifier une catégorie 
 	 */
 	@Override
@@ -119,6 +126,8 @@ public class ClientDaoImpl implements IClientDao {
 	}
 
 	/**
+	 * @param Objet de type Categorie
+	 * @return Liste d'objet de type Client correspondant à un type de Categorie
 	 * Methode DAO pour recuperer une liste de client correspondant à une catégorie
 	 */
 	@Override

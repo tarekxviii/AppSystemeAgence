@@ -28,6 +28,7 @@ public class ContratDaoImpl implements IContratDao {
 	}
 
 	/**
+	 * @param Objet de type Contrat
 	 * Methode DAO pour ajouter un contrat
 	 */
 	@Override
@@ -40,6 +41,7 @@ public class ContratDaoImpl implements IContratDao {
 	}
 
 	/**
+	 * @param Id du contrat
 	 * Methode DAO pour supprimer un contrat
 	 */
 	@Override
@@ -52,6 +54,7 @@ public class ContratDaoImpl implements IContratDao {
 	}
 
 	/**
+	 * @param Objet de type Contrat
 	 * Methode DAO pour modifier un contrat
 	 */
 	@Override
@@ -75,6 +78,7 @@ public class ContratDaoImpl implements IContratDao {
 	}
 
 	/**
+	 * @return Liste d'Objet de type Contrat
 	 * Methode DAO pour afficher la liste des contrats
 	 */
 	@SuppressWarnings("unchecked")
@@ -90,6 +94,7 @@ public class ContratDaoImpl implements IContratDao {
 	}
 
 	/**
+	 * @return Objet de type Contrat
 	 * Methode DAO pour afficher un contrat par son id
 	 */
 	@Override
@@ -99,6 +104,8 @@ public class ContratDaoImpl implements IContratDao {
 	}
 
 	/**
+	 * @return Liste d'objet de type Contrat
+	 * @param Id du Responsable
 	 * Methode DAO pour afficher la liste des contrats d'un responsable
 	 */
 	@Override
