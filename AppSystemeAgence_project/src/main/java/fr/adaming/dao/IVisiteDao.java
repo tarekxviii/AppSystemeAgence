@@ -17,4 +17,5 @@ public interface IVisiteDao {
 
 	public Visite getVisiteById(int id);
 	
+	public List<Visite> getVisiteByResp(int id_resp);
 }

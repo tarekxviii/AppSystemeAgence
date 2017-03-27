@@ -130,40 +130,17 @@ public class VisiteRest {
 
 	}
 
-	// @RequestMapping(value = "/update", consumes = "application/json", method
-	// = RequestMethod.POST, produces = "application/json")
-	// public int updateVisiteWs(@RequestBody Contrat contrat, @RequestBody
-	// Client client, @RequestBody Bien bien,
-	// @RequestBody Responsable resp) {
-	//
-	// try {
-	//
-	// resp = respService.getResponsableById(resp.getId_resp());
-	//
-	// client = clientService.getClientById(client.getId_client());
-	//
-	// bien = bienService.getBienById(bien.getId_bien());
-	//
-	// // Affectation des associations
-	// contrat.setcBien(bien);
-	// contrat.setcClient(client);
-	// contrat.setcResponsable(resp);
-	//
-	// // Envoi du contrat dans la base de données
-	// contratService.updateService(contrat);
-	//
-	// return new Integer(1);
-	//
-	// } catch (Exception e) {
-	//
-	// return new Integer(0);
-	//
-	// }
-	//
-	// }
 
 	@RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = "application/json")
 	public List<Visite> getAllVisiteWs() {
 		return visiteService.getAllVisite();
+	}
+	
+	
+	@RequestMapping(value="/getAllByResp",method = RequestMethod.GET, produces = "application/json")
+	public List<Visite> getAllVisiteByResp(@PathVariable ("id_resp") int id_resp){
+		
+		return visiteService.getVisiteByResp(id_resp);
+		
 	}
 }

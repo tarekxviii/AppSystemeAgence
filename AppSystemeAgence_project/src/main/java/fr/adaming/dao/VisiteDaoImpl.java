@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import fr.adaming.entities.Proprietaire;
+import fr.adaming.entities.Responsable;
 import fr.adaming.entities.Visite;
 
 @Repository
@@ -79,6 +80,16 @@ public class VisiteDaoImpl implements IVisiteDao {
 		Session s = sf.getCurrentSession();
 
 		return (Visite) s.get(Visite.class, id);
+	}
+
+	@Override
+	public List<Visite> getVisiteByResp(int id_resp) {
+		
+		Session s=sf.getCurrentSession();
+		
+		Responsable resp=(Responsable) s.get(Responsable.class, id_resp);
+		
+		return resp.getrListeVisite();
 	}
 
 }

@@ -50,4 +50,10 @@ public class VisiteServiceImpl implements IVisiteService {
 		return visitedao.getVisiteById(id);
 	}
 
+	@Override
+	public List<Visite> getVisiteByResp(int id_resp) {
+		
+		return visitedao.getVisiteByResp(id_resp);
+	}
+
 }
