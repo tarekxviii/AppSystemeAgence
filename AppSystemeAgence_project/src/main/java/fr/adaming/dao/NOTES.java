@@ -1,7 +1,7 @@
 package fr.adaming.dao;
 
 public class NOTES {
-	
+	// http://maxlab.fr/javascript/securiser-spa-partie2-client-angularjs/
 	/**
 	 * Liste des fonctionnalités :
 
