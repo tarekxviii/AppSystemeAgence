@@ -20,6 +20,10 @@ public class ContratServiceImpl implements IContratService {
 		this.contratDao = contratDao;
 	}
 
+	/**
+	 * Methode pour ajouter un contrat dans la base de données
+	 * @param Le contrat à ajouter dans la base de données
+	 */
 	@Override
 	public void addService(Contrat contrat) {
 		
