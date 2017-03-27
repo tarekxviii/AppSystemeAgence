@@ -89,7 +89,7 @@ app.factory("clientProvider", function($http) {
 	function getClientCat(nom_cat, callback) {
 		$http({
 			method : 'GET',
-			url : urlglobal + '/bien/getClientCat/' + nom_cat,
+			url : urlglobal + '/client/getClientCat/' + nom_cat,
 		}).then(function successCallback(response) {
 			console.log(response.data);
 			callback(response);

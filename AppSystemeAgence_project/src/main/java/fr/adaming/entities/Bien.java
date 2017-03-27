@@ -75,12 +75,10 @@ public class Bien {
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn (name="categorie_id_fk",referencedColumnName="id_cat")
-	@JsonIgnore
 	private Categorie bCategorie;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn (name="propriettaire_id_fk",referencedColumnName="id_prop")
-	@JsonIgnore
 	private Proprietaire bProprietaire;
 	
 	@OneToMany(mappedBy="vBien",fetch=FetchType.EAGER)

@@ -13,6 +13,7 @@ import fr.adaming.entities.Bien;
 import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Proprietaire;
 import fr.adaming.entities.Responsable;
+import fr.adaming.service.IBienService;
 import fr.adaming.service.IRespService;
 
 @RestController
@@ -29,9 +30,21 @@ public class ResponsableRest {
 	public void setResponsableService(IRespService responsableService) {
 		this.responsableService = responsableService;
 	}
+	
+	@Autowired
+	IBienService bienService;
+	
+	
+	/**
+	 * @param bienService the bienService to set
+	 */
+	public void setBienService(IBienService bienService) {
+		this.bienService = bienService;
+	}
+
 
 	///////////////////////////Methode pour ajouter un responsable////////////////////////
-	
+
 	/**
 	 * Controller: méthode ajouter un responsable
 	 * @param respAdd
@@ -114,8 +127,9 @@ public class ResponsableRest {
 	 * @param cat
 	 * @return
 	 */
-	@RequestMapping(value = "/getBienByCat", method = RequestMethod.GET, produces = "application/json", consumes = "application/json")
-	public List<Bien> getBienByCatWS(@RequestBody Categorie cat){
+	@RequestMapping(value = "/getBienCat/{nom_cat}", method = RequestMethod.GET, produces = "application/json")
+	public List<Bien> getBienByCatWS(@PathVariable("nom_cat") String nom_cat){
+		Categorie cat = bienService.getCategoriByName(nom_cat);
 		return responsableService.getBienByCatService(cat);
 	}
 

@@ -68,10 +68,26 @@ app.factory("responsableProvider", function($http) {
 		});
 
 	}
+	function getBienByCat(nom_cat, callback) {
+		$http({
+			method : 'GET',
+			url : urlglobal + '/responsable/getBienCat/' + nom_cat ,
+		}).then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+
+		}, function errorCallback(response) {
+			console.log('Erreur : ' + response.statusText);
+
+		});
+
+	}
+	
 	return {
 		addResponsable : addResponsable,
 		getResponsable : getResponsable,
 		deleteResponsable : deleteResponsable,
 		updateResponsable : updateResponsable,
+		getBienByCat : getBienByCat,
 	}
 })
