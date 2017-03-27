@@ -28,8 +28,8 @@ public class RespServiceImpl implements IRespService {
 		this.respdao = respdao;
 	}
 
-	/* (non-Javadoc)
-	 * @see fr.adaming.service.IRespService#addService(fr.adaming.entities.Responsable)
+	/**
+	 * methode couche service : ajouter un responsable
 	 */
 	@Override
 	public void addService(Responsable resp) {
@@ -37,8 +37,9 @@ public class RespServiceImpl implements IRespService {
 
 	}
 
-	/* (non-Javadoc)
-	 * @see fr.adaming.service.IRespService#deleteService(int)
+
+	/**
+	 * methode couche service : supprimer un responsable
 	 */
 	@Override
 	public void deleteService(int id) {
@@ -46,8 +47,8 @@ public class RespServiceImpl implements IRespService {
 
 	}
 
-	/* (non-Javadoc)
-	 * @see fr.adaming.service.IRespService#updateService(fr.adaming.entities.Responsable)
+	/**
+	 * methode couche service : modifier un responsable
 	 */
 	@Override
 	public void updateService(Responsable resp) {
@@ -55,8 +56,8 @@ public class RespServiceImpl implements IRespService {
 
 	}
 
-	/* (non-Javadoc)
-	 * @see fr.adaming.service.IRespService#getAllResponsable()
+	/**
+	 * methode couche service : afficher liste des responsables
 	 */
 	@Override
 	public List<Responsable> getAllResponsable() {
@@ -64,8 +65,9 @@ public class RespServiceImpl implements IRespService {
 		return respdao.getAllResponsable();
 	}
 
-	/* (non-Javadoc)
-	 * @see fr.adaming.service.IRespService#getResponsableById(int)
+
+	/**
+	 * methode couche service : afficher un responsable par son id
 	 */
 	@Override
 	public Responsable getResponsableById(int id) {
@@ -74,7 +76,7 @@ public class RespServiceImpl implements IRespService {
 	}
 
 	/**
-	 * 
+	 * methode couche service : afficher la liste des bien d'une catégorie
 	 */
 	@Override
 	public List<Bien> getBienByCatService(Categorie cat) {
