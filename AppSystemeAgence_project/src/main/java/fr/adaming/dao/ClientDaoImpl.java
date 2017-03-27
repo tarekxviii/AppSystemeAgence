@@ -17,18 +17,18 @@ public class ClientDaoImpl implements IClientDao {
 
 	@Autowired
 	private SessionFactory sf;
-	
+
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;
 	}
-	
+
 	@Override
 	public void addDao(Client client) {
 		// Creation de la session
 		Session s = sf.getCurrentSession();
 
 		s.save(client);
-		
+
 	}
 
 	@Override
@@ -36,21 +36,19 @@ public class ClientDaoImpl implements IClientDao {
 		Session s = sf.getCurrentSession();
 
 		s.delete(s.get(Client.class, id));
-		
+
 	}
 
 	@Override
 	public void updateDao(Client client) {
 
 		Session s = sf.getCurrentSession();
-		
+
 		// Recupération du client a modifier
-		Client c1=(Client) s.get(Client.class, client.getId_client());
-
-
+		Client c1 = (Client) s.get(Client.class, client.getId_client());
 
 		// Affectation des nouvelles valeurs aux attributs
-		
+
 		c1.setId_client(client.getId_client());
 		c1.setNom_client(client.getNom_client());
 		c1.setPrenom_client(client.getPrenom_client());
@@ -58,10 +56,10 @@ public class ClientDaoImpl implements IClientDao {
 		c1.setMdp_client(client.getMdp_client());
 		c1.setcListeVisite(client.getcListeVisite());
 		c1.setcListeInteret(client.getcListeInteret());
-	
+
 		// Modification dans la base de données
 		s.saveOrUpdate(c1);
-		
+
 	}
 
 	@Override
@@ -77,7 +75,6 @@ public class ClientDaoImpl implements IClientDao {
 	@Override
 	public Client getClientById(int id) {
 
-
 		Session s = sf.getCurrentSession();
 
 		return (Client) s.get(Client.class, id);
@@ -85,25 +82,26 @@ public class ClientDaoImpl implements IClientDao {
 
 	@Override
 	public void updateCat(Categorie cat) {
-	
-		Session s=sf.getCurrentSession();
-		
-		Categorie categorie=(Categorie) s.get(Categorie.class, cat.getId_cat());
-	
+
+		Session s = sf.getCurrentSession();
+
+		Categorie categorie = (Categorie) s.get(Categorie.class, cat.getId_cat());
+
 		categorie.setcListeClient(cat.getcListeClient());
-		
+
 		s.saveOrUpdate(categorie);
-		
+
 	}
 
-//	@Override
-//	public List<Client> getClientByCat(Categorie cat) {
-//		Session s=sf.getCurrentSession();
-//		String req = "select c from AssociationClientCat c where c.type=:pNomCat";
-//		Query query=s.createQuery(req);
-//		query.setInteger(");
-//		return query.list();
-//		return null;
-//	}
+	@Override
+	public List<Client> getClientByCat(Categorie cat) {
+		// Session s=sf.getCurrentSession();
+		// String req = "select c from AssociationClientCat c where
+		// c.type=:pNomCat";
+		// Query query=s.createQuery(req);
+		// query.setInteger(");
+		// return query.list();
+		return null;
+	}
 
 }
