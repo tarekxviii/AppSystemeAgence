@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,22 +99,17 @@ public class ClientDaoImpl implements IClientDao {
 	@Override
 	public List<Client> getClientByCat(Categorie cat) {
 		Session s = sf.getCurrentSession();
-		String req = "select c from AssociationClientCat c where c.type=:pNomCat";
-		Query query = s.createQuery(req);
-		query.setString("pNomCat", cat.getTypeBien());
-		List<AssociationClientCat> acc = query.list();
-		List<Integer> id_clients = new ArrayList<>();
-
-		Integer id = 0;
-		for (AssociationClientCat associationClientCat : acc) {
-			id = associationClientCat.getIdClient();
-			id_clients.add(id);
-		}
+		String req = "select client_id_fk from table_jointure_client_visite where visite_id_fk=:pId_cat";
+		SQLQuery query = s.createSQLQuery(req);
+		query.addEntity(Client.class);
+		query.setParameter("Id_cat", cat.getId_cat());
+		List<Integer> acc = query.list();
 		List<Client> listeClientCat = new ArrayList<>();
-		for (Integer idd : id_clients) {
-			Client cl = (Client) s.get(Client.class, idd);
-			listeClientCat.add(cl);
+		
+		for (Integer id_cl : acc) {
+			listeClientCat.add((Client) s.get(Client.class, id_cl));
 		}
+		
 		
 		return listeClientCat;
 	}
