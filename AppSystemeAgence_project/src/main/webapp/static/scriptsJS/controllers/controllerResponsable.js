@@ -74,10 +74,14 @@ app.controller(
 		}).controller("chercherBienByCatCtrl",
 				function($scope, $rootScope, responsableProvider) {
 			$scope.nom_cat="";
+			$scope.indiceShow=false;
+			$scope.getBienByCat=function(){
 			responsableProvider.getBienByCat($scope.nom_cat, 
 					function(callback) {
+				$scope.indiceShow=true;
 				$scope.biens = callback.data;
-	
+			
 			})
+			}
 
 		})

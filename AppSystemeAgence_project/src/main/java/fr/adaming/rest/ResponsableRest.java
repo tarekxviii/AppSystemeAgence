@@ -128,7 +128,7 @@ public class ResponsableRest {
 	 * @return
 	 */
 	@RequestMapping(value = "/getBienCat/{nom_cat}", method = RequestMethod.GET, produces = "application/json")
-	public List<Bien> getBienByCatWS(@PathVariable ("nom_cat")String nom_cat){
+	public List<Bien> getBienByCatWS(@PathVariable("nom_cat") String nom_cat){
 		Categorie cat = bienService.getCategoriByName(nom_cat);
 		return responsableService.getBienByCatService(cat);
 	}
