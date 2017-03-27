@@ -73,10 +73,8 @@ app.controller(
 			}
 		}).controller("chercherBienByCatCtrl",
 				function($scope, $rootScope, responsableProvider) {
-			$scope.bienAfficherCatForm = {
-					nom_cat:"",
-			}
-			responsableProvider.getBienByCat($scope.bienAfficherCatForm, 
+			$scope.nom_cat="";
+			responsableProvider.getBienByCat($scope.nom_cat, 
 					function(callback) {
 				$scope.biens = callback.data;
 	

@@ -68,10 +68,10 @@ app.factory("responsableProvider", function($http) {
 		});
 
 	}
-	function getBienByCat(bienAfficherCatForm, callback) {
+	function getBienByCat(nom_cat, callback) {
 		$http({
 			method : 'GET',
-			url : urlglobal + '/bien/getBienCat' ,
+			url : urlglobal + '/responsable/getBienCat/' + nom_cat ,
 		}).then(function successCallback(response) {
 			console.log(response.data);
 			callback(response);
