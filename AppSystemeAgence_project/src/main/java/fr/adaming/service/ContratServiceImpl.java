@@ -54,6 +54,12 @@ public class ContratServiceImpl implements IContratService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public List<Contrat> getContratByResp(int id_resp) {
+		
+		return contratDao.getContratByResp(id_resp);
+	}
 	
 	
 	

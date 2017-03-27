@@ -37,7 +37,7 @@ public class Proprietaire {
 	private String password_prop;
 	
 	
-	@OneToMany(mappedBy="bProprietaire",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="bProprietaire",fetch=FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
 	@JsonIgnore
 	private List<Bien> pListeBien;

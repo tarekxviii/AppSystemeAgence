@@ -55,9 +55,24 @@ app.factory("contratProvider", function($http) {
 		});
 
 	}
+	
+	function getContratByResp(id, callback){
+		$http({
+			method:'GET',
+			url:urlglobal+'/contrat/getContratByResp/'+id
+		}).then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+
+		}, function errorCallback(response) {
+			console.log('Erreur : ' + response.statusText);
+
+		});
+	}
 	return {
 		addContrat : addContrat,
 		deleteContrat : deleteContrat,
 		updateContrat : updateContrat,
+		getContratByResp:getContratByResp,
 	}
 })

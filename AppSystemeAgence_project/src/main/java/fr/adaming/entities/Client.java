@@ -46,10 +46,12 @@ public class Client implements Serializable{
 		
 		
 		@OneToMany(fetch=FetchType.LAZY,mappedBy="cClient")
+		@Fetch(FetchMode.SUBSELECT)
 		@JsonIgnore
 		private List<Contrat> cListeContrat;
 		
 		@OneToMany(mappedBy="vClient",fetch=FetchType.LAZY)
+		@Fetch(FetchMode.SUBSELECT)
 		@JsonIgnore
 		private List<Visite> cListeVisite;
 		

@@ -40,8 +40,8 @@ public class Responsable {
 	private List<Visite> rListeVisite;
 	
 	@OneToMany(mappedBy="cResponsable", fetch=FetchType.LAZY)
-	@Fetch(FetchMode.SUBSELECT)
 	@JsonIgnore
+	@Fetch(FetchMode.SUBSELECT)
 	private List<Contrat> rListeContrat;
  
 	/**

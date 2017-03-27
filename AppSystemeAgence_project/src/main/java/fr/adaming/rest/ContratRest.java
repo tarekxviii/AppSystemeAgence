@@ -147,4 +147,10 @@ public class ContratRest {
 	public List<Contrat> getAllContratWs() {
 		return contratService.getAllContrat();
 	}
+	
+	
+	@RequestMapping(value="/getContratByResp/{id_resp}",method=RequestMethod.GET,produces="application/json")
+	public List<Contrat> getContratByRespWS(@PathVariable ("id_resp") int id_resp){
+		return contratService.getContratByResp(id_resp);
+	}
 }
