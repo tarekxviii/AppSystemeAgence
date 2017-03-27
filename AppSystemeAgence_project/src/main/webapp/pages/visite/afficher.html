@@ -1,0 +1,27 @@
+<h1 align="center">Liste des visites</h1>
+
+<div class="table-responsive">
+	<table class="table table-bordered" style="text-align: center">
+		<thead>
+			<tr>
+				<th style="text-align: center">ID visite</th>
+				<th style="text-align: center">Date de RDV</th>
+				<th style="text-align: center">ID du bien</th>
+				<th style="text-align: center">Type de bien</th>
+				<th style="text-align: center">Nom du client</th>
+				<th style="text-align: center">Nom du propriétaire</th>
+				<th style="text-align: center">Mail du responsable</th>
+				
+			</tr>
+		</thead>
+		<tbody ng-repeat="client in clients |orderBy:'nom_client'">
+			<tr>
+				<td>{{client.nom_client}}</td>
+
+			</tr>
+
+		</tbody>
+
+	</table>
+
+</div>

@@ -5,6 +5,7 @@ import java.util.List;
 import fr.adaming.entities.Bien;
 import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Responsable;
+import fr.adaming.entities.Visite;
 
 public interface IRespDao {
 

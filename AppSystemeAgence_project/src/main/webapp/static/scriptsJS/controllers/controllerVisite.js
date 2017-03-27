@@ -26,7 +26,7 @@ app.controller("addVisiteCtrl",
 	}).controller("getVisiteCtrl",
 			function($scope, $rootScope, visiteProvider, $location) {
 		visiteProvider.getClient(function(callback) {
-			$scope.clients = callback.data;
+			$scope.visites = callback.data;
 		});
 
 	}).controller("updateVisiteCtrl",
@@ -38,7 +38,6 @@ app.controller("addVisiteCtrl",
 				clientId:undefined,
 				bienId:undefined,
 				contratDate:undefined,
-				contratMontant:undefined
 				};
 				
 		
