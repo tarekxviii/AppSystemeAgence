@@ -23,6 +23,12 @@ app.controller("addVisiteCtrl",
 				}
 			})
 		}
+	}).controller("getVisiteCtrl",
+			function($scope, $rootScope, visiteProvider, $location) {
+		visiteProvider.getClient(function(callback) {
+			$scope.clients = callback.data;
+		});
+
 	}).controller("updateVisiteCtrl",
 			function($scope, $rootScope, visiteProvider, $location) {
 		
