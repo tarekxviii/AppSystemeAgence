@@ -29,6 +29,7 @@ public class RespServiceImpl implements IRespService {
 	}
 
 	/**
+	 * @param Responsable
 	 * methode couche service : ajouter un responsable
 	 */
 	@Override
@@ -39,6 +40,7 @@ public class RespServiceImpl implements IRespService {
 
 
 	/**
+	 * @param Id
 	 * methode couche service : supprimer un responsable
 	 */
 	@Override
@@ -48,6 +50,7 @@ public class RespServiceImpl implements IRespService {
 	}
 
 	/**
+	 * @param Responsable
 	 * methode couche service : modifier un responsable
 	 */
 	@Override
@@ -57,6 +60,7 @@ public class RespServiceImpl implements IRespService {
 	}
 
 	/**
+	 * @return Liste des Responsables
 	 * methode couche service : afficher liste des responsables
 	 */
 	@Override
@@ -67,6 +71,8 @@ public class RespServiceImpl implements IRespService {
 
 
 	/**
+	 * @param int
+	 * @return Responsable
 	 * methode couche service : afficher un responsable par son id
 	 */
 	@Override
@@ -76,6 +82,8 @@ public class RespServiceImpl implements IRespService {
 	}
 
 	/**
+	 * @param Categorie
+	 * @return Liste des Biens
 	 * methode couche service : afficher la liste des bien d'une catégorie
 	 */
 	@Override

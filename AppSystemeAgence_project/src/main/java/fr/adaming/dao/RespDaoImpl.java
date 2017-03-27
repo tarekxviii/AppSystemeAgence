@@ -28,7 +28,8 @@ public class RespDaoImpl implements IRespDao {
 	}
 
 	/**
-	 * Methode pour ajouter un responsable
+	 * @param resp
+	 * ajoute un responsable à la bdd en utilisant un resp en paramètre
 	 */
 	@Override
 	public void addDao(Responsable resp) {
@@ -41,6 +42,7 @@ public class RespDaoImpl implements IRespDao {
 	}
 
 	/**
+	 * @param id du responsable
 	 * Methode pour supprimer un responsable
 	 */
 	@Override
@@ -53,6 +55,7 @@ public class RespDaoImpl implements IRespDao {
 	}
 
 	/**
+	 * @param responsable en entrée
 	 * Methode pour modifier un responsable
 	 */
 	@Override
@@ -76,6 +79,7 @@ public class RespDaoImpl implements IRespDao {
 	}
 
 	/**
+	 * @return liste des responsables
 	 * Methode pour afficher la liste des responsables
 	 */
 	@Override
@@ -89,6 +93,8 @@ public class RespDaoImpl implements IRespDao {
 	}
 
 	/**
+	 * @param l'id du responsable
+	 * @return le responsable
 	 * methode pour afficher un responsable par son id
 	 */
 	@Override
@@ -101,6 +107,8 @@ public class RespDaoImpl implements IRespDao {
 	}
 
 	/**
+	 * @param Categorie
+	 * @return liste des biens
 	 * Methode pour chercher la liste des biens d'un catégorie
 	 */
 	@Override
