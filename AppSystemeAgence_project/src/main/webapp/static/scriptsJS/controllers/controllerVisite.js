@@ -2,7 +2,7 @@
  * 
  */
 app.controller("addVisiteCtrl",
-	function($scope, $rootScope, contratProvider, $location) {
+	function($scope, $rootScope, visiteProvider, $location) {
 	
 	$scope.contratInfoForm={
 			respId:undefined,
@@ -23,10 +23,10 @@ app.controller("addVisiteCtrl",
 				}
 			})
 		}
-	}).controller("deleteVisiteCtrl", function($scope, contratProvider, $location) {
+	}).controller("deleteVisiteCtrl", function($scope, visiteProvider, $location) {
 		$scope.id = undefined;
 		$scope.supprimerVisite = function() {
-			contratProvider.deleteVisite($scope.id, function(callback) {
+			visiteProvider.deleteVisite($scope.id, function(callback) {
 
 				if (callback != undefined && callback != "") {
 					$location.path("accueil");

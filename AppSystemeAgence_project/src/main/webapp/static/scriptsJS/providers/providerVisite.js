@@ -8,7 +8,7 @@ app.factory("visiteProvider", function($http) {
 	function addVisite(contratInfoForm, callback) {
 		$http({
 			method : 'POST',
-			url : urlglobal + '/contrat/add',
+			url : urlglobal + '/visite/add',
 			data : angular.toJson(contratInfoForm),
 			headers : {
 				'Content-Type' : 'application/json'
