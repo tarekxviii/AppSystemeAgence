@@ -153,4 +153,16 @@ public class ContratRest {
 	public List<Contrat> getContratByRespWS(@PathVariable ("id_resp") int id_resp){
 		return contratService.getContratByResp(id_resp);
 	}
+	
+	
+	@RequestMapping(value="/getSommeByResp/{id_resp}",method=RequestMethod.GET,produces="application/json")
+	public Double getSommeContratByRespWS(@PathVariable ("id_resp") int id_resp){
+		List<Contrat> listeContrat=contratService.getContratByResp(id_resp);
+		Double somme=0.0;
+		for (Contrat contrat : listeContrat) {
+			somme=somme+contrat.getPrix_contrat();
+		}
+		
+		return somme;
+	}
 }

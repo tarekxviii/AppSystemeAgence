@@ -42,5 +42,15 @@ app.controller("addContratCtrl",
 					$scope.contrats = callback.data;
 					
 			});
+			
+			
+		}
+		
+		$scope.trouverContrat=function(){
+			contratProvider.getSommeByResp($scope.id,function(callback){
+					
+					$scope.somme= callback.data;
+					
+			});
 		}
 		})
