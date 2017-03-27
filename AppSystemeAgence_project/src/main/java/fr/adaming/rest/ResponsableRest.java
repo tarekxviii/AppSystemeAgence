@@ -21,11 +21,22 @@ public class ResponsableRest {
 
 	@Autowired
 	IRespService responsableService;
-
+	
+	/**
+	 * Setter pour l'injection de IRespService
+	 * @param responsableService
+	 */
 	public void setResponsableService(IRespService responsableService) {
 		this.responsableService = responsableService;
 	}
 
+	///////////////////////////Methode pour ajouter un responsable////////////////////////
+	
+	/**
+	 * Controller: méthode ajouter un responsable
+	 * @param respAdd
+	 * @return
+	 */
 	@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public int addRespWS(@RequestBody Responsable respAdd) {
 		try {
@@ -37,6 +48,13 @@ public class ResponsableRest {
 		}
 	}
 
+	///////////////////////////Methode pour modifier un responsable////////////////////////
+	
+	/**
+	 * Controller: méthode modifier un responsable
+	 * @param respUpdate
+	 * @return
+	 */
 	@RequestMapping(value = "/update", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
 	public int updateRespWS(@RequestBody Responsable respUpdate) {
 		try {
@@ -47,6 +65,13 @@ public class ResponsableRest {
 		}
 	}
 
+	///////////////////////////Methode pour supprimer un responsable////////////////////////
+	
+	/**
+	 * Controller: méthode supprimer un responsable
+	 * @param id_resp
+	 * @return
+	 */
 	@RequestMapping(value = "/delete/{id_param}", method = RequestMethod.DELETE, produces = "application/json")
 	public int deleteRespWS(@PathVariable("id_param") int id_resp) {
 		try {
@@ -57,12 +82,25 @@ public class ResponsableRest {
 		}
 	}
 
+	///////////////////////////Methode pour afficher la liste des responsables////////////////////////
+	
+	/**
+	 * Controller: méthode afficher la liste de tout les responsables
+	 * @return
+	 */
 	@RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = "application/json")
 	public List<Responsable> getAllRespWS() {
 
 		return responsableService.getAllResponsable();
 	}
 
+	///////////////////////////Methode pour afficher un responsable par son id////////////////////////
+	
+	/**
+	 * Controller: méthode afficher un responsable par son id
+	 * @param id_resp
+	 * @return
+	 */
 	@RequestMapping(value = "/getById", method = RequestMethod.GET, produces = "application/json")
 	public Responsable getPropById(@PathVariable("id_param") int id_resp) {
 		return responsableService.getResponsableById(id_resp);
@@ -71,6 +109,11 @@ public class ResponsableRest {
 	
 	///////////////////////////Methode pour afficher la liste des bien d'une catégorie////////////////////////
 	
+	/**
+	 * Controller: méthode pour afficher la liste des biens d'une catégorie
+	 * @param cat
+	 * @return
+	 */
 	@RequestMapping(value = "/getBienByCat", method = RequestMethod.GET, produces = "application/json", consumes = "application/json")
 	public List<Bien> getBienByCatWS(@RequestBody Categorie cat){
 		return responsableService.getBienByCatService(cat);
