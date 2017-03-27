@@ -21,6 +21,8 @@ public class BienDaoImpl implements IBienDao {
 
 
 	/**
+	 * setter "session factory" pour l'injection de dépendance
+	 * 
 	 * @param sf
 	 */
 	public void setSf(SessionFactory sf) {
@@ -28,6 +30,9 @@ public class BienDaoImpl implements IBienDao {
 	}
 	
 	
+	/**
+	 * Methode DAO pour ajouter un bien
+	 */
 	@Override
 	public void addDao(Bien bien) {
 
@@ -39,6 +44,9 @@ public class BienDaoImpl implements IBienDao {
 	}
 
 
+	/**
+	 * Methode DAO pour supprimer un bien
+	 */
 	@Override
 	public void deleteDao(int id) {
 		Session s = sf.getCurrentSession();
@@ -48,6 +56,9 @@ public class BienDaoImpl implements IBienDao {
 	}
 
 
+	/**
+	 * Methode DAO pour modifier un bien
+	 */
 	@Override
 	public void updateDao(Bien bien) {
 
@@ -82,6 +93,9 @@ public class BienDaoImpl implements IBienDao {
 	}
 
 
+	/**
+	 * Methode DAO pour afficher tout les biens en liste
+	 */
 	@Override
 	public List<Bien> getAllBien() {
 		Session s = sf.getCurrentSession();
@@ -93,6 +107,9 @@ public class BienDaoImpl implements IBienDao {
 	}
 	
 	
+	/**
+	 * Methode DAO pour afficher les catégorie par leur nom
+	 */
 	public Categorie getCategorieByName(String nom_cat){
 		
 		Session s=sf.getCurrentSession();
@@ -107,6 +124,9 @@ public class BienDaoImpl implements IBienDao {
 	}
 
 
+	/**
+	 * Methode DAO pour afficher un bien avec son id
+	 */
 	@Override
 	public Bien getBienById(int id) {
 
@@ -117,6 +137,9 @@ public class BienDaoImpl implements IBienDao {
 	}
 
 
+	/**
+	 * Methode DAO pour afficher la liste des biens disponible
+	 */
 	@Override
 	public List<Bien> getBienDispo() {
 		Session s=sf.getCurrentSession();
@@ -126,7 +149,9 @@ public class BienDaoImpl implements IBienDao {
 		
 	}
 
-
+	/**
+	 * Methode DAO pour afficher tout les biens d'un propriétaire (avec son id)
+	 */
 	@Override
 	public List<Bien> getBienProp(int id_prop) {
 		Session s=sf.getCurrentSession();

@@ -21,10 +21,17 @@ public class ClientDaoImpl implements IClientDao {
 	@Autowired
 	private SessionFactory sf;
 
+	/**
+	 * setter "session factory" pour l'injection de dépendance
+	 * @param sf
+	 */
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;
 	}
 
+	/**
+	 * Methode DAO pour l'ajout d'un client
+	 */
 	@Override
 	public void addDao(Client client) {
 		// Creation de la session
@@ -34,6 +41,9 @@ public class ClientDaoImpl implements IClientDao {
 
 	}
 
+	/**
+	 * Methode DAO pour supprimer un client
+	 */
 	@Override
 	public void deleteDao(int id) {
 		Session s = sf.getCurrentSession();
@@ -42,6 +52,9 @@ public class ClientDaoImpl implements IClientDao {
 
 	}
 
+	/**
+	 * Methode DAO pour modifier un client
+	 */
 	@Override
 	public void updateDao(Client client) {
 
@@ -65,6 +78,9 @@ public class ClientDaoImpl implements IClientDao {
 
 	}
 
+	/**
+	 * Methode DAO pour afficher la liste de tout les clients
+	 */
 	@Override
 	public List<Client> getAllClient() {
 		Session s = sf.getCurrentSession();
@@ -75,6 +91,9 @@ public class ClientDaoImpl implements IClientDao {
 		return s.createQuery(req).list();
 	}
 
+	/**
+	 * Methode DAO pour afficher un client par son id
+	 */
 	@Override
 	public Client getClientById(int id) {
 
@@ -83,6 +102,9 @@ public class ClientDaoImpl implements IClientDao {
 		return (Client) s.get(Client.class, id);
 	}
 
+	/**
+	 * Methode DAO pour modifier une catégorie 
+	 */
 	@Override
 	public void updateCat(Categorie cat) {
 
@@ -96,6 +118,9 @@ public class ClientDaoImpl implements IClientDao {
 
 	}
 
+	/**
+	 * Methode DAO pour recuperer une liste de client correspondant à une catégorie
+	 */
 	@Override
 	public List<Client> getClientByCat(Categorie cat) {
 		Session s = sf.getCurrentSession();

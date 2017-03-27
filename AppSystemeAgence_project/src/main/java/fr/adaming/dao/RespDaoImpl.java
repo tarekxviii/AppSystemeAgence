@@ -19,8 +19,9 @@ public class RespDaoImpl implements IRespDao {
 	private SessionFactory sf;
 
 	/**
-	 * @param sf
-	 *            the sf to set
+	 * setter Sessionfactory pour l'injection de dépendance
+	 * 
+	 * @param sf the sf to set
 	 */
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;

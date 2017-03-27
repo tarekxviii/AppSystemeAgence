@@ -18,12 +18,17 @@ public class VisiteDaoImpl implements IVisiteDao {
 	private SessionFactory sf;
 
 	/**
+	 * setter SessionFactory pour l'injection de dépendance
+	 * 
 	 * @param sf
 	 */
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;
 	}	
 	
+	/**
+	 * Methode DAO pour ajouter une visite
+	 */
 	@Override
 	public void addDao(Visite visite) {
 		// Creation de la session
@@ -33,6 +38,9 @@ public class VisiteDaoImpl implements IVisiteDao {
 		
 	}
 
+	/**
+	 * Méthode DAO pour supprimer une visite
+	 */
 	@Override
 	public void deleteDao(int id) {
 		Session s = sf.getCurrentSession();
@@ -46,6 +54,9 @@ public class VisiteDaoImpl implements IVisiteDao {
 		
 	}
 
+	/**
+	 * Méthode DAO pour la modifier une visite
+	 */
 	@Override
 	public void updateDao(Visite visite) {
 
@@ -65,6 +76,9 @@ public class VisiteDaoImpl implements IVisiteDao {
 		
 	}
 
+	/**
+	 * Méthode DAO pour afficher la liste de toutes les visites 
+	 */
 	@Override
 	public List<Visite> getAllVisite() {
 		Session s = sf.getCurrentSession();
@@ -75,6 +89,9 @@ public class VisiteDaoImpl implements IVisiteDao {
 		return s.createQuery(req).list();
 	}
 
+	/**
+	 * Méthode DAO pour afficher une visite en indiquant son id
+	 */
 	@Override
 	public Visite getVisiteById(int id) {
 		Session s = sf.getCurrentSession();
@@ -82,6 +99,9 @@ public class VisiteDaoImpl implements IVisiteDao {
 		return (Visite) s.get(Visite.class, id);
 	}
 
+	/**
+	 * Méthode DAO pour afficher une liste de visite d'un responsable 
+	 */
 	@Override
 	public List<Visite> getVisiteByResp(int id_resp) {
 		

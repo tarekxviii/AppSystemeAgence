@@ -19,13 +19,17 @@ public class ContratDaoImpl implements IContratDao {
 	
 	
 	/**
+	 * setter de session factory
+	 * 
 	 * @param sf the sf to set
 	 */
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;
 	}
 
-	
+	/**
+	 * Methode DAO pour ajouter un contrat
+	 */
 	@Override
 	public void addDao(Contrat contrat) {
 	
@@ -35,6 +39,9 @@ public class ContratDaoImpl implements IContratDao {
 		
 	}
 
+	/**
+	 * Methode DAO pour supprimer un contrat
+	 */
 	@Override
 	public void deleteDao(int id) {
 		
@@ -44,6 +51,9 @@ public class ContratDaoImpl implements IContratDao {
 
 	}
 
+	/**
+	 * Methode DAO pour modifier un contrat
+	 */
 	@Override
 	public void updateDao(Contrat contrat) {
 		
@@ -64,6 +74,9 @@ public class ContratDaoImpl implements IContratDao {
 
 	}
 
+	/**
+	 * Methode DAO pour afficher la liste des contrats
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Contrat> getAllContrat() {
@@ -76,13 +89,18 @@ public class ContratDaoImpl implements IContratDao {
 		return s.createQuery(req).list();
 	}
 
+	/**
+	 * Methode DAO pour afficher un contrat par son id
+	 */
 	@Override
 	public Contrat getContratById() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
+	/**
+	 * Methode DAO pour afficher la liste des contrats d'un responsable
+	 */
 	@Override
 	public List<Contrat> getContratByResp(int id_resp) {
 

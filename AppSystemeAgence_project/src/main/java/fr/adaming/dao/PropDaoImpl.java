@@ -22,16 +22,17 @@ public class PropDaoImpl implements IPropDao {
 	private SessionFactory sf;
 
 	/**
+	 * Setter de Sessionfactory, pour l'injection de dépendance
+	 * 
 	 * @param sf
 	 */
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see fr.adaming.dao.IPropDao#addDao(fr.adaming.entities.Proprietaire)
+
+	/**
+	 * Methode DAO pour l'ajout d'un propriétaire
 	 */
 	@Override
 	public void addDao(Proprietaire prop) {
@@ -43,10 +44,9 @@ public class PropDaoImpl implements IPropDao {
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see fr.adaming.dao.IPropDao#deleteDao(int)
+
+	/**
+	 * Methode DAO pour supprimer un proprietaire
 	 */
 	@Override
 	public void deleteDao(int id) {
@@ -57,10 +57,9 @@ public class PropDaoImpl implements IPropDao {
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see fr.adaming.dao.IPropDao#updateDao(fr.adaming.entities.Proprietaire)
+
+	/**
+	 * Methode DAO pour la modification d'un proprietaire
 	 */
 	@Override
 	public void updateDao(Proprietaire prop) {
@@ -81,10 +80,9 @@ public class PropDaoImpl implements IPropDao {
 		s.saveOrUpdate(p1);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see fr.adaming.dao.IPropDao#getAllProprietaire()
+
+	/**
+	 * Methode DAO pour afficher la liste des proprietaires
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -98,10 +96,9 @@ public class PropDaoImpl implements IPropDao {
 		return s.createQuery(req).list();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see fr.adaming.dao.IPropDao#getProprietaireById(int)
+
+	/**
+	 * Methode DAO pour afficher un proprietaire par son id
 	 */
 	@Override
 	public Proprietaire getProprietaireById(int id) {
