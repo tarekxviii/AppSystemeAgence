@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -35,6 +37,7 @@ public class Contrat {
 	private double prix_contrat;
 	
 	@Column(name="date_contrat")
+	@Temporal(TemporalType.DATE)
 	private Date dateSignature;
 	
 	@ManyToOne(fetch=FetchType.EAGER)

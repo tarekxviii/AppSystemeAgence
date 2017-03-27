@@ -55,7 +55,7 @@ public class Client implements Serializable{
 		@JsonIgnore
 		private List<Visite> cListeVisite;
 		
-		@ManyToMany(fetch=FetchType.EAGER,targetEntity=Client.class)
+		@ManyToMany(fetch=FetchType.EAGER)
 		@Fetch(FetchMode.SUBSELECT)
 		@JoinTable(name = "table_jointure_client_visite",joinColumns=@JoinColumn(name="client_id_fk"),inverseJoinColumns=@JoinColumn(name="visite_id_fk"))
 		@JsonIgnore

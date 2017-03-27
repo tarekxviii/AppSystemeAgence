@@ -119,7 +119,7 @@ public class ClientRest {
 			List<Categorie> listeInt = new ArrayList<>();
 			
 			List<Client> listeClient=new ArrayList<>();
-			
+			System.out.println(assos.getIdClient()+assos.getTypeCat());
 			catChanger = bienService.getCategoriByName(assos.getTypeCat());
 			System.out.println(catChanger.getId_cat());
 			clientChanger = clientService.getClientById(assos.getIdClient());
@@ -137,7 +137,7 @@ public class ClientRest {
 			
 			return new Integer (1);
 		}catch (Exception e) {
-		
+			e.printStackTrace();
 			return new Integer (0);
 		}
 	}
