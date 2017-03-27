@@ -52,8 +52,11 @@ public class BienRest {
 	public int addBienWS(@RequestBody Bien bienAdd) {
 		try {
 			
+			System.out.println(bienAdd.getNom_categorie());
 			Categorie cat = bienService.getCategoriByName(bienAdd.getNom_categorie());
 			bienAdd.setbCategorie(cat);
+			
+			System.out.println(cat.toString());
 			
 			Proprietaire prop = propservice.getProprietaireById(bienAdd.getNum_prop());
 			bienAdd.setbProprietaire(prop);

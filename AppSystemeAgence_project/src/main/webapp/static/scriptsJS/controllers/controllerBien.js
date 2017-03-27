@@ -29,7 +29,7 @@ app.controller("addBienCtrl",
 			prixAchat : "",
 			etat : "",
 			num_prop : "",
-			typeBien : "",
+			nom_categorie : "",
 		};
 
 		$scope.ajouterBien = function() {
