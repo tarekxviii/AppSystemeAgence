@@ -1,0 +1,57 @@
+<h1 align="center">Chercher les biens d'une catégorie</h1>
+<br/>
+
+<form class="form-horizontal">
+	<div class="form-group">
+		<label for="inputPopulation2" class="col-sm-3 control-label">Catégorie
+			du bien</label>
+		<div class="col-sm-4">
+			<select class="form-control" ng-model="bienAfficherCatForm.nom_cat">
+				<option>Terrain vide</option>
+				<option>T1</option>
+				<option>T2</option>
+				<option>T3</option>
+				<option>T4</option>
+				<option>T5</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default"
+					ng-click="getBienByCat()">Afficher la liste des biens de la catégorie</button>
+			</div>
+		</div>
+</form>
+
+
+<h1 align="center">Liste des biens de la catégorie</h1>
+
+<div class="table-responsive">
+	<table class="table table-bordered" style="text-align: center">
+		<thead>
+			<tr>
+				<th style="text-align: center">Type</th>
+				<th style="text-align: center">Prix d'achat</th>
+				<th style="text-align: center">Etat</th>
+				<th style="text-align: center">Disponibilite</th>
+				<th style="text-align: center">Revenu cadastral</th>
+				<th style="text-align: center">Proprietaire</th>
+			</tr>
+		</thead>
+		<tbody ng-repeat="bien in biens">
+			<tr>
+				<td>{{bien.type_bien}}</td>
+				<td>{{bien.prixAchat}}</td>
+				<td>{{bien.etat}}</td>
+				<td ng-switch="bien.disponibilite"><p ng-switch-when="true">disponible</p><p ng-switch-when="false">indisponible</p></td>
+				<td>{{bien.revenuCadastral}}</td>
+				<td>{{bien.bProprietaire.nom_prop}}</td>
+			</tr>
+
+		</tbody>
+
+	</table>
+
+</div>
+
+

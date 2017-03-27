@@ -69,6 +69,17 @@ app.controller(
 							if (callback != undefined && callback != "") {
 								$location.path("afficherResponsable");
 							}
-						})
+				})
 			}
+		}).controller("chercherBienByCatCtrl",
+				function($scope, $rootScope, responsableProvider) {
+			$scope.bienAfficherCatForm = {
+					nom_cat:"",
+			}
+			responsableProvider.getBienByCat($scope.bienAfficherCatForm, 
+					function(callback) {
+				$scope.biens = callback.data;
+	
+			})
+
 		})
