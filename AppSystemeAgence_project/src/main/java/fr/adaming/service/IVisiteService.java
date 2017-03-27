@@ -4,6 +4,7 @@ import java.util.List;
 
 import fr.adaming.entities.Visite;
 
+
 public interface IVisiteService {
 	
 	public void addService(Visite visite);

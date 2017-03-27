@@ -20,6 +20,7 @@ public class ContratServiceImpl implements IContratService {
 		this.contratDao = contratDao;
 	}
 
+	
 	/**
 	 * Methode pour ajouter un contrat dans la base de données
 	 * @param Le contrat à ajouter dans la base de données
@@ -31,6 +32,10 @@ public class ContratServiceImpl implements IContratService {
 		
 	}
 
+	/**
+	 * Methode pour supprimer un contrat dans la base de données
+	 * @param L'id du contrat à supprimer
+	 */
 	@Override
 	public void deleteService(int id) {
 
@@ -39,6 +44,10 @@ public class ContratServiceImpl implements IContratService {
 		
 	}
 
+	/**
+	 * Methode pour modifier un contrat dans la base de données
+	 * @param Le contrat à modifier
+	 */
 	@Override
 	public void updateService(Contrat contrat) {
 
@@ -47,18 +56,31 @@ public class ContratServiceImpl implements IContratService {
 		
 	}
 
+	/**
+	 * Methode pour recupérer tous les contrats présents dans la base de données
+	 * @return La liste des contrats dans la base de données
+	 */
 	@Override
 	public List<Contrat> getAllContrat() {
 		
 		return contratDao.getAllContrat();
 	}
 
+	/**
+	 * Methode pour retrouver un contrat grâce à son id
+	 * @return Le contrat recupéré
+	 */
 	@Override
 	public Contrat getContratById() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/**
+	 * Methode pour recupérer la liste des contrats d'un responsable
+	 * @return La liste des contrats du responsable
+	 * @param L'id du responsable dont on veut connaitre les contrats
+	 */
 	@Override
 	public List<Contrat> getContratByResp(int id_resp) {
 		
