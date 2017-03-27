@@ -96,14 +96,14 @@ public class ClientDaoImpl implements IClientDao {
 		
 	}
 
-	@Override
-	public List<Client> getClientByCat(Categorie cat) {
-		Session s=sf.getCurrentSession();
-		String req = "select c from Client c where ";
-		Query query=s.createQuery(req);
-		query.setInteger(");
-		return query.list();
-		return null;
-	}
+//	@Override
+//	public List<Client> getClientByCat(Categorie cat) {
+//		Session s=sf.getCurrentSession();
+//		String req = "select c from AssociationClientCat c where c.type=:pNomCat";
+//		Query query=s.createQuery(req);
+//		query.setInteger(");
+//		return query.list();
+//		return null;
+//	}
 
 }
