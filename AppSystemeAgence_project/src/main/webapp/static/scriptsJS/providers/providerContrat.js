@@ -69,6 +69,20 @@ app.factory("contratProvider", function($http) {
 
 		});
 	}
+	
+	function getSommeByResp(id, callback){
+		$http({
+			method:'GET',
+			url:urlglobal+'/contrat/getSommeByResp/'+id
+		}).then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+
+		}, function errorCallback(response) {
+			console.log('Erreur : ' + response.statusText);
+
+		});
+	}
 	return {
 		addContrat : addContrat,
 		deleteContrat : deleteContrat,
