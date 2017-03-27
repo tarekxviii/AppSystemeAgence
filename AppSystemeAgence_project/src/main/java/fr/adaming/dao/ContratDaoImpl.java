@@ -2,6 +2,7 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,15 +89,16 @@ public class ContratDaoImpl implements IContratDao {
 
 		Session s=sf.getCurrentSession();
 		
-		Responsable responsable=(Responsable) s.get(Responsable.class, id_resp);
+		// Ecriture d'une requete SQL
+		String req="select * from contrats where responsable_id=:id";
 		
+		SQLQuery query=s.createSQLQuery(req);
 		
-		List<Contrat> listeContrat=responsable.getrListeContrat();
+		query.addEntity(Contrat.class);
 		
-		for (Contrat contrat : listeContrat) {
-			System.out.println(contrat.toString());
-		}
-		return listeContrat;
+		query.setParameter("id", id_resp);
+		
+		return query.list();
 	}
 
 }

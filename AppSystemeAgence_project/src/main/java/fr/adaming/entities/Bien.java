@@ -80,7 +80,6 @@ public class Bien {
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn (name="propriettaire_id_fk",referencedColumnName="id_prop")
-	@JsonIgnore
 	private Proprietaire bProprietaire;
 	
 	@OneToMany(mappedBy="vBien",fetch=FetchType.LAZY)
