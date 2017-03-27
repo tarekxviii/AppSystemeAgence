@@ -23,6 +23,20 @@ app.factory("visiteProvider", function($http) {
 		});
 
 	}
+	function getVisite(callback) {
+		$http({
+			method : 'GET',
+			url : urlglobal + '/visite/getAll',
+		}).then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+
+		},function errorCallback(response) {
+			console.log('Erreur : ' + response.statusText);
+
+		});
+
+	}
 	function deleteVisite(id, callback) {
 		$http({
 			method : 'DELETE',
@@ -59,5 +73,6 @@ app.factory("visiteProvider", function($http) {
 		addVisite : addVisite,
 		deleteVisite : deleteVisite,
 		updateVisite : updateVisite,
+		getVisite : getVisite,
 	}
 })

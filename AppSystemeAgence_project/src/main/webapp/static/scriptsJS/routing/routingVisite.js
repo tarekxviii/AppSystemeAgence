@@ -12,5 +12,8 @@ app.config(function($routeProvider){
 	}).when("/modifierVisite", {
 		templateUrl: "pages/visite/modifier.html",
 		controller: "updateVisiteCtrl"
+}).when("/afficherVisite", {
+	templateUrl: "pages/visite/afficher.html",
+	controller: "getVisiteCtrl"
 })
 });	
