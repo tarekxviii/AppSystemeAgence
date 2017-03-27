@@ -45,17 +45,17 @@ public class Client implements Serializable{
 		private String mdp_client;
 		
 		
-		@OneToMany(fetch=FetchType.LAZY,mappedBy="cClient")
+		@OneToMany(fetch=FetchType.EAGER,mappedBy="cClient")
 		@Fetch(FetchMode.SUBSELECT)
 		@JsonIgnore
 		private List<Contrat> cListeContrat;
 		
-		@OneToMany(mappedBy="vClient",fetch=FetchType.LAZY)
+		@OneToMany(mappedBy="vClient",fetch=FetchType.EAGER)
 		@Fetch(FetchMode.SUBSELECT)
 		@JsonIgnore
 		private List<Visite> cListeVisite;
 		
-		@ManyToMany(fetch=FetchType.LAZY)
+		@ManyToMany(fetch=FetchType.EAGER)
 		@Fetch(FetchMode.SUBSELECT)
 		@JoinTable(name = "table_jointure_client_visite",joinColumns=@JoinColumn(name="client_id_fk"),inverseJoinColumns=@JoinColumn(name="visite_id_fk"))
 		@JsonIgnore

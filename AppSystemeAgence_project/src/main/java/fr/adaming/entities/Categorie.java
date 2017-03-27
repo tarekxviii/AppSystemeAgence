@@ -38,12 +38,12 @@ public class Categorie {
 	@Column(name="typeBien")
 	private String typeBien;
 	
-	@ManyToMany(fetch=FetchType.LAZY, mappedBy="cListeInteret")
+	@ManyToMany(fetch=FetchType.EAGER, mappedBy="cListeInteret")
 	@Fetch(FetchMode.SUBSELECT)
 	@JsonIgnore
 	private List<Client> cListeClient;
 	
-	@OneToMany(mappedBy="bCategorie",fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="bCategorie",fetch=FetchType.EAGER)
 	@Fetch(FetchMode.SUBSELECT)
 	@JsonIgnore
 	private List<Bien> cListeBien;

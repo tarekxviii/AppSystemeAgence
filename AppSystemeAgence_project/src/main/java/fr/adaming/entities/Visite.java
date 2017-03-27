@@ -34,19 +34,19 @@ public class Visite {
 	private Date date_visite;
 	
 	//OneToMany
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="bien_id", referencedColumnName="id_bien")
 	@JsonIgnore
 	private Bien vBien;
 	
 	//OneToMany
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="client_id", referencedColumnName="id_client")
 	@JsonIgnore
 	private Client vClient;
 	
 	//OneToMany
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="resp_id", referencedColumnName="id_resp")
 	@JsonIgnore
 	private Responsable vResponsable;

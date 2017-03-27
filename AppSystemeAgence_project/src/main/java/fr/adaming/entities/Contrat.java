@@ -37,17 +37,17 @@ public class Contrat {
 	@Column(name="date_contrat")
 	private Date dateSignature;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="bien_id",referencedColumnName="id_bien")
 	@JsonIgnore
 	private Bien cBien;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="client_id",referencedColumnName="id_client")
 	@JsonIgnore
 	private Client cClient;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="responsable_id", referencedColumnName="id_resp")
 	@JsonIgnore
 	private Responsable cResponsable;

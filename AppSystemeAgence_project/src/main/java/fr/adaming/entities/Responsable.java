@@ -34,12 +34,12 @@ public class Responsable {
 	@Column(name="password_resp")
 	private String password_resp;
 	
-	@OneToMany(mappedBy="vResponsable", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="vResponsable", fetch=FetchType.EAGER)
 	@Fetch(FetchMode.SUBSELECT)
 	@JsonIgnore
 	private List<Visite> rListeVisite;
 	
-	@OneToMany(mappedBy="cResponsable", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="cResponsable", fetch=FetchType.EAGER)
 	@JsonIgnore
 	@Fetch(FetchMode.SUBSELECT)
 	private List<Contrat> rListeContrat;

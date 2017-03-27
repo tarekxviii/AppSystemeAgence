@@ -73,21 +73,22 @@ public class Bien {
 	@Transient
 	private String nom_categorie;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn (name="categorie_id_fk",referencedColumnName="id_cat")
 	@JsonIgnore
 	private Categorie bCategorie;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn (name="propriettaire_id_fk",referencedColumnName="id_prop")
+	@JsonIgnore
 	private Proprietaire bProprietaire;
 	
-	@OneToMany(mappedBy="vBien",fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="vBien",fetch=FetchType.EAGER)
 	@JsonIgnore
 	@Fetch(FetchMode.SUBSELECT)
 	private List<Visite> bListeVisite;
 	
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="cBien")
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="cBien")
 	@Fetch(FetchMode.SUBSELECT)
 	@JsonIgnore
 	private List<Contrat> bListeContrat;
