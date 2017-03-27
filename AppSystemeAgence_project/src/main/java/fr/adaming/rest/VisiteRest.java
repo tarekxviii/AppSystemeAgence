@@ -86,10 +86,12 @@ public class VisiteRest {
 	public int deleteVisiteWs(@PathVariable("id_param") int id) {
 
 		try {
+			
 			visiteService.deleteService(id);
 
 			return new Integer(1);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return new Integer(0);
 		}
 	}

@@ -36,7 +36,12 @@ public class VisiteDaoImpl implements IVisiteDao {
 	public void deleteDao(int id) {
 		Session s = sf.getCurrentSession();
 
+		
+		try{
 		s.delete(s.get(Visite.class, id));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		
 	}
 
