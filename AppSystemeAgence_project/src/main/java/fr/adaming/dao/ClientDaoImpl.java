@@ -2,6 +2,7 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,7 +99,10 @@ public class ClientDaoImpl implements IClientDao {
 	@Override
 	public List<Client> getClientByCat(Categorie cat) {
 		Session s=sf.getCurrentSession();
-		
+		String req = "select c from Client c where ";
+		Query query=s.createQuery(req);
+		query.setInteger(");
+		return query.list();
 		return null;
 	}
 
