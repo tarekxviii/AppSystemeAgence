@@ -14,5 +14,8 @@ app.config(function($routeProvider){
 	}).when("/modifierResponsable", {
 		templateUrl: "pages/responsable/modifier.html",
 		controller: "updateRespCtrl"
+	}).when("/chercherBienResponsable", {
+		templateUrl: "pages/responsable/chercherBienByCat.html",
+		controller: "chercherBienByCatCtrl"
 	})
 });
