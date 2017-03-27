@@ -12,5 +12,8 @@ app.config(function($routeProvider){
 	}).when("/modifierContrat", {
 		templateUrl: "pages/contrat/modifier.html",
 		controller: "updateContratCtrl"
+}).when("/getContratByResp", {
+	templateUrl: "pages/contrat/afficherContratResp.html",
+	controller: "getContratByRespCtrl"
 })
 });	

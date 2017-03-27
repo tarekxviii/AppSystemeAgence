@@ -33,4 +33,6 @@ public interface IContratDao {
 	 */
 	public Contrat getContratById();
 	
+	public List<Contrat> getContratByResp(int id_resp);
+	
 }

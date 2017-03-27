@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import fr.adaming.entities.Contrat;
+import fr.adaming.entities.Responsable;
 
 @Repository
 public class ContratDaoImpl implements IContratDao {
@@ -78,6 +79,24 @@ public class ContratDaoImpl implements IContratDao {
 	public Contrat getContratById() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	@Override
+	public List<Contrat> getContratByResp(int id_resp) {
+
+
+		Session s=sf.getCurrentSession();
+		
+		Responsable responsable=(Responsable) s.get(Responsable.class, id_resp);
+		
+		
+		List<Contrat> listeContrat=responsable.getrListeContrat();
+		
+		for (Contrat contrat : listeContrat) {
+			System.out.println(contrat.toString());
+		}
+		return listeContrat;
 	}
 
 }

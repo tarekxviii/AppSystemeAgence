@@ -40,6 +40,7 @@ public class Contrat {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="bien_id",referencedColumnName="id_bien")
 	@JsonIgnore
+	@Fetch(FetchMode.SUBSELECT)
 	private Bien cBien;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -47,8 +48,9 @@ public class Contrat {
 	@JsonIgnore
 	private Client cClient;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="responsable_id", referencedColumnName="id_resp")
+	@JsonIgnore
 	private Responsable cResponsable;
 	
 	

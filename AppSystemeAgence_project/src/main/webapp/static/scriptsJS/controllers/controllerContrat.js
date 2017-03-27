@@ -33,4 +33,14 @@ app.controller("addContratCtrl",
 				}
 			})
 		}
-	})
+	}).controller("getContratByRespCtrl", function($scope,contratProvider) {
+		$scope.id=undefined;
+		$scope.indiceShow=false;
+		$scope.trouverContrat=function(){
+			contratProvider.getContratByResp($scope.id,function(callback){
+					$scope.indiceShow=true;
+					$scope.contrats = callback.data;
+					
+			});
+		}
+		})

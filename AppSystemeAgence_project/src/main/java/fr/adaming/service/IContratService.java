@@ -32,5 +32,7 @@ public interface IContratService {
 	 * @return
 	 */
 	public Contrat getContratById();
+	
+	public List<Contrat> getContratByResp(int id_resp);
 
 }
