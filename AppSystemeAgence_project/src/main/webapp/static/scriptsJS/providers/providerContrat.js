@@ -88,5 +88,6 @@ app.factory("contratProvider", function($http) {
 		deleteContrat : deleteContrat,
 		updateContrat : updateContrat,
 		getContratByResp:getContratByResp,
+		getSommeByResp:getSommeByResp,
 	}
 })

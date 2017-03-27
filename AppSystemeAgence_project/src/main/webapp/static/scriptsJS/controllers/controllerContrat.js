@@ -36,21 +36,27 @@ app.controller("addContratCtrl",
 	}).controller("getContratByRespCtrl", function($scope,contratProvider) {
 		$scope.id=undefined;
 		$scope.indiceShow=false;
+		
+		$scope.somme=0.0;
+	
+		
 		$scope.trouverContrat=function(){
+			
+			contratProvider.getSommeByResp($scope.id,function(callback){
+				
+				$scope.somme= callback.data;		
+		});
 			contratProvider.getContratByResp($scope.id,function(callback){
+				
+				
 					$scope.indiceShow=true;
-					$scope.contrats = callback.data;
-					
+					$scope.contrats = callback.data;		
 			});
 			
 			
 		}
 		
-		$scope.trouverContrat=function(){
-			contratProvider.getSommeByResp($scope.id,function(callback){
-					
-					$scope.somme= callback.data;
-					
-			});
-		}
+			
+		
+		
 		})

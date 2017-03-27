@@ -162,7 +162,7 @@ public class ContratRest {
 		for (Contrat contrat : listeContrat) {
 			somme=somme+contrat.getPrix_contrat();
 		}
-		
+		System.out.println(somme);
 		return somme;
 	}
 }
