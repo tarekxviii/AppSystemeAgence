@@ -26,6 +26,9 @@ public class RespDaoImpl implements IRespDao {
 		this.sf = sf;
 	}
 
+	/**
+	 * Methode pour ajouter un responsable
+	 */
 	@Override
 	public void addDao(Responsable resp) {
 
@@ -36,6 +39,9 @@ public class RespDaoImpl implements IRespDao {
 
 	}
 
+	/**
+	 * Methode pour supprimer un responsable
+	 */
 	@Override
 	public void deleteDao(int id) {
 
@@ -45,6 +51,9 @@ public class RespDaoImpl implements IRespDao {
 
 	}
 
+	/**
+	 * Methode pour modifier un responsable
+	 */
 	@Override
 	public void updateDao(Responsable resp) {
 
@@ -65,6 +74,9 @@ public class RespDaoImpl implements IRespDao {
 
 	}
 
+	/**
+	 * Methode pour afficher la liste des responsables
+	 */
 	@Override
 	public List<Responsable> getAllResponsable() {
 		Session s = sf.getCurrentSession();
@@ -75,6 +87,9 @@ public class RespDaoImpl implements IRespDao {
 		return s.createQuery(req).list();
 	}
 
+	/**
+	 * methode pour afficher un responsable par son id
+	 */
 	@Override
 	public Responsable getResponsableById(int id) {
 
@@ -84,6 +99,9 @@ public class RespDaoImpl implements IRespDao {
 
 	}
 
+	/**
+	 * Methode pour chercher la liste des biens d'un catégorie
+	 */
 	@Override
 	public List<Bien> getBienByCat(Categorie cat) {
 		Session s = sf.getCurrentSession();
