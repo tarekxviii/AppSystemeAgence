@@ -16,7 +16,7 @@ app.controller("addClientCtrl",
 				clientProvider.addClient($scope.clientForm, function(callback) {
 
 					if (callback != undefined && callback != "") {
-						$location.path("accueil");
+						$location.path("afficherClient");
 					}
 				})
 			}
@@ -47,7 +47,7 @@ app.controller("addClientCtrl",
 				clientProvider.deleteClient($scope.id, function(callback) {
 
 					if (callback != undefined && callback != "") {
-						$location.path("accueil");
+						$location.path("afficherClient");
 					}
 				})
 			}
@@ -67,7 +67,7 @@ app.controller("addClientCtrl",
 						callback) {
 
 					if (callback != undefined && callback != "") {
-						$location.path("accueil");
+						$location.path("afficherClient");
 					}
 				})
 			}
@@ -83,7 +83,7 @@ app.controller("addClientCtrl",
 						function(callback) {
 
 							if (callback != undefined && callback != "") {
-								$location.path("accueil");
+								$location.path("afficherClient");
 							}
 						})
 			}
