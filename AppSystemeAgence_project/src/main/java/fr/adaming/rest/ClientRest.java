@@ -145,7 +145,7 @@ public class ClientRest {
 	@RequestMapping(value="/getClientCat/{nom_cat}",method=RequestMethod.GET,produces="application/json")
 	public List<Client> getClientByCatWS(@PathVariable("nom_cat") String nom_cat){
 		Categorie cat = bienService.getCategoriByName(nom_cat);
-		return clientService.getClientByCat(cat);
+		return cat.getcListeClient();
 	}
 	
 	
