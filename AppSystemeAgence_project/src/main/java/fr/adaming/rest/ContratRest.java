@@ -63,24 +63,28 @@ public class ContratRest {
 	public void setRespService(IRespService respService) {
 		this.respService = respService;
 	}
-
+/**
+ * controller : Méthode pour ajouter un contrat
+ * @param contratInfos
+ * @return int 1 ou 0 suivant la réussite ou l'échec
+ */
 	@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public int addContratWs(@RequestBody ContratInfos contratInfos) {
 
 		try {
 
 			
-			Responsable resp = respService.getResponsableById(contratInfos.getRespId());
+			Responsable resp = respService.getResponsableById(contratInfos.getRespId()); // Créer un responsable en fonction de son id
 
-			Contrat contrat=new Contrat();
+			Contrat contrat=new Contrat(); // Création du contrat
 			
-			contrat.setDateSignature(contratInfos.getContratDate());
-			contrat.setPrix_contrat(contratInfos.getContratMontant());
+			contrat.setDateSignature(contratInfos.getContratDate()); // Assignation de la date de signature
+			contrat.setPrix_contrat(contratInfos.getContratMontant()); // Assignation du prix du contrat
 			
-			Bien bien = bienService.getBienById(contratInfos.getBienId());
+			Bien bien = bienService.getBienById(contratInfos.getBienId());// Cherche un bien par son Id
 
 			
-			Client client = clientService.getClientById(contratInfos.getClientId());
+			Client client = clientService.getClientById(contratInfos.getClientId());// Créer un client à l'aide de son id
 
 			// Affectation des associations
 			contrat.setcBien(bien);
@@ -99,7 +103,11 @@ public class ContratRest {
 		}
 
 	}
-
+/**
+ * controller : Supprime un contrat
+ * @param id
+ * @return int 1 ou 0 suivant la réussite ou l'échec
+ */
 	@RequestMapping(value = "/delete/{id_param}", produces = "application/json", method = RequestMethod.DELETE)
 	public int deleteContratWs(@PathVariable("id_param") int id) {
 
@@ -112,18 +120,25 @@ public class ContratRest {
 			return new Integer(0);
 		}
 	}
-
+/**
+ * controller : Modifie un contrat
+ * @param contrat
+ * @param client
+ * @param bien
+ * @param resp
+ * @return int 1 ou 0 suivant la réussite ou l'échec
+ */
 	@RequestMapping(value = "/update", consumes = "application/json", method = RequestMethod.POST, produces = "application/json")
 	public int updateContratWs(@RequestBody Contrat contrat, @RequestBody Client client, @RequestBody Bien bien,
 			@RequestBody Responsable resp) {
 
 		try {
 
-			resp = respService.getResponsableById(resp.getId_resp());
+			resp = respService.getResponsableById(resp.getId_resp()); //Retourne un responsable avec son id
 
-			client = clientService.getClientById(client.getId_client());
+			client = clientService.getClientById(client.getId_client()); // Retourne un client avec son id
 
-			bien = bienService.getBienById(bien.getId_bien());
+			bien = bienService.getBienById(bien.getId_bien()); // Retourne un bien en fonction de son id
 
 			// Affectation des associations
 			contrat.setcBien(bien);
@@ -142,27 +157,38 @@ public class ContratRest {
 		}
 
 	}
-
+/**
+ * controller : Affiche la liste des contrats
+ * @return Liste des contrats
+ */
 	@RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = "application/json")
 	public List<Contrat> getAllContratWs() {
-		return contratService.getAllContrat();
+		return contratService.getAllContrat(); // Retourne la liste des contrats
 	}
 	
-	
+	/**
+	 * affiche un contrat en fonction de son id
+	 * @param id_resp
+	 * @return Liste des contrats
+	 */
 	@RequestMapping(value="/getContratByResp/{id_resp}",method=RequestMethod.GET,produces="application/json")
 	public List<Contrat> getContratByRespWS(@PathVariable ("id_resp") int id_resp){
-		return contratService.getContratByResp(id_resp);
+		return contratService.getContratByResp(id_resp); // Retourne le contrat en fonction de son responsable
 	}
 	
-	
+	/**
+	 * retourne le chiffre d'affaire d'un responsable
+	 * @param id_resp
+	 * @return Double somme
+	 */
 	@RequestMapping(value="/getSommeByResp/{id_resp}",method=RequestMethod.GET,produces="application/json")
 	public Double getSommeContratByRespWS(@PathVariable ("id_resp") int id_resp){
-		List<Contrat> listeContrat=contratService.getContratByResp(id_resp);
+		List<Contrat> listeContrat=contratService.getContratByResp(id_resp); // Affiche la liste des contrats du responsable
 		Double somme=0.0;
 		for (Contrat contrat : listeContrat) {
-			somme=somme+contrat.getPrix_contrat();
+			somme=somme+contrat.getPrix_contrat();// Calcul de la somme
 		}
 		System.out.println(somme);
-		return somme;
+		return somme;// Retourne la somme
 	}
 }
