@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class ContratInfos {
 
+	private int visiteId;
 	
 	private Date contratDate;
 	
@@ -116,6 +117,14 @@ public class ContratInfos {
 	 */
 	public void setClientId(int clientId) {
 		this.clientId = clientId;
+	}
+
+	public int getVisiteId() {
+		return visiteId;
+	}
+
+	public void setVisiteId(int visiteId) {
+		this.visiteId = visiteId;
 	}
 
 	

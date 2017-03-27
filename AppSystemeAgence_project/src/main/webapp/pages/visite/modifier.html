@@ -2,29 +2,26 @@
 
 
 <form class="form-horizontal">
-
-
 	<div class="form-group">
-		<label for="inputId" class="col-sm-2 control-label">Id du
-			contrat</label>
+		<label for="inputNomPays" class="col-sm-2 control-label">Id de la visite</label>
 		<div class="col-sm-10">
-			<input type="number" class="form-control" id="iDID"
-				placeholder="id du contrat" ng-model="contratModif.id_contrat">
+			<input type="text" class="form-control" id="nomVisiteID"
+				placeholder="Nom" ng-model="contratModif.visiteId">
 		</div>
+	</div>
 	<div class="form-group">
-		<label for="inputNomPays" class="col-sm-2 control-label">Id du
-			client</label>
+		<label for="inputNomPays" class="col-sm-2 control-label">Id du responsable</label>
 		<div class="col-sm-10">
 			<input type="text" class="form-control" id="nomClientID"
-				placeholder="Nom" ng-model="clientModif.id_client">
+				placeholder="Nom" ng-model="contratModif.respId">
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="inputNomPays" class="col-sm-2 control-label">Id du
-			responsable</label>
+			client</label>
 		<div class="col-sm-10">
 			<input type="text" class="form-control" id="nomRespID"
-				placeholder="Nom" ng-model="respModif.id_resp">
+				placeholder="Nom" ng-model="contratModif.clientId">
 		</div>
 	</div>
 	
@@ -33,7 +30,7 @@
 			Bien</label>
 		<div class="col-sm-10">
 			<input type="text" class="form-control" id="nomBienID"
-				placeholder="Nom" ng-model="bienModif.id_bien">
+				placeholder="Nom" ng-model="contratModif.bienId">
 		</div>
 	</div>
 
@@ -41,27 +38,19 @@
 	<div class="form-group">
 
 		<label for="inputPopulation" class="col-sm-2 control-label">Date
-			du contrat</label>
+			prévisionnelle de la visite</label>
 		<div class="col-sm-6">
 			<input type="date" class="form-control" id="adresseID"
-				placeholder="adresse" ng-model="contratModif.dateSignature">
+				placeholder="adresse" ng-model="contratModif.contratDate">
 		</div>
 
-		<div class="form-group">
-			<label for="inputPopulation" class="col-sm-2 control-label">Montant
-				du contrat</label>
-			<div class="col-sm-6">
-				<input type="number" class="form-control" id="chargeID"
-					placeholder="adresse" ng-model="contratModif.prix_contrat">
-			</div>
 
-		</div>
 
 	</div>
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
 			<button type="submit" class="btn btn-default"
-				ng-click="modifierContrat()">Modifier le contrat</button>
+				ng-click="modifierVisite()">Modifier la visite</button>
 		</div>
 	</div>
 </form>

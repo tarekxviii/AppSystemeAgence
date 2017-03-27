@@ -23,7 +23,30 @@ app.controller("addVisiteCtrl",
 				}
 			})
 		}
-	}).controller("deleteVisiteCtrl", function($scope, visiteProvider, $location) {
+	}).controller("updateVisiteCtrl",
+			function($scope, $rootScope, visiteProvider, $location) {
+		
+		$scope.contratModif={
+				visiteId:undefined,
+				respId:undefined,
+				clientId:undefined,
+				bienId:undefined,
+				contratDate:undefined,
+				contratMontant:undefined
+				};
+				
+		
+		
+
+			$scope.modifierVisite = function() {
+				visiteProvider.updateVisite($scope.contratModif, function(callback) {
+
+					if (callback != undefined && callback != "") {
+						$location.path("accueil");
+					}
+				})
+			}
+		}).controller("deleteVisiteCtrl", function($scope, visiteProvider, $location) {
 		$scope.id = undefined;
 		$scope.supprimerVisite = function() {
 			visiteProvider.deleteVisite($scope.id, function(callback) {

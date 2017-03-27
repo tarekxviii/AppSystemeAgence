@@ -95,6 +95,40 @@ public class VisiteRest {
 			return new Integer(0);
 		}
 	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
+	public int updateVisiteWs(@RequestBody ContratInfos contratInfos) {
+
+		try {
+
+			Responsable resp = respService.getResponsableById(contratInfos.getRespId());
+
+			Visite visite = new Visite();
+
+			visite.setDate_visite(contratInfos.getContratDate());
+
+			Bien bien = bienService.getBienById(contratInfos.getBienId());
+
+			Client client = clientService.getClientById(contratInfos.getClientId());
+
+			// Affectation des associations
+			visite.setId_visite(contratInfos.getVisiteId());
+			visite.setvBien(bien);
+			visite.setvClient(client);
+			visite.setvResponsable(resp);
+
+			// Envoi du contrat dans la base de données
+			visiteService.updateService(visite);
+
+			return new Integer(1);
+
+		} catch (Exception e) {
+
+			return new Integer(0);
+
+		}
+
+	}
 
 	// @RequestMapping(value = "/update", consumes = "application/json", method
 	// = RequestMethod.POST, produces = "application/json")

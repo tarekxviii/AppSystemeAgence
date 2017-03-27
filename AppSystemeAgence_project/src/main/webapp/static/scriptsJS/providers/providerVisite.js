@@ -37,11 +37,11 @@ app.factory("visiteProvider", function($http) {
 		});
 
 	}
-	function updateVisite(contratModif, bienModif, respModif, clientModif, callback) {
+	function updateVisite(contratModif, callback) {
 		$http({
 			method : 'PUT',
 			url : urlglobal + '/visite/update',
-			data : angular.toJson(bienModif, contratModif, respModif, clientModif),
+			data : angular.toJson(contratModif),
 			headers : {
 				'Content-Type' : 'application/json'
 			}
