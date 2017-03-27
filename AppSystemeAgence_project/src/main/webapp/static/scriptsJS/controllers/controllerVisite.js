@@ -25,7 +25,7 @@ app.controller("addVisiteCtrl",
 		}
 	}).controller("getVisiteCtrl",
 			function($scope, $rootScope, visiteProvider, $location) {
-		visiteProvider.getClient(function(callback) {
+		visiteProvider.getVisite(function(callback) {
 			$scope.visites = callback.data;
 		});
 

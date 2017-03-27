@@ -11,13 +11,24 @@
 				<th style="text-align: center">Nom du client</th>
 				<th style="text-align: center">Nom du propriétaire</th>
 				<th style="text-align: center">Mail du responsable</th>
+				<th ng-show="false" style="text-align: center">Id du responsable</th>
 				
 			</tr>
 		</thead>
-		<tbody ng-repeat="client in clients |orderBy:'nom_client'">
+		<h2>Rechercher une visite par l'id du responsable</h2>
+		<input type="search" ng-model="search.vResponsable.id_resp" style="color: black;">
+		<br/>
+		<tbody ng-repeat="v in visites |orderBy:'date_visite'|filter:search">
+		
 			<tr>
-				<td>{{client.nom_client}}</td>
-
+			<td>{{v.id_visite}}</td>
+			<td>{{v.date_visite}}</td>
+			<td>{{v.vBien.id_bien}}</td>
+			<td>{{v.vBien.type_bien}}</td>
+			<td>{{v.vClient.nom_client}}</td>
+			<td>{{v.vBien.bProprietaire.nom_prop}}</td>
+			<td>{{v.vResponsable.mail_resp}}</td>
+			<td ng-show="false">{{v.vResponsable.id_resp}}</td>
 			</tr>
 
 		</tbody>
