@@ -39,7 +39,8 @@ public class VisiteDaoImpl implements IVisiteDao {
 	}
 
 	/**
-	 * Méthode DAO pour supprimer une visite
+	 * @param id
+	 *  Méthode DAO pour supprimer une visite
 	 */
 	@Override
 	public void deleteDao(int id) {
@@ -55,6 +56,7 @@ public class VisiteDaoImpl implements IVisiteDao {
 	}
 
 	/**
+	 * @param Visite
 	 * Méthode DAO pour la modifier une visite
 	 */
 	@Override
@@ -77,6 +79,7 @@ public class VisiteDaoImpl implements IVisiteDao {
 	}
 
 	/**
+	 * @return liste des Visites
 	 * Méthode DAO pour afficher la liste de toutes les visites 
 	 */
 	@Override
@@ -90,6 +93,8 @@ public class VisiteDaoImpl implements IVisiteDao {
 	}
 
 	/**
+	 * @param ID
+	 * @return Visite
 	 * Méthode DAO pour afficher une visite en indiquant son id
 	 */
 	@Override
@@ -100,6 +105,8 @@ public class VisiteDaoImpl implements IVisiteDao {
 	}
 
 	/**
+	 * @param id responsable
+	 * @return Liste viste
 	 * Méthode DAO pour afficher une liste de visite d'un responsable 
 	 */
 	@Override
