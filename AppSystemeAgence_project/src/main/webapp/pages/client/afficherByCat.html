@@ -1,0 +1,56 @@
+<h1 align="center">Liste des clients intéressés par {{nom_cat}}</h1>
+
+<br />
+
+<form class="form-horizontal">
+	<div class="form-group">
+		<label for="inputPopulation2" class="col-sm-3 control-label">Catégorie
+			du bien</label>
+		<div class="col-sm-4">
+			<select class="form-control" ng-model="nom_cat">
+				<option>Terrain vide</option>
+				<option>T1</option>
+				<option>T2</option>
+				<option>T3</option>
+				<option>T4</option>
+				<option>T5</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default"
+					ng-click="rechercherClients()">Rechercher les clients</button>
+			</div>
+		</div>
+</form>
+
+
+
+<div ng-show="indiceShow">
+	<div class="table-responsive">
+		<h2 align="center">Liste des Clients</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered" style="text-align: center">
+				<thead>
+					<tr>
+						<th style="text-align: center">Nom</th>
+						<th style="text-align: center">Prenom</th>
+						<th style="text-align: center">Téléphone</th>
+						<th style="text-align: center">Password</th>
+					</tr>
+				</thead>
+				<tbody ng-repeat="client in clients |orderBy:'nom_client'">
+					<tr>
+						<td>{{client.nom_client}}</td>
+						<td>{{client.prenom_client}}</td>
+						<td>{{client.tel_client}}</td>
+						<td>{{client.mdp_client}}</td>
+					</tr>
+
+				</tbody>
+
+			</table>
+
+		</div>
+	</div>
+</div>

@@ -87,4 +87,15 @@ app.controller("addClientCtrl",
 							}
 						})
 			}
+		}).controller("getClientCatCtrl", function($scope, clientProvider) {
+			$scope.nom_cat = "";
+			$scope.indiceShow = false;
+			$scope.rechercherClients = function() {
+				clientProvider.getClientCat($scope.nom_cat, function(callback) {
+					$scope.indiceShow = true;
+					$scope.clients = callback.data;
+			
+
+				})
+			}
 		})

@@ -54,6 +54,12 @@ public class ClientServiceImpl implements IClientService {
 		clientDao.updateCat(cat);
 		
 	}
+
+	@Override
+	public List<Client> getClientByCat(Categorie cat) {
+		
+		return clientDao.getClientByCat(cat);
+	}
 	
 	
 

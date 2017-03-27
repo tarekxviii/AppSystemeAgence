@@ -95,4 +95,11 @@ public class ClientDaoImpl implements IClientDao {
 		
 	}
 
+	@Override
+	public List<Client> getClientByCat(Categorie cat) {
+		Session s=sf.getCurrentSession();
+		
+		return null;
+	}
+
 }

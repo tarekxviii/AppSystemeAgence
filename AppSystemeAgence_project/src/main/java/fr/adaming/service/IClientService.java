@@ -18,5 +18,7 @@ public interface IClientService {
 	public Client getClientById(int id);
 	
 	public void updateCategorie(Categorie cat);
+	
+	public List<Client> getClientByCat(Categorie cat);
 
 }

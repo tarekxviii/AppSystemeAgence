@@ -17,5 +17,8 @@ app.config(function($routeProvider){
 	}).when("/associationClient", {
 		templateUrl: "pages/client/association.html",
 		controller: "associerClientCtrl"
+	}).when("/afficherClientCat", {
+		templateUrl: "pages/client/afficherByCat.html",
+		controller: "getClientCatCtrl"
 	})
 });

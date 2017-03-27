@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.adaming.entities.AssociationClientCat;
 import fr.adaming.entities.Categorie;
 import fr.adaming.entities.Client;
+import fr.adaming.entities.Proprietaire;
 import fr.adaming.service.IBienService;
 import fr.adaming.service.IClientService;
 
@@ -141,7 +142,11 @@ public class ClientRest {
 		}
 	}
 	
-	
+	@RequestMapping(value="/getClientCat/{nom_cat}",method=RequestMethod.GET,produces="application/json")
+	public Proprietaire getPropByIdWS(@PathVariable("nom_cat") String nom_cat){
+		Categorie cat = bienService.getCategoriByName(nom_cat);
+		return clientService.getClientByCat(cat);
+	}
 	
 	
 }

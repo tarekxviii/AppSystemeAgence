@@ -16,7 +16,9 @@ public interface IClientDao {
 	public List<Client> getAllClient();
 
 	public Client getClientById(int id);
-	
+
 	public void updateCat(Categorie cat);
+
+	public List<Client> getClientByCat(Categorie cat);
 
 }

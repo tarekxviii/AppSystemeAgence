@@ -86,11 +86,26 @@ app.factory("clientProvider", function($http) {
 		});
 
 	}
+	function getClientCat(nom_cat, callback) {
+		$http({
+			method : 'GET',
+			url : urlglobal + '/bien/getClientCat/' + nom_cat,
+		}).then(function successCallback(response) {
+			console.log(response.data);
+			callback(response);
+
+		}, function errorCallback(response) {
+			console.log('Erreur : ' + response.statusText);
+
+		});
+
+	}
 	return {
 		addClient : addClient,
 		getClient : getClient,
 		deleteClient : deleteClient,
 		updateClient : updateClient,
 		associerClient : associerClient,
+		getClientCat : getClientCat,
 	}
 })
