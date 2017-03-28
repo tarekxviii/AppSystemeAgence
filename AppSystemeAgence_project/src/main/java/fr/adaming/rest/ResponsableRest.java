@@ -132,5 +132,11 @@ public class ResponsableRest {
 		Categorie cat = bienService.getCategoriByName(nom_cat);// retourne la catégorie en prenant son nom en paramètre
 		return responsableService.getBienByCatService(cat); // retourne la liste des biens de la catégorie dont le nil est en paramètre
 	}
+	
+	@RequestMapping(value = "/isExist", method = RequestMethod.POST, produces = "application/json",consumes="application/json")
+	public Responsable isExistWS(@RequestBody Responsable resp){
+		
+		return responsableService.isExist(resp.getMail_resp(), resp.getPassword_resp());
+	}
 
 }

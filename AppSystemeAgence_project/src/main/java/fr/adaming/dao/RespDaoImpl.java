@@ -125,4 +125,25 @@ public class RespDaoImpl implements IRespDao {
 		return query.list();
 	}
 
+	@Override
+	public Responsable isExist(String mail_resp, String password_resp) {
+		
+		Session s=sf.getCurrentSession();
+		
+		// Ecriture de la requete sql
+		String req="select r from Responsable r where r.mail_resp=:pMail and r.password_resp=:pPassword";
+		
+		Query query=s.createQuery(req);
+		
+		query.setString("pMail", mail_resp);
+		
+		query.setString("pPassword", password_resp);
+		
+		if (query.list().isEmpty()){
+			return null;
+		} else {
+		return (Responsable) query.list().get(0);
+		}
+	}
+
 }

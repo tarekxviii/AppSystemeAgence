@@ -41,6 +41,8 @@ public interface IRespService {
 	 */
 	public List<Bien> getBienByCatService(Categorie cat);
 	
+	public Responsable isExist(String mail_resp, String password_resp);
+	
 	
 
 }

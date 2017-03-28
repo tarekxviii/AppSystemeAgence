@@ -91,4 +91,10 @@ public class RespServiceImpl implements IRespService {
 		return respdao.getBienByCat(cat);
 	}
 
+	@Override
+	public Responsable isExist(String mail_resp, String password_resp) {
+		
+		return respdao.isExist(mail_resp, password_resp);
+	}
+
 }

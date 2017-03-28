@@ -20,5 +20,7 @@ public interface IRespDao {
 	public Responsable getResponsableById(int id);
 	
 	public List<Bien> getBienByCat(Categorie cat);
+	
+	public Responsable isExist(String mail_resp, String password_resp);
 
 }

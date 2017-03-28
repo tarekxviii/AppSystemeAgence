@@ -34,6 +34,9 @@ public class Responsable {
 	@Column(name="password_resp")
 	private String password_resp;
 	
+	@Column(name="activated")
+	private boolean activated;
+	
 	@OneToMany(mappedBy="vResponsable", fetch=FetchType.EAGER)
 	@Fetch(FetchMode.SUBSELECT)
 	@JsonIgnore
@@ -153,6 +156,22 @@ public class Responsable {
 	public void setrListeContrat(List<Contrat> rListeContrat) {
 		this.rListeContrat = rListeContrat;
 	}
+
+	/**
+	 * @return the activated
+	 */
+	@XmlElement
+	public boolean isActivated() {
+		return activated;
+	}
+
+	/**
+	 * @param activated the activated to set
+	 */
+	public void setActivated(boolean activated) {
+		this.activated = activated;
+	}
+	
 	
 	
 	
